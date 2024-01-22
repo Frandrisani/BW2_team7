@@ -15,6 +15,20 @@
   border-radius: 50%;
 }
 
+#list-Side-Bar {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+#list-Side-Bar::-webkit-scrollbar {
+  width: 15px;
+}
+#list-Side-Bar::-webkit-scrollbar-thumb {
+  background-color: #292929;
+  height: 60px;
+}
+#list-Side-Bar::-webkit-scrollbar-thumb:hover {
+  background-color: #D2D2D2;
+}
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors
