@@ -13,9 +13,22 @@ $new-theme-colors: (
     "black": #060606,
     "fontB50" : rgba(209, 209, 209, 0.70),
     "badgeBlue" : #4485d6,
+    "cardBg": #292929,
 );
 
+#bannerMid{
+    background: rgb(6,6,6);
+background: linear-gradient(45deg, rgba(6,6,6,1) 0%, rgba(246,246,246,0) 100%);
+}
 
+.img5w{
+    width: auto;
+    height: 48px;
+}
+
+.custom-card {
+    height: 70px !important; /* Adjust the value as needed */
+  }
 
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
 
