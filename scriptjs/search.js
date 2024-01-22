@@ -2,7 +2,7 @@
 const myUrl = "https://striveschool-api.herokuapp.com/api/deezer/search?q=";
 
 document.addEventListener("DOMContentLoaded", function () {
-  const searchInput = document.getElementsByClassName("form-control")[0];
+  const searchInput = document.getElementById("search");
   const resultSection = document.getElementById("results");
 
   const handleSearch = function () {
@@ -37,16 +37,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     results.forEach((result) => {
       const resultItem = document.createElement("div");
-      resultItem.classList.add(
-        "result-item",
-        "col-6",
-        "col-md-2",
-        "bg-primary"
-      );
-      resultItem.innerHTML = `
-          <h3>${result.title}</h3>
-          <img src="${result.artist.picture}" alt="${result.title}" />
+      resultItem.classList.add("result-item", "col-6", "col-md-2");
+
+      if (searchInput.value === result.title) {
+        resultItem.innerHTML = `
+            <div class="card">
+                <img src="${result.album.cover_big}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${result.title}</h5>
+                    <p class="card-text">${result.type}<span><i class="bi bi-dot"></i></span><strong>${result.artist.name}</strong></p>
+                </div>
+            </div>
           `;
+      } else if (searchInput.value === result.artist.name) {
+        resultItem.innerHTML = `
+        <h3>${result.name}</h3>
+        <img src="${result.artist.picture_small}" alt="${result.name}" />
+        `;
+      } else if (searchInput.value === result.album.title) {
+        resultItem.innerHTML = `
+        <h3>${result.name}</h3>
+        <img src="${result.album.cover_big}" alt="${result.name}" />
+        `;
+      }
+      //   <h3>${result.title}</h3>
+      //   <h4>${result.}
+      //   <img src="${result.artist.picture}" alt="${result.title}" />
       resultSection.appendChild(resultItem);
     });
   };

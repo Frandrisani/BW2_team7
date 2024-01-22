@@ -2,9 +2,18 @@ nav {
     ul{
         display: flex;
         list-style-type: none;
+
         
-        li {
-            font-size: 1.5em;
+        li:nth-of-type(3) {
+            margin-left: 0.5em;
+            background-color:  #242424;
+            border-radius: 20px !important;
+            padding: 0.4em;
+            font-size: 1em;
+            input {
+                background-color:  #242424;
+                border: none;
+            }
         }
         button {
             border-radius: 100%;
@@ -14,19 +23,9 @@ nav {
 }
 
 
-.col-6 {
-    overflow: hidden;
-    position: relative;
-    height: 10vh;
-    width: 4vw;
-    h3 {
-        display: inline;
-    }
+#results {
     img {
-        transform: rotate(30deg);
-        width: 5em;
-        position: absolute;
-        bottom: 0;
-        right: 0;
+
     }
 }
+
