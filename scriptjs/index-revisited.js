@@ -11,3 +11,12 @@ document.getElementById("friendBtn").addEventListener("click", () => {
     midSection.classList.add("col-10");
   }
 });
+
+const midBanner = document.getElementById("bannerMid");
+document.getElementById("hide-Banner-Btn").addEventListener("click", () => {
+  if (midBanner.style.display === "none") {
+    midBanner.style.display = "block";
+  } else {
+    midBanner.style.display = "none";
+  }
+});
