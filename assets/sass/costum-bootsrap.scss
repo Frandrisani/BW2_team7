@@ -1,0 +1,22 @@
+@import "../sass/bootstrap-5.3.2/scss/functions";
+@import "../sass/bootstrap-5.3.2/scss/variables";
+
+
+$new-primary : #1EB253;
+$new-secondary: #181818;
+
+$new-theme-colors: (
+    "grigino": #292929,
+    "primary" : $new-primary,
+    "secondary": $new-secondary,
+    "fontB": #D2D2D2,
+    "black": #060606,
+    "fontB50" : rgba(209, 209, 209, 0.70),
+    "badgeBlue" : #4485d6,
+);
+
+
+
+$theme-colors: map-merge($theme-colors, $new-theme-colors);
+
+@import '../sass/bootstrap-5.3.2/scss/bootstrap.scss';
