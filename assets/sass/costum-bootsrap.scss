@@ -23,7 +23,7 @@ $new-theme-colors: (
 border-radius: 50%; }
 
 #list-Side-Bar {
-    max-height: 80vh;
+    max-height: 70vh;
     overflow-y: auto;
 
     &::-webkit-scrollbar {
@@ -32,7 +32,8 @@ border-radius: 50%; }
 
     &::-webkit-scrollbar-thumb {
         background-color: map-get($new-theme-colors, "grigino");
-        height: 60px; 
+        height: 0.5%;  /* Adjust the height as needed */
+        min-height: 1px; 
 
     }
 
@@ -44,6 +45,7 @@ border-radius: 50%; }
         background-color: map-get($new-theme-colors, "dark");
     }
 }
+
 
 
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
