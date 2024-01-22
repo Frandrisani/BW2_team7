@@ -11,10 +11,10 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
     />
   </head>
-  <body class="container-fluid bg-grigino">
+  <body class="container-fluid bg-secondary">
     <div class="row">
       <!-- sidebar -->
-      <div class="col bg-black">
+      <div class="col bg-black" id="sx-part">
         <div class="d-flex flex-column">
           <ul class="nav flex-column">
             <li class="nav-item">
@@ -143,9 +143,9 @@
         </div>
       </div>
       <!-- mid section -->
-      <div class="col-8">
+      <div class="col-8 text-light mx-3" id="mid-part">
         <!-- mid top part -->
-        <div class="nav text-light d-flex justify-content-between mt-2">
+        <div class="nav d-flex justify-content-between mt-2">
           <div>
             <div class="btn bg-black text-light rounded-circle">
               <i class="bi bi-chevron-left"></i>
@@ -194,8 +194,11 @@
           </div>
         </div>
         <!-- banner of the mid section -->
-        <div class="container-fluid mt-3">
-          <div class="card px-3 py-4 rounded-0 bg-black text-white">
+        <div class="container-fluid mt-3 px-0">
+          <div
+            class="card px-3 py-4 rounded-0 text-white border border-0"
+            id="bannerMid"
+          >
             <div class="row no-gutters">
               <div class="col-md-2">
                 <img
@@ -218,14 +221,275 @@
             </div>
           </div>
         </div>
+        <!-- buonasera part -->
+        <h3 class="my-3">Buonasera</h3>
+        <div class="row g-3 row-cols-2 row-cols-md-4">
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+        </div>
+        <!-- other thing that you like part -->
+        <h3 class="my-3">Altro di ciò che ti piace</h3>
+        <div class="row row-cols-4 g-3">
+          <div class="col">
+            <div class="card p-3 bg-grigino text-light">
+              <img
+                src="./assets/imgs/main/image-14.jpg"
+                class="card-img-top rounded-3"
+                alt="card image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Hot hits Italia</h5>
+                <p class="card-text">La playlist etccc</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-3 bg-grigino text-light">
+              <img
+                src="./assets/imgs/main/image-14.jpg"
+                class="card-img-top rounded-3"
+                alt="card image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Hot hits Italia</h5>
+                <p class="card-text">La playlist etccc</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-3 bg-grigino text-light">
+              <img
+                src="./assets/imgs/main/image-14.jpg"
+                class="card-img-top rounded-3"
+                alt="card image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Hot hits Italia</h5>
+                <p class="card-text">La playlist etccc</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-3 bg-grigino text-light">
+              <img
+                src="./assets/imgs/main/image-14.jpg"
+                class="card-img-top rounded-3"
+                alt="card image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Hot hits Italia</h5>
+                <p class="card-text">La playlist etccc</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-3 bg-grigino text-light">
+              <img
+                src="./assets/imgs/main/image-14.jpg"
+                class="card-img-top rounded-3"
+                alt="card image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Hot hits Italia</h5>
+                <p class="card-text">La playlist etccc</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-3 bg-grigino text-light">
+              <img
+                src="./assets/imgs/main/image-14.jpg"
+                class="card-img-top rounded-3"
+                alt="card image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Hot hits Italia</h5>
+                <p class="card-text">La playlist etccc</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-3 bg-grigino text-light">
+              <img
+                src="./assets/imgs/main/image-14.jpg"
+                class="card-img-top rounded-3"
+                alt="card image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Hot hits Italia</h5>
+                <p class="card-text">La playlist etccc</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card p-3 bg-grigino text-light">
+              <img
+                src="./assets/imgs/main/image-14.jpg"
+                class="card-img-top rounded-3"
+                alt="card image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Hot hits Italia</h5>
+                <p class="card-text">La playlist etccc</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- right rection -->
-      <div class="col bg-black"></div>
+      <div class="col bg-black text-light" id="friends-section">
+        <h5 class="mt-4">Attività amici</h5>
+        <div class="row flex-column gy-4">
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+          <div class="col">
+            <div class="d-flex bg-grigino rounded-2">
+              <div class="col">
+                <img
+                  src="./assets/imgs/main/image-13.jpg"
+                  class="card-img w-75 rounded-2"
+                  alt="Card Image"
+                />
+              </div>
+              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="./scriptjs/index-revisited.js"></script>
   </body>
 </html>

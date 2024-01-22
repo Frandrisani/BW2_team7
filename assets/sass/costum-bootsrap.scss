@@ -46,7 +46,34 @@ border-radius: 50%; }
     }
 }
 
+#bannerMid{
+    background: rgb(6,6,6);
+background: linear-gradient(45deg, rgba(6,6,6,1) 0%, rgba(246,246,246,0) 100%);
+}
 
+#mid-part{
+    max-height: 100vh;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 15px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: map-get($new-theme-colors, "grigino");
+        height: 0.5%;  /* Adjust the height as needed */
+        min-height: 1px; 
+
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: map-get($new-theme-colors, "fontB");
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: map-get($new-theme-colors, "dark");
+    }
+}
 
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
 
