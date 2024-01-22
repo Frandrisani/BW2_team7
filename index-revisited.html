@@ -144,27 +144,78 @@
       </div>
       <!-- mid section -->
       <div class="col-8">
+        <!-- mid top part -->
         <div class="nav text-light d-flex justify-content-between mt-2">
           <div>
-            <i class="bi bi-chevron-left"></i>
-            <i class="bi bi-chevron-right"></i>
+            <div class="btn bg-black text-light rounded-circle">
+              <i class="bi bi-chevron-left"></i>
+            </div>
+            <div class="btn bg-black text-light rounded-circle">
+              <i class="bi bi-chevron-right"></i>
+            </div>
           </div>
-          <div class="dropdown">
-            <a
-              class="btn btn-secondary dropdown-toggle"
-              href="#"
-              role="button"
-              id="dropdownMenuLink"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+          <div class="d-flex align-itmes-center">
+            <div class="dropdown me-4">
+              <button
+                class="btn bg-black text-light rounded-5"
+                type="button"
+                id="dropdownMenuButton2"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="bi bi-person-circle me-2"></i>
+                John Skylor...
+                <i class="bi bi-caret-down-fill"></i>
+              </button>
+              <ul
+                class="dropdown-menu dropdown-menu-dark"
+                aria-labelledby="dropdownMenuButton2"
+              >
+                <li>
+                  <a class="dropdown-item active" href="#"
+                    >Account <i class="bx bx-link-external"></i
+                  ></a>
+                </li>
+                <li><a class="dropdown-item" href="#">Profilo</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Sessione privata</a>
+                </li>
+                <li><a class="dropdown-item" href="#">Impostazioni</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item text-danger" href="#">Esci</a></li>
+              </ul>
+            </div>
+            <div
+              class="btn btn-group bg-black text-light rounded-circle"
+              id="friendBtn"
             >
-            </a>
-
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+              <i class="bi bi-people"></i>
+            </div>
+          </div>
+        </div>
+        <!-- banner of the mid section -->
+        <div class="container-fluid mt-3">
+          <div class="card px-3 py-4 rounded-0 bg-black text-white">
+            <div class="row no-gutters">
+              <div class="col-md-2">
+                <img
+                  src="./assets/imgs/main/image-1.jpg"
+                  class="card-img w-100 rounded-0"
+                  alt="Card Image"
+                />
+              </div>
+              <div class="col-md-10">
+                <div class="card-body">
+                  <h5 class="card-title">Viola (feat. Salmo)</h5>
+                  <p class="card-text">Fedez, Salmo</p>
+                  <p class="card-text">
+                    <small class=""
+                      >Ascolta il nuovo singolo di Fedez e Salmo!</small
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
