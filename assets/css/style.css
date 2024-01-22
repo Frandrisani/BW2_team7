@@ -1,0 +1,28 @@
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+nav ul li {
+  font-size: 1.5em;
+}
+nav ul button {
+  border-radius: 100%;
+  border: none;
+}
+
+.col-6 {
+  overflow: hidden;
+  position: relative;
+  height: 10vh;
+  width: 4vw;
+}
+.col-6 h3 {
+  display: inline;
+}
+.col-6 img {
+  transform: rotate(30deg);
+  width: 5em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}/*# sourceMappingURL=style.css.map */
