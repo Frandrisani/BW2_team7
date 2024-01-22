@@ -1,4 +1,20 @@
 @charset "UTF-8";
+#friendActivityButton {
+  right: 20px;
+  top: 10px;
+  z-index: 9999;
+}
+
+#usersDropdownButton {
+  right: 80px;
+  top: 15px;
+  z-index: 9999;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors

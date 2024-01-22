@@ -6,13 +6,189 @@
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="./assets/sass/costum-bootsrap.css" />
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
   </head>
-  <body>
-    <h1 style="font-family: Circular">Hello, world!</h1>
-    <h1 class="text-badgeBlue">Hello, world!</h1>
+  <body class="bg-dark">
+    <!-- mega container di tutto la home -->
+    <div class="container-fluid sidebar d-flex p-0 vh-100">
+      <!-- inizio sidebar -->
+      <div class="d-none d-md-block" style="min-width: 280px">
+        <nav
+          class="d-none d-md-block bg-black position-fixed h-100"
+          style="min-width: 280px"
+        >
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-three-dots fs-4 me-3 text-primary"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active nav-link text-fontB50 fw-bold"
+                href="./index.html"
+                ><i
+                  class="bi bi-house-door-fill fs-4 me-3 me-3 text-fontB50"
+                ></i>
+
+                Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link text-fontB50" href=""
+                ><i class="bi bi-search fs-4 me-3 text-fontB50"></i> Cerca</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link text-fontB50" href="#"
+                ><i class="bi bi-collection fs-4 me-3 text-fontB50"></i> La tua
+                libreria</a
+              >
+            </li>
+            <li class="nav-item mt-4">
+              <a class="nav-link text-fontB50" href="#"
+                ><i class="bi bi-plus-square-fill fs-4 me-3 text-fontB50"></i>
+                Crea playlist</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fontB50" href="#"
+                ><i class="bi bi-calendar-heart fs-4 me-3 text-fontB50"></i>
+                Brani che ti piacciono</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-fontB50" href="#"
+                ><i class="bi bi-bookmark-check fs-4 me-3 text-fontB50"></i> I
+                tuoi episodi</a
+              >
+            </li>
+          </ul>
+          <hr class="bg-white" />
+        </nav>
+      </div>
+
+      <!-- fine sidebar -->
+
+      <!-- inizio parte centrale -->
+      <main
+        class="ml-sm-auto px-4 pt-5 container-fluid position-relative"
+        style="background-color: #111111c7"
+      >
+        <div id="navigationButtons" class="position-absolute">
+          <i class="bi bi-chevron-left bg-black text-white p-1 me-2 circle"></i>
+          <i class="bi bi-chevron-right bg-black text-white p-1 circle"></i>
+        </div>
+
+        <!-- Ho provato a creare il button per nascondere gli annunci ma non riesco a posizionarlo dove vorrei purtroppo, decommentare per visualizzare -->
+        <!-- <button
+          class="position-absolute text-light-emphasis text-bg-dark border-0 rounded-5 ms-5px-3 fs-6" style="bottom: 0; right: 0;"
+        >
+        NASCONDI ANNUNCI
+          necessita di un font-size piu' piccolo
+        </button> -->
+
+        <div id="usersDropdownButton" class="position-absolute dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle bg-black border border-0 py-0 ps-0"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <div class="circle"></div>
+
+            <!-- L IMG é stata messa (a casaccio) per testare lo stile del img profilo -->
+            <img
+              style="height: 30px"
+              class="me-1 p-1 circle"
+              src="./assets/imgs/main/image-1.jpg"
+              alt=""
+            />Mario Bros
+          </button>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li>
+              <a class="dropdown-item" href="#">Francesco Andrisani</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Dalila Giurgola</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Jovel Asirot</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Elisa Tomasi</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="container-fluid d-none d-sm-block">
+          <div class="row">
+            <div class="col">
+              <div class="bg-gradient"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Ho inserito la parte Amici/contatti in un dropdown fuori dal MAIN -->
+    <!-- Canvas a comparsa/dropdown, sidebar destra -->
+    <button
+      id="friendActivityButton"
+      class="btn btn-dark bg-black circle position-absolute"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasRight"
+      aria-controls="offcanvasRight"
+    >
+      <i class="bi bi-people-fill"></i>
+    </button>
+    <div
+      class="offcanvas offcanvas-end bg-black text-primary"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
+      aria-modal="true"
+      role="dialog"
+    >
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel" class="fs-6 fw-bold">Attività amici</h5>
+      </div>
+    </div>
+
+    <!-- ------------------------------------------------------------------- -->
+    <!-- navbar bottom per schermi piccoli -->
+    <div class="d-md-none row bg-black py-4 fs-8">
+      <div class="col-4">
+        <a
+          class="nav-link d-flex flex-column align-items-center text-fontB50"
+          href="./index.html"
+        >
+          <i class="bi bi-house-door fs-4 me-3 me-3 text-fontB50"> </i>Home</a
+        >
+      </div>
+      <div class="col-4">
+        <a
+          class="nav-link d-flex flex-column align-items-center text-fontB50"
+          href="#"
+          ><i class="bi bi-search fs-4 me-3 me-3 text-fontB50"></i>Cerca</a
+        >
+      </div>
+      <div class="col-4">
+        <a
+          class="nav-link d-flex flex-column align-items-center text-fontB50"
+          href="#"
+          ><i class="bi bi-collection fs-4 me-3 me-3 text-fontB50"></i>La tua
+          libreria</a
+        >
+      </div>
+    </div>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
   </body>
