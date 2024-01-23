@@ -1,0 +1,9 @@
+#section1 {
+  background: rgb(227, 205, 21);
+  background: linear-gradient(174deg, rgba(227, 205, 21, 0.8296568627) 33%, rgba(255, 229, 7, 0.6671918768) 100%, rgb(254, 252, 235) 100%);
+}
+
+#section2 {
+  background: rgb(24, 24, 24);
+  background: linear-gradient(0deg, rgb(24, 24, 24) 33%, rgba(94, 94, 94, 0) 100%, rgb(254, 252, 235) 100%);
+}/*# sourceMappingURL=album-style.css.map */

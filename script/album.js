@@ -18,7 +18,7 @@ console.log(addressBarContent);
 const albumId = addressBarContent.get("albumId");
 console.log(albumId);
 
-fetch(myURL + "/" + 75622662)
+fetch(myURL + "/" + 76526962)
   .then((response) => {
     // * Qui aggiungiamo una classe "d-none" allo spinner di caricamento presente in HTML
     // INIZIO CODICE SPINNER
@@ -35,7 +35,7 @@ fetch(myURL + "/" + 75622662)
   })
   .then((album) => {
     console.log(album);
-    imgAlbumTopSection.src = `${album.cover_big}`;
+    imgAlbumTopSection.src = `${album.cover_medium}`;
     img2AlbumTopSection.src = `${album.cover_small}`;
     titoloAlbumTopSection.innerText = `${album.title}`;
     nomeArtistaTopSection.innerText = `${album.artist.name} ·`;
@@ -47,15 +47,17 @@ fetch(myURL + "/" + 75622662)
       rowSongDinamic.classList.add("row");
       rowSongDinamic.innerHTML = `    
         <div class="row">
-          <div class="col col-1 d-none d-md-block">${i + 1}</div>
+          <div class="col col-1 d-none d-md-block text-fontB50">${i + 1}</div>
           <div class="col col-6">
-            <p class="mb-0">${element.title}</p>
-            <p class="mt-0">${element.artist.name}</p>
+            <p class="mb-0 text-fontB fs-6 fw-medium">${element.title}</p>
+            <p class="mt-0 text-fontB50 opacity-50 ">${element.artist.name}</p>
           </div>
           <div class="col col-4 d-none d-md-block">
-            <p>${element.rank}</p>
+            <p class="text-fontB50 ">${element.rank}</p>
           </div>
-          <div class="col col-1 d-none d-md-block">${element.duration}</div>
+          <div class="col col-1 d-none d-md-block text-fontB50">${
+            element.duration
+          }</div>
         </div>`;
       containerRowSongs.appendChild(rowSongDinamic);
     });
