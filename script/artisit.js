@@ -2,14 +2,15 @@
 const artistCover = document.getElementById("artist-cover");
 const artistName = document.getElementById("artist-name");
 const artistListeners = document.getElementById("nb-fan");
-const colInside = document.getElementById("traccia-album");
+const tracksContainer = document.getElementById("traccia-album");
 const artistCircular = document.getElementById("artist-circular");
 const byArtist = document.getElementById("by-artist");
 const numberOfLikes = document.getElementById("likes-num");
+const moreButton = document.getElementById("visaulizza");
 
 //funzione svuota col
 const emptyCol = () => {
-  colInside.innerHTML = ``;
+  tracksContainer.innerHTML = ``;
 };
 //funzione random mi piace
 const randomLikes = () => {
@@ -21,28 +22,36 @@ const randomLikes = () => {
 const gettingTracks = (tracks) => {
   tracks.forEach((track, i) => {
     // emptyCol();
-    const newCol = document.createElement("div");
-    newCol.classList.add(
-      "col-8",
-      "m-1",
-      "p-1",
-      "d-flex",
-      "justify-content-evenly",
-      "align-items-center",
-      "flex-wrap",
-      "flex-row"
-    );
-    newCol.innerHTML = `
-              <h3>${i + 1}</h3>
-            <img src="${
-              track.album.cover_small
-            }" class="img-thumbnail" alt="album-cover">
-            <h4>${track.title_short}</h4>
-            <i class="bi bi-three-dots-vertical text-fontB50 fs-1 d-sm-none"></i>
-            <h5>${track.rank}</h5>
-            <h6 class="d-none d-sm-block">${track.duration}</h6>
-          </div>`;
-    colInside.appendChild(newCol);
+    const newRow = document.createElement("div");
+    newRow.classList.add("row", "align-items-center", "g-1");
+    newRow.innerHTML = `
+                <div class="col">
+                <h3>${i + 1}</h3>
+                </div>
+                <div class="col">
+                <img src="${
+                  track.album.cover_small
+                }" class="img-thumbnail" alt="album-cover">
+              </div>
+              <div class="col">
+                <h4>${track.title_short}</h4>
+              </div>
+              <div class="col d-sm-none">
+                <i class="bi bi-three-dots-vertical text-fontB50 fs-1"></i>
+              </div>
+              <div class="col">
+                <h5>${track.rank}</h5>
+              </div>
+              <div class="col d-none d-sm-block">
+                <h6>${track.duration}</h6>
+              </div>`;
+    tracksContainer.appendChild(newRow);
+    if (i > 9) {
+      newRow.classList.add("d-none");
+    }
+    moreButton.addEventListener("click", () => {
+      newRow.classList.toggle("d-none");
+    });
   });
 };
 

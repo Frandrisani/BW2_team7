@@ -127,29 +127,53 @@
           </div>
         </article>
         <!-- SEZIONE BRANI ARTISTA + BRANI PREFE -->
-        <article class="row flex-column-reverse flex-md-row" id="popular-tracks">
-          <div class="col-12 col-md-8 d-flex flex-column justify-content-evenly align-items-start text-fontB"id="traccia-album">
+    <article class="row flex-column-reverse flex-md-row" id="popular-tracks">
+      <div class="col-12 col-md-8 d-flex flex-columnjustify-content-evenly align-items-start text-fontB">
+          <div class="container" id="traccia-album">
             <h2>Popolari</h2>
-            <div class="col-8 d-flex flex-wrap justify-content-evenly align-items-center">
-              <h3>1</h3>
-            <img src="" class="img-thumbnail" alt="album-cover">
-            <h4>Track</h4>
-            <i class="bi bi-three-dots-vertical text-fontB50 fs-1 d-sm-none"></i>
-            <h5>156148469</h5>
-            <h6 class="d-none d-sm-block">3:50</h6>
-          </div>
-          </div>
+            <!-- <div class="row align-items-center">
+              <div class="col">
+                <h3>1</h3>
+              </div>
+              <div class="col">
+                <img src="" class="img-thumbnail" alt="album-cover">
+              </div>
+              <div class="col">
+                <h4>Track</h4>
+              </div>
+              <div class="col d-sm-none">
+                <i class="bi bi-three-dots-vertical text-fontB50 fs-1"></i>
+              </div>
+              <div class="col">
+                <h5>156148469</h5>
+              </div>
+              <div class="col d-none d-sm-block">
+                <h6>3:50</h6>
+              </div>
+            </div> -->
+         </div>
+        </div>
           <div class="col-12 col-md-4 d-flex flex-column align-items-start mt-3 text-fontB"id="brani preferiti">
-            <h2>Brani che ti piacciono</h2>
-            <img src="" class="img-thumbnail rounded-circle position-relative" alt="artist-photo" id="artist-circular">
-            <div class="badge bg-primary rounded-5 position-absolute top-100 start-100 translate-middle" ><i class="bi bi-heart-fill text-fontB"></i>
+            <div class="container">
+              <h2>Brani che ti piacciono</h2>
+              <div class="row">
+                <div class="col position-relative">
+                  <img src="" class="img-thumbnail rounded-circle " alt="artist-photo" id="artist-circular">
+                  <div class="badge bg-primary rounded-5 position-absolute top-100 start-100 translate-middle" ><i class="bi bi-heart-fill text-fontB"></i>
+                </div>
+                <div class="col">
+                  <h5>Hai messo mi piace a <span id="likes-num"></span> brani</h5>
+                  <h6 id="by-artist">di Yellowjackets</h6>
+                </div>
+              </div>
             </div>
-            <div class="col-8 d-flex flex-column align-items-start">
-            <h5>Hai messo mi piace a <span id="likes-num"></span> brani</h5>
-            <h6 id="by-artist">di Yellowjackets</h6>
           </div>
+        </article>
+        <article class="row justify-content-center">
+          <div class="col-10">
+            <button type="button" class="btn text-fontB" id="visaulizza">VISUALIZZA ALTRO</button>
           </div>
-        <article>
+        </article>
       </section>
     </main>
     <aside>
