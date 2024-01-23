@@ -600,11 +600,38 @@
       </div>
       <!-- player bar -->
     </div>
-    <div id="player-bar" class="overlay z-2 bg-grigino d-none">
+    <div id="player-bar" class="overlay z-2 bg-grigino text-light d-none">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12 text-center mt-3">
-            <audio src="" id="audioDiv" controls></audio>
+          <div class="col d-flex align-items-center">
+            <img
+              src="./assets/imgs/main/image-14.jpg"
+              alt=""
+              height="100px"
+              id="album-cover"
+            />
+            <div class="d-flex flex-column">
+              <p id="song-name"></p>
+              <p id="artist-name"></p>
+            </div>
+          </div>
+          <div class="col text-center mt-3">
+            <audio src="" id="audioDiv"></audio>
+            <div class="div">
+              <i class="bi bi-arrow-bar-left"></i>
+              <i class="bi bi-play-circle-fill" id="play-playerBar"></i>
+              <i class="bi bi-arrow-bar-right"></i>
+            </div>
+            <div id="progress-container">
+              <div id="progress-bar"></div>
+            </div>
+          </div>
+          <div class="col d-flex align-items-center justify-content-center">
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
+            <p>test</p>
           </div>
         </div>
       </div>

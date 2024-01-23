@@ -99,11 +99,28 @@ const createBanner = (data) => {
   const playBtn = document.getElementById("play-btn");
   const audioElement = document.getElementById("audioDiv");
   const playerBar = document.getElementById("player-bar");
+  const trackName = document.getElementById("song-name");
+  const artistName = document.getElementById("artist-name");
+  const albumCover = document.getElementById("album-cover");
+  const playStopPlayer = document.getElementById("play-playerBar");
+
   audioElement.src = `${data.tracks.data[0].preview}`;
 
-  console.log(audioElement);
+  trackName.textContent = `${data.title}`;
+  artistName.textContent = `${data.artist.name}`;
+  albumCover.src = `${data.cover_medium}`;
+  console.log(albumCover);
 
   playBtn.addEventListener("click", function () {
+    if (audioElement.paused) {
+      audioElement.play();
+      playerBar.classList.remove("d-none");
+    } else {
+      audioElement.pause();
+    }
+  });
+
+  playStopPlayer.addEventListener("click", function () {
     if (audioElement.paused) {
       audioElement.play();
       playerBar.classList.remove("d-none");
@@ -116,4 +133,26 @@ const createBanner = (data) => {
     audioElement.pause();
     playerBar.classList.remove("d-none");
   });
+
+  const progressContainer = document.getElementById("progress-container");
+  const progressBar = document.getElementById("progress-bar");
+
+  audioElement.addEventListener("timeupdate", updateProgressBar);
+
+  progressContainer.addEventListener("click", setAudioProgress);
+
+  function updateProgressBar() {
+    const duration = audioElement.duration;
+    const currentTime = audioElement.currentTime;
+    const progressPercentage = (currentTime / duration) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+  }
+
+  function setAudioProgress(e) {
+    const clickX = e.clientX - progressContainer.getBoundingClientRect().left;
+    const containerWidth = progressContainer.clientWidth;
+    const progressPercentage = (clickX / containerWidth) * 100;
+    audioElement.currentTime =
+      (progressPercentage / 100) * audioElement.duration;
+  }
 };
