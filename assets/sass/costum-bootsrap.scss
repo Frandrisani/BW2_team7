@@ -131,6 +131,7 @@ background: linear-gradient(45deg, rgba(6,6,6,1) 0%, rgba(246,246,246,0) 100%);
   }
 
 
+
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
 
 @import '../sass/bootstrap-5.3.2/scss/bootstrap.scss';

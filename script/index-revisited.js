@@ -192,5 +192,13 @@ const createBanner = (data) => {
   const volumeSlider = document.getElementById("volumeSlider");
   volumeSlider.addEventListener("input", () => {
     audioElement.volume = volumeSlider.value;
+
+    if (volumeSlider.value <= 0.6) {
+      muteBtn.innerHTML = `<i class="bi bi-volume-down fs-4 "></i>`;
+    } else {
+      muteBtn.innerHTML = `
+      <i class="bi bi-volume-up"></i>
+      `;
+    }
   });
 };
