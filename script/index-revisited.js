@@ -189,7 +189,7 @@ const createBanner = (data) => {
     }
   });
 
-  const volumeSlider = document.getElementById("volume-slider");
+  const volumeSlider = document.getElementById("volumeSlider");
   volumeSlider.addEventListener("input", () => {
     audioElement.volume = volumeSlider.value;
   });

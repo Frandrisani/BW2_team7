@@ -633,7 +633,10 @@
             </div>
           </div>
           <div class="col text-center mt-3 fs-3 mb-1">
-            <audio src="" id="audioDiv"></audio>
+            <audio id="audioDiv">
+              <source src="" type="video/mp4" />
+            </audio>
+
             <div class="div d-flex justify-content-center align-items-center">
               <i class="bi bi-shuffle fs-5"></i>
               <i class="bi bi-skip-start-fill"></i>
@@ -649,7 +652,14 @@
             <i class="bi bi-list me-2"></i>
             <i class="bi bi-speaker me-2"></i>
             <div id="mute-Unmute"></div>
-            <input type="range" id="volume-slider" />
+            <input
+              type="range"
+              id="volumeSlider"
+              min="0"
+              max="1"
+              step="0.1"
+              value="1"
+            />
           </div>
         </div>
       </div>
