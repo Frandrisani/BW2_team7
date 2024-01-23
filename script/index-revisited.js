@@ -16,7 +16,7 @@ document.getElementById("friendBtn").addEventListener("click", () => {
 // mid-banner dinamic
 const midBanner = document.getElementById("bannerMid");
 const myUrl = " https://striveschool-api.herokuapp.com/api/deezer/album";
-let artistId = Math.floor(Math.random() * (756250 - 756200 + 1)) + 756200;
+let artistId = Math.floor(Math.random() * (756250 - 756150 + 1)) + 756150;
 
 fetch(myUrl + "/" + artistId, {})
   .then((response) => {
@@ -34,13 +34,13 @@ fetch(myUrl + "/" + artistId, {})
     console.log(err);
   });
 
-const createBanner = (artist) => {
+const createBanner = (data) => {
   const newBanner = document.createElement("div");
   newBanner.innerHTML = `
   <div class="row no-gutters">
               <div class="col-md-2">
                 <img
-                  src="${artist.cover_medium}"
+                  src="${data.cover_medium}"
                   class="card-img rounded-0 ms-2 my-4"
                   alt="Card Image"
                 />
@@ -50,7 +50,7 @@ const createBanner = (artist) => {
                   class="card-body py-3 d-flex flex-column justify-content-between h-100"
                 >
                   <div class="d-flex justify-content-between">
-                    <p class="fw-semibold">ALMBUM</p>
+                    <p class="fw-semibold">${data.record_type.toUpperCase()}</p>
                     <div
                       class="btn bg-grigino text-fontB rounded-5 fs-6"
                       id="hide-Banner-Btn"
@@ -59,15 +59,17 @@ const createBanner = (artist) => {
                     </div>
                   </div>
                   <div class="mb-5">
-                    <h5 class="card-title">${artist.title} </h5>
-                    <p class="card-text">${artist.artist.name}</p>
+                    <h5 class="card-title">${data.title} </h5>
+                    <p class="card-text">${data.artist.name}</p>
                     <p class="card-text">
-                      <small>Ascolta il nuovo singolo di ${artist.artist.name}</small>
+                      <small>Ascolta il nuovo singolo di ${
+                        data.artist.name
+                      }</small>
                     </p>
                   </div>
                   <div >
                     <div
-                      class="btn bg-primary text-light fw-semibold rounded-5 px-4 me-3"
+                      class="btn bg-primary text-light fw-semibold rounded-5 px-4 me-3" id="play-btn"
                     >
                       Play
                     </div>
@@ -91,5 +93,27 @@ const createBanner = (artist) => {
     } else {
       midBanner.style.display = "none";
     }
+  });
+
+  // player
+  const playBtn = document.getElementById("play-btn");
+  const audioElement = document.getElementById("audioDiv");
+  const playerBar = document.getElementById("player-bar");
+  audioElement.src = `${data.tracks.data[0].preview}`;
+
+  console.log(audioElement);
+
+  playBtn.addEventListener("click", function () {
+    if (audioElement.paused) {
+      audioElement.play();
+      playerBar.classList.remove("d-none");
+    } else {
+      audioElement.pause();
+    }
+  });
+
+  audioElement.addEventListener("click", function () {
+    audioElement.pause();
+    playerBar.classList.remove("d-none");
   });
 };

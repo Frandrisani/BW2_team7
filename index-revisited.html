@@ -12,7 +12,7 @@
     />
   </head>
   <body class="container-fluid bg-secondary">
-    <div class="row">
+    <div class="row position-relative top-0 start-0 z-1">
       <!-- sidebar -->
       <div class="col bg-black" id="sx-part">
         <div class="d-flex flex-column">
@@ -382,7 +382,7 @@
             </div>
           </div>
           <div class="col">
-            <div class="card p-3 bg-grigino text-light">
+            <div class="card p-3 bg-grigino text-light h-100">
               <img
                 src="./assets/imgs/main/image-18.jpg"
                 class="card-img-top rounded-3 shadowB"
@@ -455,7 +455,7 @@
             </div>
           </div>
           <div class="col">
-            <div class="card p-3 bg-grigino text-light">
+            <div class="card p-3 bg-grigino text-light h-100">
               <img
                 src="./assets/imgs/main/image-18.jpg"
                 class="card-img-top rounded-3 shadowB"
@@ -528,7 +528,7 @@
             </div>
           </div>
           <div class="col">
-            <div class="card p-3 bg-grigino text-light">
+            <div class="card p-3 bg-grigino text-light h-100">
               <img
                 src="./assets/imgs/main/image-18.jpg"
                 class="card-img-top rounded-3 shadowB"
@@ -595,6 +595,16 @@
               </div>
               <h5 class="col-md-9 card-title mt-3">Card Title</h5>
             </div>
+          </div>
+        </div>
+      </div>
+      <!-- player bar -->
+    </div>
+    <div id="player-bar" class="overlay z-2 bg-grigino d-none">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 text-center mt-3">
+            <audio src="" id="audioDiv" controls></audio>
           </div>
         </div>
       </div>
