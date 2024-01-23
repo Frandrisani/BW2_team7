@@ -49,9 +49,10 @@
         <!-- INIZIO ROW DEL CONTAINER DOCE C'E' L'IMMAGINE DELL'ALBUM E IL TITOLO -->
         <div class="row mt-5">
           <div class="col col-12 col-md-2 d-flex">
-            <div id="coverAlbum">
+            <div id="coverAlbum" class="me-auto ms-auto">
+              <!-- Aggiunta classe ms-auto -->
               <img
-                src="./assets/imgs/main/image-1.jpg"
+                src="./assets/imgs/logo.svg"
                 alt="immagine album"
                 class="shadow-lg mb-5 bg-body-tertiary imgAlbumTopSection"
                 id="imgAlbumTopSection"
@@ -59,31 +60,33 @@
             </div>
           </div>
           <div class="col col-12 col-md-10 d-flex">
-            <div class="ms-5 align-self-end mb-5">
-              <p class="text-white fw-medium">ALBUM</p>
-              <p
-                class="display-1 fw-bolder text-white"
-                id="titoloAlbumTopSection"
-              >
-                Titolo album
-              </p>
-              <div class="d-flex">
-                <img
-                  src="./assets/imgs/search/image-1.jpeg"
-                  alt=""
-                  width="4%"
-                  height="3%"
-                  class="rounded-pill me-2"
-                  id="img2AlbumTopSection"
-                />
-                <p class="me-2" id="nomeArtistaTopSection">Nome artista ·</p>
-                <p class="me-2" id="annoTopSection">anno ·</p>
-                <p class="me-2" id="numeroBraniAlbumTopSection">
-                  numero brani ·
-                </p>
-                <p class="me-2" id="totMinutiTopSection">
-                  totale minutaggio dell'album
-                </p>
+            <div class="me-auto">
+              <div class="ms-5 align-self-end mb-5">
+                <p class="text-white fw-medium d-none d-md-block">ALBUM</p>
+                <p
+                  class="display-1 fw-bolder text-white"
+                  id="titoloAlbumTopSection"
+                ></p>
+                <div class="d-flex">
+                  <img
+                    src="./assets/imgs/logo.svg"
+                    alt=""
+                    width="4%"
+                    height="3%"
+                    class="rounded-pill me-2"
+                    id="img2AlbumTopSection"
+                  />
+                  <p class="me-2 text-white" id="nomeArtistaTopSection"></p>
+                  <p class="me-2 text-white" id="annoTopSection"></p>
+                  <p
+                    class="me-2 text-white d-none d-md-block"
+                    id="numeroBraniAlbumTopSection"
+                  ></p>
+                  <p
+                    class="me-2 text-white opacity-75 d-none d-md-block"
+                    id="totMinutiTopSection"
+                  ></p>
+                </div>
               </div>
             </div>
           </div>
@@ -141,7 +144,7 @@
         <!--* INIZIO SUB-CONTAINER DOVE VERRANNO INSERITE LE VARIE ROW GENERATE DINAMICAMENTE CONTENENTI I DATI DELLE CANZONI-->
         <div class="container">
           <!-- INIZIO ROW "TITOLO" "RIPRODUZIONI" ECC.-->
-          <div class="row mt-5">
+          <div class="row mt-5 g-0">
             <div class="col col-1 d-none d-md-block text-fontB50">
               <p>#</p>
             </div>
