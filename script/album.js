@@ -3,22 +3,70 @@ const imgAlbumTopSection = document.getElementById("imgAlbumTopSection");
 const img2AlbumTopSection = document.getElementById("img2AlbumTopSection");
 const titoloAlbumTopSection = document.getElementById("titoloAlbumTopSection");
 const nomeArtistaTopSection = document.getElementById("nomeArtistaTopSection");
+const annoTopSection = document.getElementById("annoTopSection");
+
 const numeroBraniAlbumTopSection = document.getElementById(
   "numeroBraniAlbumTopSection"
 );
 const totMinutiTopSection = document.getElementById("totMinutiTopSection");
-
 const containerRowSongs = document.getElementById("containerRowSongs");
 const spinenr = document.getElementById("spinner");
 const myURL = "https://striveschool-api.herokuapp.com/api/deezer/album";
 
+// * INIZIO ACQUISIZIONE ID URL
 const addressBarContent = new URLSearchParams(location.search);
 console.log(addressBarContent);
-
 const albumId = addressBarContent.get("albumId");
 console.log(albumId);
+// * FINE ACQUISIZIONE ID URL
 
-fetch(myURL + "/" + 76526962)
+const annoRandom = function () {
+  const anno = Math.floor(Math.random() * (2025 - 1990 + 1) + 1990);
+  return anno;
+};
+
+// * INZIO FUNZIONE PER CONVERTIRE I BELLISSIMI NUMERI DI JAVASCRIPT IN MINUTI E SECONDI SENSATI parte riassunto album
+function convertiSecondiAMinutiESecondiTop(secondi) {
+  const minuti = Math.floor(secondi / 60);
+  const restantiSecondi = secondi % 60;
+
+  if (restantiSecondi > 59) {
+    minuti += 1;
+    restantiSecondi -= 60;
+  }
+  const formatoMinutiSecondi = `${minuti} min ${
+    restantiSecondi < 10 ? "0" : ""
+  }${restantiSecondi} sec.`;
+
+  return formatoMinutiSecondi;
+}
+// * FINE FUNZIONE PER CONVERTIRE I BELLISSIMI NUMERI DI JAVASCRIPT IN MINUTI E SECONDI SENSATI parte riassunto album
+
+// * INZIO FUNZIONE PER CONVERTIRE I BELLISSIMI NUMERI DI JAVASCRIPT IN MINUTI E SECONDI SENSATI parte canzoni
+function convertiSecondiAMinutiESecondi(secondi) {
+  const minuti = Math.floor(secondi / 60);
+  const restantiSecondi = secondi % 60;
+
+  if (restantiSecondi > 59) {
+    minuti += 1;
+    restantiSecondi -= 60;
+  }
+  const formatoMinutiSecondi = `${minuti}:${
+    restantiSecondi < 10 ? "0" : ""
+  }${restantiSecondi}`;
+
+  return formatoMinutiSecondi;
+}
+// * FINE FUNZIONE PER CONVERTIRE I BELLISSIMI NUMERI DI JAVASCRIPT IN MINUTI E SECONDI SENSATI parte canzoni
+
+const riproduzioniConIlPunto = function (numero) {
+  const numeroFormattato = numero.toLocaleString();
+  console.log(numeroFormattato);
+  return numeroFormattato;
+};
+
+// * INIZIO FETCH
+fetch(myURL + "/" + 76644962)
   .then((response) => {
     // * Qui aggiungiamo una classe "d-none" allo spinner di caricamento presente in HTML
     // INIZIO CODICE SPINNER
@@ -39,8 +87,11 @@ fetch(myURL + "/" + 76526962)
     img2AlbumTopSection.src = `${album.cover_small}`;
     titoloAlbumTopSection.innerText = `${album.title}`;
     nomeArtistaTopSection.innerText = `${album.artist.name} ·`;
-    numeroBraniAlbumTopSection.innerText = `${album.tracks.data.lenght} ·`;
-    totMinutiTopSection.innerText = `${album.duration} `;
+    annoTopSection.innerText = `${annoRandom()} ·`;
+    numeroBraniAlbumTopSection.innerText = `${album.tracks.data.length} brani ·`;
+    totMinutiTopSection.innerText = `${convertiSecondiAMinutiESecondiTop(
+      album.duration
+    )} `;
 
     album.tracks.data.forEach((element, i) => {
       const rowSongDinamic = document.createElement("div");
@@ -53,12 +104,13 @@ fetch(myURL + "/" + 76526962)
             <p class="mt-0 text-fontB50 opacity-50 ">${element.artist.name}</p>
           </div>
           <div class="col col-4 d-none d-md-block">
-            <p class="text-fontB50 ">${element.rank}</p>
+            <p class="text-fontB50 ">${riproduzioniConIlPunto(element.rank)}</p>
           </div>
-          <div class="col col-1 d-none d-md-block text-fontB50">${
+          <div class="col col-1 d-none d-md-block text-fontB50">${convertiSecondiAMinutiESecondi(
             element.duration
-          }</div>
+          )}</div>
         </div>`;
       containerRowSongs.appendChild(rowSongDinamic);
     });
   });
+// * FINE FETCH
