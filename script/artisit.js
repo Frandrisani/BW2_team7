@@ -32,6 +32,12 @@ function convertiSecondiAMinutiESecondi(secondi) {
 
   return formatoMinutiSecondi;
 }
+// funzione punto
+const riproduzioniConIlPunto = function (numero) {
+  const numeroFormattato = numero.toLocaleString();
+  console.log(numeroFormattato);
+  return numeroFormattato;
+};
 
 //funzione tracklist
 const gettingTracks = (tracks) => {
@@ -55,7 +61,7 @@ const gettingTracks = (tracks) => {
                 <i class="bi bi-three-dots-vertical text-fontB50 fs-1"></i>
               </div>
               <div class="col">
-                <h5>${track.rank}</h5>
+                <h5>${riproduzioniConIlPunto(track.rank)}</h5>
               </div>
               <div class="col d-none d-sm-block">
                 <h6>${convertiSecondiAMinutiESecondi(track.duration)}</h6>
