@@ -4,11 +4,13 @@
 
 $new-primary : #1EB253;
 $new-secondary: #181818;
+$new-tertiary: #242424;
 
 $new-theme-colors: (
     "grigino": #292929,
     "primary" : $new-primary,
     "secondary": $new-secondary,
+    'tertiary':$new-tertiary
     "fontB": #D2D2D2,
     "black": #060606,
     "fontB50" : rgba(209, 209, 209, 0.70),
