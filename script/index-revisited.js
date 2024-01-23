@@ -109,23 +109,37 @@ const createBanner = (data) => {
   trackName.textContent = `${data.title}`;
   artistName.textContent = `${data.artist.name}`;
   albumCover.src = `${data.cover_medium}`;
-  console.log(albumCover);
 
+  // play-pause btn
   playBtn.addEventListener("click", function () {
     if (audioElement.paused) {
       audioElement.play();
       playerBar.classList.remove("d-none");
+      playStopPlayer.innerHTML = `
+      <i class="bi bi-pause-circle-fill"></i>
+      `;
     } else {
       audioElement.pause();
+      playStopPlayer.innerHTML = `
+      <i class="bi bi-play-circle-fill"></i>
+      `;
     }
   });
+  playStopPlayer.innerHTML = `
+      <i class="bi bi-play-circle-fill"></i>
+      `;
 
   playStopPlayer.addEventListener("click", function () {
     if (audioElement.paused) {
       audioElement.play();
-      playerBar.classList.remove("d-none");
+      playStopPlayer.innerHTML = `
+      <i class="bi bi-pause-circle-fill"></i>
+      `;
     } else {
       audioElement.pause();
+      playStopPlayer.innerHTML = `
+      <i class="bi bi-play-circle-fill"></i>
+      `;
     }
   });
 
@@ -134,25 +148,49 @@ const createBanner = (data) => {
     playerBar.classList.remove("d-none");
   });
 
+  // progress bar
   const progressContainer = document.getElementById("progress-container");
   const progressBar = document.getElementById("progress-bar");
 
-  audioElement.addEventListener("timeupdate", updateProgressBar);
-
-  progressContainer.addEventListener("click", setAudioProgress);
-
-  function updateProgressBar() {
+  const updateProgressBar = () => {
     const duration = audioElement.duration;
     const currentTime = audioElement.currentTime;
     const progressPercentage = (currentTime / duration) * 100;
     progressBar.style.width = `${progressPercentage}%`;
-  }
+  };
 
-  function setAudioProgress(e) {
+  const setAudioProgress = (e) => {
     const clickX = e.clientX - progressContainer.getBoundingClientRect().left;
     const containerWidth = progressContainer.clientWidth;
     const progressPercentage = (clickX / containerWidth) * 100;
     audioElement.currentTime =
       (progressPercentage / 100) * audioElement.duration;
-  }
+  };
+
+  audioElement.addEventListener("timeupdate", updateProgressBar);
+  progressContainer.addEventListener("click", setAudioProgress);
+
+  // mute btn
+  const muteBtn = document.getElementById("mute-Unmute");
+  muteBtn.innerHTML = `
+    <i class="bi bi-volume-up"></i>
+  `;
+  muteBtn.addEventListener("click", () => {
+    if (audioElement.muted) {
+      audioElement.muted = false;
+      muteBtn.innerHTML = `
+      <i class="bi bi-volume-up"></i>
+      `;
+    } else {
+      audioElement.muted = true;
+      muteBtn.innerHTML = `
+      <i class="bi bi-volume-mute"></i>
+      `;
+    }
+  });
+
+  const volumeSlider = document.getElementById("volume-slider");
+  volumeSlider.addEventListener("input", () => {
+    audioElement.volume = volumeSlider.value;
+  });
 };

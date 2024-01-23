@@ -45,21 +45,35 @@
               >
             </li>
             <li class="nav-item mt-4">
-              <a class="nav-link text-fontB50" href="#"
-                ><i class="bi bi-plus-square-fill fs-4 me-3 text-fontB50"></i>
+              <a
+                class="nav-link text-fontB50 d-flex align-items-center"
+                href="#"
+                ><i class="bi bi-plus-square-fill fs-3 me-2 text-fontB50"></i>
                 Crea playlist</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-fontB50" href="#"
-                ><img src="./assets/imgIcon/heart.png" alt="heart icon" /> Brani
-                che ti piacciono</a
+              <a
+                class="nav-link text-fontB50 d-flex align-items-center"
+                href="#"
+                ><img
+                  src="./assets/imgIcon/heart.png"
+                  alt="heart icon"
+                  class="me-2"
+                />
+                Brani che ti piacciono</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-fontB50" href="#"
-                ><img src="./assets/imgIcon/Saved.png" alt="saved icon" /> I
-                tuoi episodi</a
+              <a
+                class="nav-link text-fontB50 d-flex align-items-center"
+                href="#"
+                ><img
+                  src="./assets/imgIcon/Saved.png"
+                  alt="saved icon"
+                  class="me-2"
+                />
+                I tuoi episodi</a
               >
             </li>
           </ul>
@@ -330,8 +344,10 @@
                 class="card-img-top rounded-3 shadowB"
                 alt="card image"
               />
+              <i class="bi bi-play-circle-fill"></i>
               <div class="card-body">
                 <h5 class="card-title">Allenamento a Casa</h5>
+
                 <p class="card-text text-fontB">
                   Per darti la giusta energia per affrontrare il tui allenamenti
                 </p>
@@ -603,35 +619,37 @@
     <div id="player-bar" class="overlay z-2 bg-grigino text-light d-none">
       <div class="container-fluid">
         <div class="row">
-          <div class="col d-flex align-items-center">
+          <div class="col d-flex align-items-center p-2">
             <img
               src="./assets/imgs/main/image-14.jpg"
               alt=""
-              height="100px"
+              height="70px"
               id="album-cover"
+              class="rounded-2"
             />
-            <div class="d-flex flex-column">
-              <p id="song-name"></p>
-              <p id="artist-name"></p>
+            <div class="d-flex flex-column ms-3">
+              <p id="song-name" class="mt-3 mb-0"></p>
+              <p id="artist-name" class="text-fontB"></p>
             </div>
           </div>
-          <div class="col text-center mt-3">
+          <div class="col text-center mt-3 fs-3 mb-1">
             <audio src="" id="audioDiv"></audio>
-            <div class="div">
-              <i class="bi bi-arrow-bar-left"></i>
-              <i class="bi bi-play-circle-fill" id="play-playerBar"></i>
-              <i class="bi bi-arrow-bar-right"></i>
+            <div class="div d-flex justify-content-center align-items-center">
+              <i class="bi bi-shuffle fs-5"></i>
+              <i class="bi bi-skip-start-fill"></i>
+              <div id="play-playerBar"></div>
+              <i class="bi bi-skip-end-fill"></i>
             </div>
             <div id="progress-container">
               <div id="progress-bar"></div>
             </div>
           </div>
-          <div class="col d-flex align-items-center justify-content-center">
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
-            <p>test</p>
+          <div class="col d-flex align-items-center justify-content-end fs-4">
+            <i class="bi bi-text-right"></i>
+            <i class="bi bi-list me-2"></i>
+            <i class="bi bi-speaker me-2"></i>
+            <div id="mute-Unmute"></div>
+            <input type="range" id="volume-slider" />
           </div>
         </div>
       </div>
