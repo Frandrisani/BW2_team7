@@ -17,7 +17,7 @@
     </header>
     <main style="font-family: Circular">
       <!-- cover artisa + info -->
-      <div class="container-fluid p-3 bg-img vh-100 z-0 position-sticky-top"  id="artist-cover">
+      <div class="container-fluid p-3 bg-img vh-100 z-0"  id="artist-cover">
         <section
           class="row d-none d-md-block d-md-flex md-justified-content-between mt-3"
           id="account"
@@ -88,7 +88,7 @@
         </section>
       </div>
       <!-- SECTION BG GRAY GRADIENT -->
-      <section class="container-fluid bg-black bg-gradient z-1 vh-100 position-relative">
+      <section class="container-fluid bg-black bg-gradient z-1">
         <!--  SHUFFLE PLAY FOLLOWING -->
         <article
           class="row flex-row-reverse flex-md-row justify-content-start align-items-center g-1"
@@ -132,7 +132,7 @@
             <h2>Popolari</h2>
             <div class="col-8 d-flex flex-wrap justify-content-evenly align-items-center">
               <h3>1</h3>
-            <img src="" class="img-thumbnail" alt="...">
+            <img src="" class="img-thumbnail" alt="album-cover">
             <h4>Track</h4>
             <i class="bi bi-three-dots-vertical text-fontB50 fs-1 d-sm-none"></i>
             <h5>156148469</h5>
@@ -141,11 +141,13 @@
           </div>
           <div class="col-12 col-md-4 d-flex flex-column align-items-start mt-3 text-fontB"id="brani preferiti">
             <h2>Brani che ti piacciono</h2>
-            <div class="col-8 d-flex justify-content-evenly align-items-center">
-            <img src="" class="img-thumbnail" alt="...">
-            <h5>Hai messo mi piace a brani</h5>
+            <img src="" class="img-thumbnail rounded-circle position-relative" alt="artist-photo" id="artist-circular">
+            <div class="badge bg-primary rounded-5 position-absolute top-100 start-100 translate-middle" ><i class="bi bi-heart-fill text-fontB"></i>
+            </div>
+            <div class="col-8 d-flex flex-column align-items-start">
+            <h5>Hai messo mi piace a <span id="likes-num"></span> brani</h5>
+            <h6 id="by-artist">di Yellowjackets</h6>
           </div>
-            <h6 class="align-self-center">di Yellowjackets</h6>
           </div>
         <article>
       </section>

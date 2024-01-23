@@ -3,11 +3,20 @@ const artistCover = document.getElementById("artist-cover");
 const artistName = document.getElementById("artist-name");
 const artistListeners = document.getElementById("nb-fan");
 const colInside = document.getElementById("traccia-album");
+const artistCircular = document.getElementById("artist-circular");
+const byArtist = document.getElementById("by-artist");
+const numberOfLikes = document.getElementById("likes-num");
 
 //funzione svuota col
 const emptyCol = () => {
   colInside.innerHTML = ``;
 };
+//funzione random mi piace
+const randomLikes = () => {
+  let likes = Math.ceil(Math.random() * 11);
+  numberOfLikes.innerText = `${likes}`;
+};
+
 //funzione tracklist
 const gettingTracks = (tracks) => {
   tracks.forEach((track, i) => {
@@ -57,6 +66,10 @@ fetch(`${artistURL}/${artistID}`)
     artistCover.style.backgroundSize = "cover";
     artistName.innerText = artist.name;
     artistListeners.innerText = artist.nb_fan;
+    artistCircular.src = `${artist.picture}`;
+    byArtist.innerText = `di ${artist.name}`;
+    //richaimo funzione per dare like a random
+    randomLikes();
 
     // faccio fetch dell'api nell'api
     const artistTracklist = artist.tracklist;
