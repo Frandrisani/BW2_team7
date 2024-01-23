@@ -1,4 +1,10 @@
 @charset "UTF-8";
+.sideBarIcon {
+  margin-right: 14px;
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+
 #friendActivityButton {
   right: 20px;
   top: 10px;
@@ -54,6 +60,28 @@
   box-shadow: 0px 10px 15px 4px #1b1b1b;
 }
 
+button {
+  color: #920505;
+}
+
+button:hover {
+  color: #1EB253 !important;
+}
+
+#player {
+  z-index: 9999;
+}
+
+#playButton,
+#playButtonMini {
+  transition: 600ms;
+}
+#playButton:hover,
+#playButtonMini:hover {
+  transform: scale(1.2);
+  transition: 500ms;
+}
+
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors
@@ -97,6 +125,7 @@
   --bs-black: #060606;
   --bs-fontB50: rgba(209, 209, 209, 0.7);
   --bs-badgeBlue: #4485d6;
+  --bs-playerButtonColor: rgba(138, 138, 138, 0.836);
   --bs-primary-rgb: 30, 178, 83;
   --bs-secondary-rgb: 24, 24, 24;
   --bs-success-rgb: 25, 135, 84;
@@ -110,6 +139,7 @@
   --bs-black-rgb: 6, 6, 6;
   --bs-fontB50-rgb: 209, 209, 209;
   --bs-badgeBlue-rgb: 68, 133, 214;
+  --bs-playerButtonColor-rgb: 138, 138, 138;
   --bs-primary-text-emphasis: #052c65;
   --bs-secondary-text-emphasis: #2b2f32;
   --bs-success-text-emphasis: #0a3622;
@@ -3292,6 +3322,23 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: #4485d6;
 }
 
+.btn-playerButtonColor {
+  --bs-btn-color: #000;
+  --bs-btn-bg: rgba(138, 138, 138, 0.836);
+  --bs-btn-border-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: rgba(161, 161, 161, 0.8606);
+  --bs-btn-hover-border-color: rgba(154, 154, 154, 0.8524);
+  --bs-btn-focus-shadow-rgb: 111, 111, 111;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: rgba(168, 168, 168, 0.8688);
+  --bs-btn-active-border-color: rgba(154, 154, 154, 0.8524);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: rgba(138, 138, 138, 0.836);
+  --bs-btn-disabled-border-color: rgba(138, 138, 138, 0.836);
+}
+
 .btn-outline-primary {
   --bs-btn-color: #1EB253;
   --bs-btn-border-color: #1EB253;
@@ -3510,6 +3557,23 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: #4485d6;
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: #4485d6;
+  --bs-gradient: none;
+}
+
+.btn-outline-playerButtonColor {
+  --bs-btn-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-border-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: rgba(138, 138, 138, 0.836);
+  --bs-btn-hover-border-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-focus-shadow-rgb: 138, 138, 138;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: rgba(138, 138, 138, 0.836);
+  --bs-btn-active-border-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: rgba(138, 138, 138, 0.836);
   --bs-gradient: none;
 }
 
@@ -5175,6 +5239,13 @@ textarea.form-control-lg {
   --bs-alert-link-color: var(--bs-badgeBlue-text-emphasis);
 }
 
+.alert-playerButtonColor {
+  --bs-alert-color: var(--bs-playerButtonColor-text-emphasis);
+  --bs-alert-bg: var(--bs-playerButtonColor-bg-subtle);
+  --bs-alert-border-color: var(--bs-playerButtonColor-border-subtle);
+  --bs-alert-link-color: var(--bs-playerButtonColor-text-emphasis);
+}
+
 @keyframes progress-bar-stripes {
   0% {
     background-position-x: 1rem;
@@ -5643,6 +5714,19 @@ textarea.form-control-lg {
   --bs-list-group-active-color: var(--bs-badgeBlue-bg-subtle);
   --bs-list-group-active-bg: var(--bs-badgeBlue-text-emphasis);
   --bs-list-group-active-border-color: var(--bs-badgeBlue-text-emphasis);
+}
+
+.list-group-item-playerButtonColor {
+  --bs-list-group-color: var(--bs-playerButtonColor-text-emphasis);
+  --bs-list-group-bg: var(--bs-playerButtonColor-bg-subtle);
+  --bs-list-group-border-color: var(--bs-playerButtonColor-border-subtle);
+  --bs-list-group-action-hover-color: var(--bs-emphasis-color);
+  --bs-list-group-action-hover-bg: var(--bs-playerButtonColor-border-subtle);
+  --bs-list-group-action-active-color: var(--bs-emphasis-color);
+  --bs-list-group-action-active-bg: var(--bs-playerButtonColor-border-subtle);
+  --bs-list-group-active-color: var(--bs-playerButtonColor-bg-subtle);
+  --bs-list-group-active-bg: var(--bs-playerButtonColor-text-emphasis);
+  --bs-list-group-active-border-color: var(--bs-playerButtonColor-text-emphasis);
 }
 
 .btn-close {
@@ -7206,6 +7290,11 @@ textarea.form-control-lg {
   background-color: RGBA(var(--bs-badgeBlue-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
+.text-bg-playerButtonColor {
+  color: #000 !important;
+  background-color: RGBA(var(--bs-playerButtonColor-rgb), var(--bs-bg-opacity, 1)) !important;
+}
+
 .link-primary {
   color: RGBA(var(--bs-primary-rgb), var(--bs-link-opacity, 1)) !important;
   text-decoration-color: RGBA(var(--bs-primary-rgb), var(--bs-link-underline-opacity, 1)) !important;
@@ -7321,6 +7410,15 @@ textarea.form-control-lg {
 .link-badgeBlue:hover, .link-badgeBlue:focus {
   color: RGBA(105, 157, 222, var(--bs-link-opacity, 1)) !important;
   text-decoration-color: RGBA(105, 157, 222, var(--bs-link-underline-opacity, 1)) !important;
+}
+
+.link-playerButtonColor {
+  color: RGBA(var(--bs-playerButtonColor-rgb), var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(var(--bs-playerButtonColor-rgb), var(--bs-link-underline-opacity, 1)) !important;
+}
+.link-playerButtonColor:hover, .link-playerButtonColor:focus {
+  color: RGBA(168, 168, 168, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(168, 168, 168, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-body-emphasis {
@@ -7779,6 +7877,10 @@ textarea.form-control-lg {
   --bs-focus-ring-color: rgba(var(--bs-badgeBlue-rgb), var(--bs-focus-ring-opacity));
 }
 
+.focus-ring-playerButtonColor {
+  --bs-focus-ring-color: rgba(var(--bs-playerButtonColor-rgb), var(--bs-focus-ring-opacity));
+}
+
 .position-static {
   position: static !important;
 }
@@ -7962,6 +8064,11 @@ textarea.form-control-lg {
 .border-badgeBlue {
   --bs-border-opacity: 1;
   border-color: rgba(var(--bs-badgeBlue-rgb), var(--bs-border-opacity)) !important;
+}
+
+.border-playerButtonColor {
+  --bs-border-opacity: 1;
+  border-color: rgba(var(--bs-playerButtonColor-rgb), var(--bs-border-opacity)) !important;
 }
 
 .border-white {
@@ -8941,6 +9048,11 @@ textarea.form-control-lg {
   color: rgba(var(--bs-badgeBlue-rgb), var(--bs-text-opacity)) !important;
 }
 
+.text-playerButtonColor {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-playerButtonColor-rgb), var(--bs-text-opacity)) !important;
+}
+
 .text-white {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
@@ -9163,6 +9275,11 @@ textarea.form-control-lg {
   text-decoration-color: rgba(var(--bs-badgeBlue-rgb), var(--bs-link-underline-opacity)) !important;
 }
 
+.link-underline-playerButtonColor {
+  --bs-link-underline-opacity: 1;
+  text-decoration-color: rgba(var(--bs-playerButtonColor-rgb), var(--bs-link-underline-opacity)) !important;
+}
+
 .link-underline {
   --bs-link-underline-opacity: 1;
   text-decoration-color: rgba(var(--bs-link-color-rgb), var(--bs-link-underline-opacity, 1)) !important;
@@ -9279,6 +9396,11 @@ textarea.form-control-lg {
 .bg-badgeBlue {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-badgeBlue-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-playerButtonColor {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-playerButtonColor-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-white {
