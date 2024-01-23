@@ -18,6 +18,21 @@ const randomLikes = () => {
   numberOfLikes.innerText = `${likes}`;
 };
 
+// FUNZIONE di Francesco per il minutaggio
+function convertiSecondiAMinutiESecondi(secondi) {
+  const minuti = Math.floor(secondi / 60);
+  const restantiSecondi = secondi % 60;
+  if (restantiSecondi > 59) {
+    minuti += 1;
+    restantiSecondi -= 60;
+  }
+  const formatoMinutiSecondi = `${minuti}:${
+    restantiSecondi < 10 ? "0" : ""
+  }${restantiSecondi}`;
+
+  return formatoMinutiSecondi;
+}
+
 //funzione tracklist
 const gettingTracks = (tracks) => {
   tracks.forEach((track, i) => {
@@ -43,7 +58,7 @@ const gettingTracks = (tracks) => {
                 <h5>${track.rank}</h5>
               </div>
               <div class="col d-none d-sm-block">
-                <h6>${track.duration}</h6>
+                <h6>${convertiSecondiAMinutiESecondi(track.duration)}</h6>
               </div>`;
     tracksContainer.appendChild(newRow);
     if (i > 9) {
