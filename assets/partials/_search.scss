@@ -1,3 +1,7 @@
+body {
+    font-family: 'Circular';
+}
+
 nav {
     ul{
         display: flex;
@@ -22,4 +26,17 @@ nav {
     }
 }
 
+
+main {
+    .bg-tertiary {
+        background-color: #242424;
+    }
+    .playlist{
+        img {
+            transform: rotate(30deg);
+            margin-right: -40px; 
+            margin-bottom: -25px
+        }
+    }
+}
 
