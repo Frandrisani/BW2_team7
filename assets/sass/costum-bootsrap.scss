@@ -10,12 +10,13 @@ $new-theme-colors: (
     "grigino": #292929,
     "primary" : $new-primary,
     "secondary": $new-secondary,
-    'tertiary':$new-tertiary
+    'tertiary':$new-tertiary,
     "fontB": #D2D2D2,
     "black": #060606,
     "fontB50" : rgba(209, 209, 209, 0.70),
     "badgeBlue" : #4485d6,
     "playerButtonColor": rgba(138, 138, 138, 0.836),
+    "friendFeed": rgb(175, 175, 175),
 );
 
 // FIX icone
@@ -26,7 +27,7 @@ $new-theme-colors: (
   }
 
 
-#friendActivityButton { right: 20px; top: 10px; z-index: 9999; }
+#friendActivityButton { border-radius: 50%;}
 
 #usersDropdownButton { right: 80px; top: 15px; z-index: 9999; } 
 
@@ -91,12 +92,10 @@ background: linear-gradient(45deg, rgba(6,6,6,1) 0%, rgba(246,246,246,0) 100%);
     box-shadow: 0px 10px 15px 4px #1b1b1b;
 }
 
+.friendAnchors{text-decoration: none !important; }
 
-// sezione bottoni che s'illuminano e tasto play con animazione al passaggio del cursore, (player compreso)
 
-button{color: #920505;
-
-}
+//Bottoni che s'illuminano e tasto play con animazione al passaggio del cursore, (player compreso)
 button:hover {
 	color: $new-primary !important;
 }
@@ -112,7 +111,9 @@ button:hover {
 	}
 }
 
+// .spugna{height: 100px;
 
+// }
 
 
 // ---------------------------------------------------------------------------------------------------------

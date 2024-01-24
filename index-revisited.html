@@ -14,7 +14,7 @@
   <body class="container-fluid bg-secondary">
     <div class="row">
       <!-- sidebar -->
-      <div class="col bg-black" id="sx-part">
+      <div class="col bg-black d-none d-lg-block" id="sx-part">
         <div class="d-flex flex-column">
           <ul class="nav flex-column">
             <li class="nav-item">
@@ -25,7 +25,7 @@
             <li class="nav-item">
               <a
                 class="nav-link active nav-link text-fontB50 fw-bold"
-                href="./index.html"
+                href="./index-revisited.html"
                 ><i
                   class="bi bi-house-door-fill fs-4 me-3 me-3 text-fontB50"
                 ></i>
@@ -174,7 +174,7 @@
         </div>
       </div>
       <!-- mid section -->
-      <div class="col-8 text-light mx-3" id="mid-part">
+      <div class="col-10 text-light mx-3" id="mid-part">
         <!-- mid top part -->
         <div class="nav d-flex justify-content-between mt-2">
           <div>
@@ -204,24 +204,37 @@
               >
                 <li>
                   <a class="dropdown-item active" href="#"
-                    ><b>Account </b><i class="bx bx-link-external"></i
+                    ><b>Account</b><i class="bx bx-link-external"></i
                   ></a>
                 </li>
-                <li><a class="dropdown-item" href="#">Profilo</a></li>
                 <li>
-                  <a class="dropdown-item" href="#">Sessione privata</a>
+                  <a class="dropdown-item" href="#"><b>Profilo</b></a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"><b>Sessione privata</b></a>
                 </li>
                 <li><a class="dropdown-item" href="#">Impostazioni</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item text-danger" href="#">Esci</a></li>
               </ul>
             </div>
-            <div
+            <!-- <div
               class="btn btn-group bg-black text-light rounded-circle"
               id="friendBtn"
+            > -->
+
+            <!-- attivitá amci -->
+            <button
+              id="friendActivityButton"
+              class="btn btn-dark bg-black circle border border-0"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"
             >
-              <i class="bi bi-people"></i>
-            </div>
+              <i class="bi bi-people-fill"></i>
+            </button>
+            <!-- </div> -->
           </div>
         </div>
 
@@ -268,7 +281,7 @@
                   alt="Card Image"
                 />
               </div>
-              <h5 class="col-md-9 card-title">Peacful Piano</h5>
+              <h5 class="col-md-9 card-title">Peaceful Piano</h5>
             </div>
           </div>
           <div class="col">
@@ -558,62 +571,222 @@
         </div>
       </div>
       <!-- right rection -->
-      <div class="col bg-black text-light" id="friends-section">
-        <h5 class="mt-4">Attività amici</h5>
-        <div class="row flex-column gy-4">
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-13.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
+      <div
+        class="offcanvas offcanvas-end bg-black text-white"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+        aria-modal="true"
+        role="dialog"
+      >
+        <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel" class="fs-6 fw-bold text-fontB">
+            Attività amici
+          </h5>
+          <div>
+            <button
+              type="button"
+              class="btn circle fs-6 text-light"
+              aria-label="add friend"
+            >
+              <i class="bi bi-person-add"></i>
+            </button>
+            <button
+              type="button"
+              class="btn circle fs-6 text-light"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            >
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+        </div>
+        <div class="offcanvas-body" id="friendsActivity">
+          <!-- -------------------------------------------------------------------- -->
+          <div class="container-fluid mb-4">
+            <div class="row">
+              <div class="col-2">
+                <a href="#" class="friendAnchors text-friendFeed"
+                  ><img
+                    src="./assets/friend-profile-img/james-brown-carl-gouveia.jpg"
+                    alt="friend's image"
+                    class="circle img-fluid"
+                /></a>
               </div>
-              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+              <div class="col-7">
+                <a href="#" class="friendAnchors"
+                  ><p class="m-0 fw-bold text-fontB50">James Brown</p></a
+                >
+                <p class="m-0">
+                  <a href="" class="friendAnchors text-friendFeed"
+                    ><span>Riders Of The Storm</span></a
+                  >
+                  <i class="bi bi-dot"></i>
+                  <a href="" class="friendAnchors text-friendFeed"
+                    ><span>The Doors</span></a
+                  >
+                </p>
+                <p class="m-0 fs-6 text-truncate text-friendFeed">
+                  <a href="" class="friendAnchors text-friendFeed">
+                    <i class="bi bi-disc"></i>
+                    <span>L.A. Woman (1971)</span></a
+                  >
+                </p>
+              </div>
+              <div class="col-3">
+                <p class="m-0 fs-6 text-friendFeed">2 min fa</p>
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-13.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
+          <!-- ---------------------------------------------------------------------------- -->
+          <div class="container-fluid mb-4">
+            <div class="row">
+              <div class="col-2">
+                <a href="#" class="friendAnchors text-friendFeed"
+                  ><img
+                    src="./assets/friend-profile-img/Gigi-Profile.jfif"
+                    alt="friend's image"
+                    class="circle img-fluid"
+                /></a>
               </div>
-              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+              <div class="col-7">
+                <a href="#" class="friendAnchors"
+                  ><p class="m-0 fw-bold text-fontB50">Gigi D'Alessio</p></a
+                >
+                <p class="m-0">
+                  <a href="" class="friendAnchors text-friendFeed"
+                    ><span>O'Sarracino</span></a
+                  >
+                  <i class="bi bi-dot"></i>
+                  <a href="" class="friendAnchors text-friendFeed"
+                    ><span>Renato Carosone</span></a
+                  >
+                </p>
+                <p class="m-0 fs-6 text-truncate text-friendFeed">
+                  <a href="" class="friendAnchors text-friendFeed">
+                    <i class="bi bi-disc"></i>
+                    <span>O'Sarracino singolo (1958)</span></a
+                  >
+                </p>
+              </div>
+              <div class="col-3">
+                <p class="m-0 fs-6 text-friendFeed">9 min fa</p>
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-13.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
+
+          <div class="container-fluid mb-4">
+            <div class="row">
+              <div class="col-2">
+                <a href="#" class="friendAnchors text-friendFeed"
+                  ><img
+                    src="./assets/friend-profile-img/depositphotos_609401492-stock-photo-american-singer-actress-mary-blige.jpg"
+                    alt="friend's image"
+                    class="circle img-fluid"
+                /></a>
               </div>
-              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+              <div class="col-7">
+                <a href="#" class="friendAnchors"
+                  ><p class="m-0 fw-bold text-fontB50">Mary J. Blige</p></a
+                >
+                <p class="m-0">
+                  <a href="" class="friendAnchors text-friendFeed"
+                    ><span>In Da Club </span></a
+                  >
+                  <i class="bi bi-dot"></i>
+                  <a href="" class="friendAnchors text-friendFeed"
+                    ><span>50 Cent</span></a
+                  >
+                </p>
+                <p class="m-0 fs-6 text-truncate text-friendFeed">
+                  <a href="" class="friendAnchors text-friendFeed">
+                    <i class="bi bi-disc"></i>
+                    <span>Get Rich or Die Tryin' (2003)</span></a
+                  >
+                </p>
+              </div>
+              <div class="col-3">
+                <p class="m-0 fs-6 text-friendFeed">1 ora fa</p>
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-13.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
+          <div class="container-fluid mb-4">
+            <div class="row">
+              <div class="col-2">
+                <a href="#" class="friendAnchors text-friendFeed"
+                  ><img
+                    src="./assets/friend-profile-img/Paul-Profile.jfif"
+                    alt="friend's image"
+                    class="circle img-fluid"
+                /></a>
               </div>
-              <h5 class="col-md-9 card-title mt-3">Card Title</h5>
+              <div class="col-7">
+                <a href="#" class="friendAnchors"
+                  ><p class="m-0 fw-bold text-fontB50">Paul McCartney</p></a
+                >
+                <p class="m-0">
+                  <a href="" class="friendAnchors text-friendFeed"
+                    ><span>Paint It, Black</span></a
+                  >
+                  <i class="bi bi-dot"></i>
+                  <a href="" class="friendAnchors text-friendFeed"
+                    ><span>The Rolling Stones</span></a
+                  >
+                </p>
+                <p class="m-0 fs-6 text-truncate text-friendFeed">
+                  <a href="" class="friendAnchors text-friendFeed">
+                    <i class="bi bi-disc"></i>
+                    <span>Aftermath (1966)</span></a
+                  >
+                </p>
+              </div>
+              <div class="col-3">
+                <p class="m-0 fs-6 text-friendFeed">3 ore fa</p>
+              </div>
             </div>
           </div>
+          <div class="container-fluid mb-4">
+            <div class="row">
+              <div class="col-2">
+                <a href="#" class="friendAnchors text-friendFeed"
+                  ><img
+                    src="./assets/friend-profile-img/stevie-wonder-manish-mansinh.jpg"
+                    alt="friend's image"
+                    class="circle img-fluid"
+                /></a>
+              </div>
+              <div class="col-7">
+                <a href="#" class="friendAnchors"
+                  ><p class="m-0 fw-bold text-fontB50">Stevie Wonder</p></a
+                >
+                <p class="m-0">
+                  <a href="" class="friendAnchors text-friendFeed"
+                    ><span>Never Too Much</span></a
+                  >
+                  <i class="bi bi-dot"></i>
+                  <a href="" class="friendAnchors text-friendFeed"
+                    ><span>Luther Vandross</span></a
+                  >
+                </p>
+                <p class="m-0 fs-6 text-truncate text-friendFeed">
+                  <a href="" class="friendAnchors text-friendFeed">
+                    <i class="bi bi-disc"></i>
+                    <span>Black Music Lounge, Pt.3 (1981)</span></a
+                  >
+                </p>
+              </div>
+              <div class="col-3">
+                <p class="m-0 fs-6 text-friendFeed">6 ore fa</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- -------------------------------------------------------------------------->
         </div>
       </div>
     </div>
 
-    <!-- Sezione in fondo alla pagina (Bottomo-song-player) -->
+    <!-- Sezione in fondo alla pagina (Bottom-player) -->
     <div
       class="container-fluid d-none d-md-block bg-black text-playerButtonColor pe-4"
       id="songPlayer"
@@ -690,49 +863,67 @@
     </div>
 
     <!-- BOTTOM PLAYER--schermi piccoli(responsive) --->
-    <div id="playerMini" class="d-md-none py-3 mx-1 fs-8 rounded-3 row">
+    <div
+      id="playerMini"
+      class="d-md-none container-fluid bg-black bg-opacity-50 py-3 fs-8 rounded-3 row fixed-bottom start-0 end-0 m-0 p-0"
+      style="z-index: 2; bottom: 105px"
+    >
       <div id="playerMiniData" class="col-7 d-flex">
-        <div class="fs-6 pe-3">
-          <a href="#"
-            ><p class="my-0 fw-bold text-white">Fat Funny Friend</p></a
+        <div class="fs-6 pe-3 text-white">
+          <a href="#" class="nav-link text-decoration-none"
+            ><p class="my-0 fw-bold">Fat Funny Friend</p></a
           >
-          <a href="#"><p class="my-0">Maddie Zahm</p></a>
+          <a href="#" class="nav-link text-decoration-none"
+            ><p class="my-0">Maddie Zahm</p></a
+          >
         </div>
       </div>
 
       <div class="col-5 px-0 d-flex justify-content-end">
-        <button type="button" class="btn text-secondary p-0">
+        <button type="button" class="btn text-fontB p-0">
           <i class="bi bi-speaker pe-3"></i>
         </button>
-        <button type="button" class="btn text-secondary p-0">
+        <button type="button" class="btn text-fontB p-0">
           <i class="bi bi-heart pe-3"></i>
         </button>
         <button
           id="playButtonMini"
           type="button"
-          class="btn text-secondary p-0 playButtonClass"
+          class="btn text-light p-0 playButtonClass"
         >
-          <i class="bi bi-play-circle-fill me-4 fs-1 text-white"></i>
+          <i class="bi bi-play-circle-fill me-4 fs-1 text-fontB"></i>
         </button>
       </div>
     </div>
+    <!-- <div class="spugna d-md-none"></div> -->
 
     <!-- BOTTOM NAVBAR--schermi piccoli(responsive) -->
-    <div class="d-md-none row bg-black py-4 fs-8">
+    <div
+      class="d-md-none row bg-black opacity-50 py-4 fs-8 fixed-bottom start-0 end-0 text-white"
+    >
       <div class="col-4">
-        <a class="d-flex flex-column align-items-center" href="./index.html">
-          <i class="bi bi-house-door fs-3"> </i>Home</a
+        <a
+          class="d-flex flex-column align-items-center nav-link text-light"
+          href="./index-revisited.html"
         >
+          <i class="bi bi-house-door fs-3"></i>Home
+        </a>
       </div>
       <div class="col-4">
-        <a class="d-flex flex-column align-items-center" href="#"
-          ><i class="bi bi-search fs-3"></i>Cerca</a
+        <a
+          class="d-flex flex-column align-items-center nav-link text-light"
+          href="#"
         >
+          <i class="bi bi-search fs-3"></i>Cerca
+        </a>
       </div>
       <div class="col-4">
-        <a class="d-flex flex-column align-items-center" href="#"
-          ><i class="bi bi-collection fs-3"></i>La tua libreria</a
+        <a
+          class="d-flex flex-column align-items-center nav-link text-light"
+          href="#"
         >
+          <i class="bi bi-collection fs-3"></i>La tua libreria
+        </a>
       </div>
     </div>
 
