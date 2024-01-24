@@ -1,8 +1,12 @@
 @charset "UTF-8";
+.sideBarIcon {
+  margin-right: 14px;
+  margin-bottom: 8px;
+  margin-top: 2px;
+}
+
 #friendActivityButton {
-  right: 20px;
-  top: 10px;
-  z-index: 9999;
+  border-radius: 50%;
 }
 
 #usersDropdownButton {
@@ -184,10 +188,13 @@
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
   --bs-grigino: #292929;
+  --bs-tertiary: #242424;
   --bs-fontB: #D2D2D2;
   --bs-black: #060606;
   --bs-fontB50: rgba(209, 209, 209, 0.7);
   --bs-badgeBlue: #4485d6;
+  --bs-playerButtonColor: rgba(138, 138, 138, 0.836);
+  --bs-friendFeed: rgb(175, 175, 175);
   --bs-primary-rgb: 30, 178, 83;
   --bs-secondary-rgb: 24, 24, 24;
   --bs-success-rgb: 25, 135, 84;
@@ -197,10 +204,13 @@
   --bs-light-rgb: 248, 249, 250;
   --bs-dark-rgb: 33, 37, 41;
   --bs-grigino-rgb: 41, 41, 41;
+  --bs-tertiary-rgb: 36, 36, 36;
   --bs-fontB-rgb: 210, 210, 210;
   --bs-black-rgb: 6, 6, 6;
   --bs-fontB50-rgb: 209, 209, 209;
   --bs-badgeBlue-rgb: 68, 133, 214;
+  --bs-playerButtonColor-rgb: 138, 138, 138;
+  --bs-friendFeed-rgb: 175, 175, 175;
   --bs-primary-text-emphasis: #052c65;
   --bs-secondary-text-emphasis: #2b2f32;
   --bs-success-text-emphasis: #0a3622;
@@ -3315,6 +3325,23 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: #292929;
 }
 
+.btn-tertiary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #242424;
+  --bs-btn-border-color: #242424;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #1f1f1f;
+  --bs-btn-hover-border-color: #1d1d1d;
+  --bs-btn-focus-shadow-rgb: 69, 69, 69;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #1d1d1d;
+  --bs-btn-active-border-color: #1b1b1b;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #242424;
+  --bs-btn-disabled-border-color: #242424;
+}
+
 .btn-fontB {
   --bs-btn-color: #000;
   --bs-btn-bg: #D2D2D2;
@@ -3381,6 +3408,40 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: #000;
   --bs-btn-disabled-bg: #4485d6;
   --bs-btn-disabled-border-color: #4485d6;
+}
+
+.btn-playerButtonColor {
+  --bs-btn-color: #000;
+  --bs-btn-bg: rgba(138, 138, 138, 0.836);
+  --bs-btn-border-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: rgba(161, 161, 161, 0.8606);
+  --bs-btn-hover-border-color: rgba(154, 154, 154, 0.8524);
+  --bs-btn-focus-shadow-rgb: 111, 111, 111;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: rgba(168, 168, 168, 0.8688);
+  --bs-btn-active-border-color: rgba(154, 154, 154, 0.8524);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: rgba(138, 138, 138, 0.836);
+  --bs-btn-disabled-border-color: rgba(138, 138, 138, 0.836);
+}
+
+.btn-friendFeed {
+  --bs-btn-color: #000;
+  --bs-btn-bg: rgb(175, 175, 175);
+  --bs-btn-border-color: rgb(175, 175, 175);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #bbbbbb;
+  --bs-btn-hover-border-color: #b7b7b7;
+  --bs-btn-focus-shadow-rgb: 149, 149, 149;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #bfbfbf;
+  --bs-btn-active-border-color: #b7b7b7;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-bg: rgb(175, 175, 175);
+  --bs-btn-disabled-border-color: rgb(175, 175, 175);
 }
 
 .btn-outline-primary {
@@ -3536,6 +3597,23 @@ textarea.form-control-lg {
   --bs-gradient: none;
 }
 
+.btn-outline-tertiary {
+  --bs-btn-color: #242424;
+  --bs-btn-border-color: #242424;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #242424;
+  --bs-btn-hover-border-color: #242424;
+  --bs-btn-focus-shadow-rgb: 36, 36, 36;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #242424;
+  --bs-btn-active-border-color: #242424;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #242424;
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #242424;
+  --bs-gradient: none;
+}
+
 .btn-outline-fontB {
   --bs-btn-color: #D2D2D2;
   --bs-btn-border-color: #D2D2D2;
@@ -3601,6 +3679,40 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: #4485d6;
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: #4485d6;
+  --bs-gradient: none;
+}
+
+.btn-outline-playerButtonColor {
+  --bs-btn-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-border-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: rgba(138, 138, 138, 0.836);
+  --bs-btn-hover-border-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-focus-shadow-rgb: 138, 138, 138;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: rgba(138, 138, 138, 0.836);
+  --bs-btn-active-border-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: rgba(138, 138, 138, 0.836);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: rgba(138, 138, 138, 0.836);
+  --bs-gradient: none;
+}
+
+.btn-outline-friendFeed {
+  --bs-btn-color: rgb(175, 175, 175);
+  --bs-btn-border-color: rgb(175, 175, 175);
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: rgb(175, 175, 175);
+  --bs-btn-hover-border-color: rgb(175, 175, 175);
+  --bs-btn-focus-shadow-rgb: 175, 175, 175;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: rgb(175, 175, 175);
+  --bs-btn-active-border-color: rgb(175, 175, 175);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: rgb(175, 175, 175);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: rgb(175, 175, 175);
   --bs-gradient: none;
 }
 
@@ -5238,6 +5350,13 @@ textarea.form-control-lg {
   --bs-alert-link-color: var(--bs-grigino-text-emphasis);
 }
 
+.alert-tertiary {
+  --bs-alert-color: var(--bs-tertiary-text-emphasis);
+  --bs-alert-bg: var(--bs-tertiary-bg-subtle);
+  --bs-alert-border-color: var(--bs-tertiary-border-subtle);
+  --bs-alert-link-color: var(--bs-tertiary-text-emphasis);
+}
+
 .alert-fontB {
   --bs-alert-color: var(--bs-fontB-text-emphasis);
   --bs-alert-bg: var(--bs-fontB-bg-subtle);
@@ -5264,6 +5383,20 @@ textarea.form-control-lg {
   --bs-alert-bg: var(--bs-badgeBlue-bg-subtle);
   --bs-alert-border-color: var(--bs-badgeBlue-border-subtle);
   --bs-alert-link-color: var(--bs-badgeBlue-text-emphasis);
+}
+
+.alert-playerButtonColor {
+  --bs-alert-color: var(--bs-playerButtonColor-text-emphasis);
+  --bs-alert-bg: var(--bs-playerButtonColor-bg-subtle);
+  --bs-alert-border-color: var(--bs-playerButtonColor-border-subtle);
+  --bs-alert-link-color: var(--bs-playerButtonColor-text-emphasis);
+}
+
+.alert-friendFeed {
+  --bs-alert-color: var(--bs-friendFeed-text-emphasis);
+  --bs-alert-bg: var(--bs-friendFeed-bg-subtle);
+  --bs-alert-border-color: var(--bs-friendFeed-border-subtle);
+  --bs-alert-link-color: var(--bs-friendFeed-text-emphasis);
 }
 
 @keyframes progress-bar-stripes {
@@ -5684,6 +5817,19 @@ textarea.form-control-lg {
   --bs-list-group-active-border-color: var(--bs-grigino-text-emphasis);
 }
 
+.list-group-item-tertiary {
+  --bs-list-group-color: var(--bs-tertiary-text-emphasis);
+  --bs-list-group-bg: var(--bs-tertiary-bg-subtle);
+  --bs-list-group-border-color: var(--bs-tertiary-border-subtle);
+  --bs-list-group-action-hover-color: var(--bs-emphasis-color);
+  --bs-list-group-action-hover-bg: var(--bs-tertiary-border-subtle);
+  --bs-list-group-action-active-color: var(--bs-emphasis-color);
+  --bs-list-group-action-active-bg: var(--bs-tertiary-border-subtle);
+  --bs-list-group-active-color: var(--bs-tertiary-bg-subtle);
+  --bs-list-group-active-bg: var(--bs-tertiary-text-emphasis);
+  --bs-list-group-active-border-color: var(--bs-tertiary-text-emphasis);
+}
+
 .list-group-item-fontB {
   --bs-list-group-color: var(--bs-fontB-text-emphasis);
   --bs-list-group-bg: var(--bs-fontB-bg-subtle);
@@ -5734,6 +5880,32 @@ textarea.form-control-lg {
   --bs-list-group-active-color: var(--bs-badgeBlue-bg-subtle);
   --bs-list-group-active-bg: var(--bs-badgeBlue-text-emphasis);
   --bs-list-group-active-border-color: var(--bs-badgeBlue-text-emphasis);
+}
+
+.list-group-item-playerButtonColor {
+  --bs-list-group-color: var(--bs-playerButtonColor-text-emphasis);
+  --bs-list-group-bg: var(--bs-playerButtonColor-bg-subtle);
+  --bs-list-group-border-color: var(--bs-playerButtonColor-border-subtle);
+  --bs-list-group-action-hover-color: var(--bs-emphasis-color);
+  --bs-list-group-action-hover-bg: var(--bs-playerButtonColor-border-subtle);
+  --bs-list-group-action-active-color: var(--bs-emphasis-color);
+  --bs-list-group-action-active-bg: var(--bs-playerButtonColor-border-subtle);
+  --bs-list-group-active-color: var(--bs-playerButtonColor-bg-subtle);
+  --bs-list-group-active-bg: var(--bs-playerButtonColor-text-emphasis);
+  --bs-list-group-active-border-color: var(--bs-playerButtonColor-text-emphasis);
+}
+
+.list-group-item-friendFeed {
+  --bs-list-group-color: var(--bs-friendFeed-text-emphasis);
+  --bs-list-group-bg: var(--bs-friendFeed-bg-subtle);
+  --bs-list-group-border-color: var(--bs-friendFeed-border-subtle);
+  --bs-list-group-action-hover-color: var(--bs-emphasis-color);
+  --bs-list-group-action-hover-bg: var(--bs-friendFeed-border-subtle);
+  --bs-list-group-action-active-color: var(--bs-emphasis-color);
+  --bs-list-group-action-active-bg: var(--bs-friendFeed-border-subtle);
+  --bs-list-group-active-color: var(--bs-friendFeed-bg-subtle);
+  --bs-list-group-active-bg: var(--bs-friendFeed-text-emphasis);
+  --bs-list-group-active-border-color: var(--bs-friendFeed-text-emphasis);
 }
 
 .btn-close {
@@ -7277,6 +7449,11 @@ textarea.form-control-lg {
   background-color: RGBA(var(--bs-grigino-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
+.text-bg-tertiary {
+  color: #fff !important;
+  background-color: RGBA(var(--bs-tertiary-rgb), var(--bs-bg-opacity, 1)) !important;
+}
+
 .text-bg-fontB {
   color: #000 !important;
   background-color: RGBA(var(--bs-fontB-rgb), var(--bs-bg-opacity, 1)) !important;
@@ -7295,6 +7472,16 @@ textarea.form-control-lg {
 .text-bg-badgeBlue {
   color: #000 !important;
   background-color: RGBA(var(--bs-badgeBlue-rgb), var(--bs-bg-opacity, 1)) !important;
+}
+
+.text-bg-playerButtonColor {
+  color: #000 !important;
+  background-color: RGBA(var(--bs-playerButtonColor-rgb), var(--bs-bg-opacity, 1)) !important;
+}
+
+.text-bg-friendFeed {
+  color: #000 !important;
+  background-color: RGBA(var(--bs-friendFeed-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
 .link-primary {
@@ -7378,6 +7565,15 @@ textarea.form-control-lg {
   text-decoration-color: RGBA(33, 33, 33, var(--bs-link-underline-opacity, 1)) !important;
 }
 
+.link-tertiary {
+  color: RGBA(var(--bs-tertiary-rgb), var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(var(--bs-tertiary-rgb), var(--bs-link-underline-opacity, 1)) !important;
+}
+.link-tertiary:hover, .link-tertiary:focus {
+  color: RGBA(29, 29, 29, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(29, 29, 29, var(--bs-link-underline-opacity, 1)) !important;
+}
+
 .link-fontB {
   color: RGBA(var(--bs-fontB-rgb), var(--bs-link-opacity, 1)) !important;
   text-decoration-color: RGBA(var(--bs-fontB-rgb), var(--bs-link-underline-opacity, 1)) !important;
@@ -7412,6 +7608,24 @@ textarea.form-control-lg {
 .link-badgeBlue:hover, .link-badgeBlue:focus {
   color: RGBA(105, 157, 222, var(--bs-link-opacity, 1)) !important;
   text-decoration-color: RGBA(105, 157, 222, var(--bs-link-underline-opacity, 1)) !important;
+}
+
+.link-playerButtonColor {
+  color: RGBA(var(--bs-playerButtonColor-rgb), var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(var(--bs-playerButtonColor-rgb), var(--bs-link-underline-opacity, 1)) !important;
+}
+.link-playerButtonColor:hover, .link-playerButtonColor:focus {
+  color: RGBA(168, 168, 168, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(168, 168, 168, var(--bs-link-underline-opacity, 1)) !important;
+}
+
+.link-friendFeed {
+  color: RGBA(var(--bs-friendFeed-rgb), var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(var(--bs-friendFeed-rgb), var(--bs-link-underline-opacity, 1)) !important;
+}
+.link-friendFeed:hover, .link-friendFeed:focus {
+  color: RGBA(191, 191, 191, var(--bs-link-opacity, 1)) !important;
+  text-decoration-color: RGBA(191, 191, 191, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-body-emphasis {
@@ -7854,6 +8068,10 @@ textarea.form-control-lg {
   --bs-focus-ring-color: rgba(var(--bs-grigino-rgb), var(--bs-focus-ring-opacity));
 }
 
+.focus-ring-tertiary {
+  --bs-focus-ring-color: rgba(var(--bs-tertiary-rgb), var(--bs-focus-ring-opacity));
+}
+
 .focus-ring-fontB {
   --bs-focus-ring-color: rgba(var(--bs-fontB-rgb), var(--bs-focus-ring-opacity));
 }
@@ -7868,6 +8086,14 @@ textarea.form-control-lg {
 
 .focus-ring-badgeBlue {
   --bs-focus-ring-color: rgba(var(--bs-badgeBlue-rgb), var(--bs-focus-ring-opacity));
+}
+
+.focus-ring-playerButtonColor {
+  --bs-focus-ring-color: rgba(var(--bs-playerButtonColor-rgb), var(--bs-focus-ring-opacity));
+}
+
+.focus-ring-friendFeed {
+  --bs-focus-ring-color: rgba(var(--bs-friendFeed-rgb), var(--bs-focus-ring-opacity));
 }
 
 .position-static {
@@ -8035,6 +8261,11 @@ textarea.form-control-lg {
   border-color: rgba(var(--bs-grigino-rgb), var(--bs-border-opacity)) !important;
 }
 
+.border-tertiary {
+  --bs-border-opacity: 1;
+  border-color: rgba(var(--bs-tertiary-rgb), var(--bs-border-opacity)) !important;
+}
+
 .border-fontB {
   --bs-border-opacity: 1;
   border-color: rgba(var(--bs-fontB-rgb), var(--bs-border-opacity)) !important;
@@ -8053,6 +8284,16 @@ textarea.form-control-lg {
 .border-badgeBlue {
   --bs-border-opacity: 1;
   border-color: rgba(var(--bs-badgeBlue-rgb), var(--bs-border-opacity)) !important;
+}
+
+.border-playerButtonColor {
+  --bs-border-opacity: 1;
+  border-color: rgba(var(--bs-playerButtonColor-rgb), var(--bs-border-opacity)) !important;
+}
+
+.border-friendFeed {
+  --bs-border-opacity: 1;
+  border-color: rgba(var(--bs-friendFeed-rgb), var(--bs-border-opacity)) !important;
 }
 
 .border-white {
@@ -9012,6 +9253,11 @@ textarea.form-control-lg {
   color: rgba(var(--bs-grigino-rgb), var(--bs-text-opacity)) !important;
 }
 
+.text-tertiary {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-tertiary-rgb), var(--bs-text-opacity)) !important;
+}
+
 .text-fontB {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-fontB-rgb), var(--bs-text-opacity)) !important;
@@ -9030,6 +9276,16 @@ textarea.form-control-lg {
 .text-badgeBlue {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-badgeBlue-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-playerButtonColor {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-playerButtonColor-rgb), var(--bs-text-opacity)) !important;
+}
+
+.text-friendFeed {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-friendFeed-rgb), var(--bs-text-opacity)) !important;
 }
 
 .text-white {
@@ -9234,6 +9490,11 @@ textarea.form-control-lg {
   text-decoration-color: rgba(var(--bs-grigino-rgb), var(--bs-link-underline-opacity)) !important;
 }
 
+.link-underline-tertiary {
+  --bs-link-underline-opacity: 1;
+  text-decoration-color: rgba(var(--bs-tertiary-rgb), var(--bs-link-underline-opacity)) !important;
+}
+
 .link-underline-fontB {
   --bs-link-underline-opacity: 1;
   text-decoration-color: rgba(var(--bs-fontB-rgb), var(--bs-link-underline-opacity)) !important;
@@ -9252,6 +9513,16 @@ textarea.form-control-lg {
 .link-underline-badgeBlue {
   --bs-link-underline-opacity: 1;
   text-decoration-color: rgba(var(--bs-badgeBlue-rgb), var(--bs-link-underline-opacity)) !important;
+}
+
+.link-underline-playerButtonColor {
+  --bs-link-underline-opacity: 1;
+  text-decoration-color: rgba(var(--bs-playerButtonColor-rgb), var(--bs-link-underline-opacity)) !important;
+}
+
+.link-underline-friendFeed {
+  --bs-link-underline-opacity: 1;
+  text-decoration-color: rgba(var(--bs-friendFeed-rgb), var(--bs-link-underline-opacity)) !important;
 }
 
 .link-underline {
@@ -9352,6 +9623,11 @@ textarea.form-control-lg {
   background-color: rgba(var(--bs-grigino-rgb), var(--bs-bg-opacity)) !important;
 }
 
+.bg-tertiary {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-tertiary-rgb), var(--bs-bg-opacity)) !important;
+}
+
 .bg-fontB {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-fontB-rgb), var(--bs-bg-opacity)) !important;
@@ -9370,6 +9646,16 @@ textarea.form-control-lg {
 .bg-badgeBlue {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-badgeBlue-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-playerButtonColor {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-playerButtonColor-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-friendFeed {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-friendFeed-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-white {
