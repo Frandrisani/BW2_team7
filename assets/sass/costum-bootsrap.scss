@@ -147,8 +147,8 @@ background: linear-gradient(45deg, rgba(6,6,6,1) 0%, rgba(246,246,246,0) 100%);
     -webkit-appearance: none;
     appearance: none;
     height: 5px;
-    border-radius: 20px; /* Same border radius as the progress bar */
-    background: #e9e9e9; /* Same background color as the progress bar */
+    border-radius: 20px; 
+    background: #e9e9e9; 
     outline: none;
     transition: background-color 0.2s;
     overflow: hidden;
@@ -172,12 +172,20 @@ background: linear-gradient(45deg, rgba(6,6,6,1) 0%, rgba(246,246,246,0) 100%);
     &:hover::-webkit-slider-thumb,
     &:active::-webkit-slider-thumb {
       background: #59d860; 
-      box-shadow: -407px 0 0 400px #59d860/* Same hover and active background color as the progress bar */
+      box-shadow: -407px 0 0 400px #59d860
     }
 
   
   }
   
+  .iconImg{
+    width: 20px;
+    opacity: 80%;
+
+    &:hover{
+        opacity: 100%;
+    }
+  }
 
 
   
