@@ -344,7 +344,7 @@
                 class="card-img-top rounded-3 shadowB"
                 alt="card image"
               />
-              <i class="bi bi-play-circle-fill"></i>
+
               <div class="card-body">
                 <h5 class="card-title">Allenamento a Casa</h5>
 
@@ -619,6 +619,7 @@
     <div id="player-bar" class="overlay z-2 bg-grigino text-light d-none">
       <div class="container-fluid">
         <div class="row">
+          <!-- parte a sx  player-->
           <div class="col d-flex align-items-center p-2">
             <img
               src="./assets/imgs/main/image-14.jpg"
@@ -632,6 +633,7 @@
               <p id="artist-name" class="text-fontB"></p>
             </div>
           </div>
+          <!-- parte centrale player -->
           <div class="col text-center mt-3 fs-3 mb-1">
             <audio id="audioDiv">
               <source src="" type="video/mp4" />
@@ -643,10 +645,17 @@
               <div id="play-playerBar"></div>
               <i class="bi bi-skip-end-fill"></i>
             </div>
-            <div id="progress-container">
-              <div id="progress-bar"></div>
+            <!-- progress bar e tempo -->
+            <div class="d-flex justify-content-between align-items-center">
+              <div><p id="time-left" class="fs-6 mb-0 text-fontB">44</p></div>
+              <!-- progress bar -->
+              <div id="progress-container">
+                <div id="progress-bar"></div>
+              </div>
+              <div><p id="time" class="fs-6 mb-0 text-fontB">22</p></div>
             </div>
           </div>
+          <!-- player a destra -->
           <div class="col d-flex align-items-center justify-content-end fs-4">
             <i class="bi bi-text-right"></i>
             <i class="bi bi-list me-2"></i>

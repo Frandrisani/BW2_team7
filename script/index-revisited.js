@@ -201,4 +201,24 @@ const createBanner = (data) => {
       `;
     }
   });
+
+  // time left
+  const timeLeft = document.getElementById("time-left");
+  const time = document.getElementById("time");
+
+  audioElement.addEventListener("loadedmetadata", function () {
+    const duration = audioElement.duration;
+    time.textContent = formatTime(duration);
+  });
+
+  audioElement.addEventListener("timeupdate", function () {
+    const currentTime = audioElement.currentTime;
+    timeLeft.textContent = formatTime(currentTime);
+  });
+
+  function formatTime(timeInSeconds) {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  }
 };
