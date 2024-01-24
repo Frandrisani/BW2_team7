@@ -6,111 +6,173 @@
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="./assets/sass/costum-bootsrap.css" />
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
+    <link rel="stylesheet" href="./assets/sass/album-style.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
   </head>
 
-  <body>
-    <!-- INIZIO CONTAINER -->
-    <div>
-      <!-- INIZIO CODICE SPINNER -->
-      <div class="d-flex justify-content-center text-primary" id="spinner">
-        <div
-          class="spinner-border"
-          style="width: 3rem; height: 3rem"
-          role="status"
-        >
-          <span class="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    </div>
-    <!-- FINE CODICE SPINNER -->
-    <!-- -------------------------------------------------------->
-    <!-- INIZIO DEL CONTAINER DOVE CI SONO LE FRECCE E IL PROFILO UTENTE E LA SINTESI DELL'ALBUM -->
-    <div class="container">
-      <!-- INIZIO ROW DEL CONTAINER DOVE CI SONO LE FRECCE E IL PROFILO UTENTE-->
-      <div class="row">
-        <div class="col"></div>
-      </div>
-      <!-- FINE ROW DEL CONTAINER DOVE CI SONO LE FRECCE E IL PROFILO UTENTE -->
-      <!-- INIZIO ROW DEL CONTAINER DOCE C'E' L'IMMAGINE DELL'ALBUM E IL TITOLO -->
-      <div class="row mt-5">
-        <div class="col col-12 d-flex">
-          <div id="coverAlbum">
-            <img
-              src="./assets/imgs/main/image-1.jpg"
-              alt="immagine album"
-              class="shadow-lg mb-5 bg-body-tertiary imgAlbumTopSection"
-              id="imgAlbumTopSection"
-            />
-          </div>
-          <div class="ms-5 align-self-end mb-5">
-            <p>ALBUM</p>
-            <p class="display-1 fw-bolder mb-5" id="titoloAlbumTopSection">
-              Titolo album
-            </p>
-            <div class="d-flex">
-              <img
-                src="./assets/imgs/search/image-1.jpeg"
-                alt=""
-                width="4%"
-                height="3%"
-                class="rounded-pill me-2"
-                id="img2AlbumTopSection"
-              />
-              <p class="me-2" id="nomeArtistaTopSection">Nome artista ·</p>
-              <p class="me-2" id="numeroBraniAlbumTopSection">numero brani ·</p>
-              <p class="me-2" id="totMinutiTopSection">
-                totale minutaggio dell'album
-              </p>
+  <body style="font-family: Circular" class="position-relative">
+    <section class="section1 z-n1 bg-primary" id="contenitoreImgAlbum">
+      <!-- INIZIO DEL CONTAINER DOVE CI SONO LE FRECCE E IL PROFILO UTENTE E LA SINTESI DELL'ALBUM -->
+      <div class="container">
+        <!-- INIZIO ROW DEL CONTAINER DOVE CI SONO LE FRECCE DI NAVIGAZIONE E IL PROFILO UTENTE-->
+        <div class="row pt-5">
+          <div class="col">
+            <div id="navigationButtons" class="position-absolute">
+              <i
+                class="bi bi-chevron-left bg-secondary text-white p-2 me-2 circle"
+              ></i>
+              <i
+                class="bi bi-chevron-right bg-secondary opacity-50 text-white p-2 circle"
+              ></i>
             </div>
           </div>
         </div>
-      </div>
-      <!-- FINE ROW DEL CONTAINER DOVE C'E' L'IMMAGINE DELL'ALBUM E IL TITOLO -->
-    </div>
-    <!-- FINE DEL CONTAINER DOVE CI SONO LE FRECCE E IL PROFILO UTENTE E LA SINTESI DELL'ALBUM -->
-    <!-- ---------------------------------------------- -->
-    <!-- INIZIO DEL CONTAINER DOVE CI SONO LE ICONE, E LE VARIE ROW GENERATE DINAMICAMENTE PER LE VARIE CANZONI-->
-    <div class="container">
-      <!-- INIZIO ROW ICONE "PLAY" "SCARICA" ECC.-->
-      <div class="row">
-        <div class="col">
-          <div class="bg-primary d-inline rounded-pill p-3">
-            <i class="bi bi-play-fill text-white fs-3"></i>
-          </div>
-        </div>
-      </div>
-      <!-- FINE ROW ICONE "PLAY" "SCARICA" ECC.-->
-      <!--* INIZIO SUB-CONTAINER DOVE VERRANNO INSERITE LE VARIE ROW GENERATE DINAMICAMENTE CONTENENTI I DATI DELLE CANZONI-->
-      <div class="container">
-        <!-- INIZIO ROW "TITOLO" "RIPRODUZIONI" ECC.-->
+        <!-- FINE ROW DEL CONTAINER DOVE CI SONO LE FRECCE DI NAVIGAZIONE E IL PROFILO UTENTE-->
+        <!-- ----------------------------- -->
+        <!-- INIZIO ROW DEL CONTAINER DOCE C'E' L'IMMAGINE DELL'ALBUM E IL TITOLO -->
         <div class="row mt-5">
-          <div class="col col-1 d-none d-md-block">
-            <p>#</p>
+          <!-- INIZIO COLONNA CON IMMAGINE COPERTINA ALBUM-->
+          <div class="col col-12 col-md-3 col-lg-2 d-flex">
+            <div id="coverAlbum" class="me-auto ms-auto placeholder-glow">
+              <!-- Aggiunta classe ms-auto -->
+              <img
+                src="./assets/imgs/logo.svg"
+                alt="immagine album"
+                class="shadow-lg mb-5 imgAlbumTopSection placeholder"
+                id="imgAlbumTopSection"
+              />
+            </div>
           </div>
-          <div class="col col-6 d-none d-md-block">
-            <p>TITOLO</p>
+          <!-- FINE COLONNA CON IMMAGINE COPERTINA ALBUM-->
+          <!-- INIZIO COLONNA CON TITOLO ALBUM, ARTISTI ALBUM, ANNO ALBUM, DURATA ALBUM E NUMERO CANZONI-->
+          <div class="col col-12 col-md-9 col-lg-10 d-flex align-items-end">
+            <div class="me-auto placeholder-glow">
+              <div class="ms-5 align-self-end mb-5">
+                <p class="text-white fw-medium d-none d-md-block ms-5">ALBUM</p>
+                <p
+                  class="display-1 fw-bolder text-white placeholder ms-5"
+                  id="titoloAlbumTopSection"
+                >
+                  TITOLO
+                </p>
+                <div class="d-flex ms-5">
+                  <img
+                    src="./assets/imgs/logo.svg"
+                    alt=""
+                    width="4%"
+                    height="3%"
+                    class="rounded-pill me-2 placeholder"
+                    id="img2AlbumTopSection"
+                  />
+                  <p
+                    class="me-2 text-white placeholder"
+                    id="nomeArtistaTopSection"
+                  >
+                    Titolo
+                  </p>
+                  <p class="me-2 text-white placeholder" id="annoTopSection">
+                    Anno
+                  </p>
+                  <p
+                    class="me-2 text-white d-none d-md-block placeholder"
+                    id="numeroBraniAlbumTopSection"
+                  >
+                    Numero Brano
+                  </p>
+                  <p
+                    class="me-2 text-white opacity-75 d-none d-md-block placeholder"
+                    id="totMinutiTopSection"
+                  >
+                    Totale ore album
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col col-4 d-none d-md-block">
-            <p>RIPRODUZIONI</p>
-          </div>
-          <div class="col col-1 d-none d-md-block">
-            <i class="bi bi-clock"></i>
+          <!-- FINE COLONNA CON TITOLO ALBUM, ARTISTI ALBUM, ANNO ALBUM, DURATA ALBUM E NUMERO CANZONI-->
+        </div>
+        <!-- FINE ROW DEL CONTAINER DOVE C'E' L'IMMAGINE DELL'ALBUM E IL TITOLO -->
+        <!-- ----------------------------- -->
+      </div>
+      <!-- FINE DEL CONTAINER DOVE CI SONO LE FRECCE E IL PROFILO UTENTE E LA SINTESI DELL'ALBUM -->
+    </section>
+    <!-- ------------------------------------------------>
+    <section class="section2 pb-5 pt-3">
+      <!-- INIZIO DEL CONTAINER DOVE CI SONO LE ICONE, E LE VARIE ROW GENERATE DINAMICAMENTE PER LE VARIE CANZONI-->
+      <div class="container">
+        <!-- INIZIO ROW ICONE "PLAY" "SCARICA" ECC.-->
+        <div class="row">
+          <div class="col mt-4 d-flex align-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              fill="currentColor"
+              class="bi bi-play-circle-fill text-primary me-5"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"
+              />
+            </svg>
+            <i class="bi bi-heart text-fontB fs-3 me-4"></i>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="text-fontB me-4"
+            >
+              <path
+                d="M16 9C16 8.44772 15.5523 8 15 8C14.4477 8 14 8.44772 14 9H16ZM14.2929 22.2071C14.6834 22.5976 15.3166 22.5976 15.7071 22.2071L22.0711 15.8431C22.4616 15.4526 22.4616 14.8195 22.0711 14.4289C21.6805 14.0384 21.0474 14.0384 20.6569 14.4289L15 20.0858L9.34315 14.4289C8.95262 14.0384 8.31946 14.0384 7.92893 14.4289C7.53841 14.8195 7.53841 15.4526 7.92893 15.8431L14.2929 22.2071ZM14 9V21.5H16V9H14Z"
+                fill="white"
+              />
+              <rect
+                x="1"
+                y="1"
+                width="28"
+                height="28"
+                rx="14"
+                stroke="white"
+                stroke-width="2"
+              />
+            </svg>
+            <i class="bi bi-three-dots text-fontB fs-2"></i>
           </div>
         </div>
-        <!-- FINE ROW "TITOLO" "RIPRODUZIONI" ECC.-->
+        <!-- FINE ROW ICONE "PLAY" "SCARICA" ECC.-->
+        <!--* INIZIO SUB-CONTAINER CONTENENTE UNA ROW CON "TITOLO", "DURATA", ETC.-->
+        <div class="container-fluid">
+          <!-- INIZIO ROW "TITOLO" "RIPRODUZIONI" ECC.-->
+          <div class="row mt-5 g-0">
+            <div class="col col-1 d-none d-md-block text-fontB50">
+              <p>#</p>
+            </div>
+            <div class="col col-6 d-none d-md-block text-fontB50">
+              <p>TITOLO</p>
+            </div>
+            <div class="col col-4 d-none d-md-block text-fontB50">
+              <p>RIPRODUZIONI</p>
+            </div>
+            <div class="col col-1 d-none d-md-block text-fontB50">
+              <i class="bi bi-clock"></i>
+            </div>
+          </div>
+          <!-- FINE ROW "TITOLO" "RIPRODUZIONI" ECC.-->
+          <hr class="mt-0 mb-3 text-fontB50 opacity-25 d-none d-md-block" />
+        </div>
+        <!--* INIZIO SUB-CONTAINER CONTENENTE UNA ROW CON "TITOLO", "DURATA", ETC.-->
+
+        <!--* INIZIO SUB-CONTAINER DOVE VERRANNO INSERITE LE VARIE ROW GENERATE DINAMICAMENTE CONTENENTI I DATI DELLE CANZONI-->
+        <div class="container-fluid" id="containerRowSongs"></div>
+        <!--* FINE SUB-CONTAINER DOVE VERRANNO INSERITE LE VARIE ROW GENERATE DINAMICAMENTE CONTENENTI I DATI DELLE CANZONI-->
       </div>
-      <!--* INIZIO SUB-CONTAINER DOVE VERRANNO INSERITE LE VARIE ROW GENERATE DINAMICAMENTE CONTENENTI I DATI DELLE CANZONI-->
-
-      <!--* INIZIO SUB-CONTAINER DOVE VERRANNO INSERITE LE VARIE ROW GENERATE DINAMICAMENTE CONTENENTI I DATI DELLE CANZONI-->
-      <div class="container" id="containerRowSongs"></div>
-      <!--* FINE SUB-CONTAINER DOVE VERRANNO INSERITE LE VARIE ROW GENERATE DINAMICAMENTE CONTENENTI I DATI DELLE CANZONI-->
-    </div>
-    <!-- FINE DEL CONTAINER DOVE CI SONO LE ICONE, E LE VARIE ROW GENERATE DINAMICAMENTE PER LE VARIE CANZONI-->
-
+      <!-- FINE DEL CONTAINER DOVE CI SONO LE ICONE, E LE VARIE ROW GENERATE DINAMICAMENTE PER LE VARIE CANZONI-->
+    </section>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
