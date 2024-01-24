@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Spotify-clone</title>
+    <title>Search</title>
     <link rel="stylesheet" href="./assets/sass/costum-bootsrap.css" />
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link
@@ -12,7 +12,7 @@
     />
   </head>
   <body class="container-fluid bg-secondary">
-    <div class="row">
+    <div class="row justify-content-center">
       <!-- sidebar -->
       <div class="col bg-black d-none d-lg-block" id="sx-part">
         <div class="d-flex flex-column">
@@ -173,9 +173,9 @@
           </div>
         </div>
       </div>
+
       <!-- mid section -->
-      <div class="col-10 text-light mx-3" id="mid-part">
-        <!-- mid top part -->
+      <div class="col-10 text-light mx-3">
         <div class="nav d-flex justify-content-between mt-2">
           <!-- chevron -->
           <div class="d-flex align-items-center">
@@ -184,6 +184,16 @@
             </div>
             <div class="btn bg-black text-light rounded-circle ms-2">
               <i class="bi bi-chevron-right"></i>
+            </div>
+            <!-- search -->
+            <div class="ms-3">
+              <span><i class="bi bi-search"></i></span>
+              <input
+                class="rounded-5 text-white ms-2"
+                type="text"
+                id="search"
+                placeholder="Cosa vuoi ascoltare?"
+              />
             </div>
           </div>
           <!-- top part dx -->
@@ -236,337 +246,21 @@
             </button>
           </div>
         </div>
+        <div>
+          <section class="container-fluid">
+            <div class="row bg-secondary p-4" id="results">
+              <!-- QUI CI VANNO I RISULTATI DI RICERCA -->
+            </div>
 
-        <!-- banner of the mid section -->
-        <div class="container-fluid mt-3 px-0">
-          <div
-            class="card px-3 rounded-0 text-white border border-0"
-            id="bannerMid"
-          ></div>
-        </div>
-        <!-- buonasera part -->
-        <h3 class="my-3">Buonasera</h3>
-        <div class="row g-3 row-cols-2 row-cols-md-4">
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-2.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
+            <div class="row mt-6 mt-md-1 p-3">
+              <div class="col-12">
+                <h2>Sfoglia tutto</h2>
               </div>
-              <h5 class="col-md-9 card-title">Pov la tua estate è un film</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-3.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col-md-9 card-title">Massima Concentrazione</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-4.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col-md-9 card-title">Peaceful Piano</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-5.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col-md-9 card-title">Lofi beats</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-6.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col-md-9 card-title">Jazz Vibes</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-7.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col-md-9 card-title">Caffè del buongiorno</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-8.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col-md-9 card-title">Sangue Giovane</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-10.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col-md-9 card-title">Operazione Buongiorno</h5>
-            </div>
-          </div>
-        </div>
-        <!-- other thing that you like part -->
-        <h3 class="my-3">Altro di ciò che ti piace</h3>
-        <div class="row row-cols-5 g-3 gx-4">
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-14.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Allenamento a Casa</h5>
-                <p class="card-text text-fontB">
-                  Per darti la giusta energia per affrontrare il tui allenamenti
-                </p>
+              <div class="row g-2" id="rowSfoglia">
+                <!-- QUI CI VANNO LE CARD  -->
               </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-15.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Casa Dolce Casa</h5>
-                <p class="card-text text-fontB">
-                  la playlist ideale per rilassarti a casa
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-16.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Lavorare da Casa</h5>
-                <p class="card-text text-fontB">
-                  La playlist ideata per farti compagnia
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-17.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Friday</h5>
-                <p class="card-text">Friday hit diff, ifkyk</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-18.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Estate 2022</h5>
-                <p class="card-text">
-                  La playlist che raccoglie le hits del 22'
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-14.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Allenamento a Casa</h5>
-                <p class="card-text text-fontB">
-                  Per darti la giusta energia per affrontare il tui allenamenti
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-15.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Casa Dolce Casa</h5>
-                <p class="card-text text-fontB">
-                  la playlist ideale per rilassarti a casa
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-16.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Lavorare da Casa</h5>
-                <p class="card-text text-fontB">
-                  La playlist ideata per farti compagnia
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-17.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Friday</h5>
-                <p class="card-text">Friday hit diff, ifkyk</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-18.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Estate 2022</h5>
-                <p class="card-text">
-                  La playlist che raccoglie le hits del 22'
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-14.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Allenamento a Casa</h5>
-                <p class="card-text text-fontB">
-                  Per darti la giusta energia per affrontrare il tuoi
-                  allenamenti
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-15.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Casa Dolce Casa</h5>
-                <p class="card-text text-fontB">
-                  la playlist ideale per rilassarti a casa
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-16.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Lavorare da Casa</h5>
-                <p class="card-text text-fontB">
-                  La playlist ideata per farti compagnia
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-17.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Friday</h5>
-                <p class="card-text">Friday hit diff, ifkyk</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-grigino text-light h-100">
-              <img
-                src="./assets/imgs/main/image-18.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Estate 2022</h5>
-                <p class="card-text">
-                  La playlist che raccoglie le hits del 22'
-                </p>
-              </div>
-            </div>
-          </div>
+          </section>
         </div>
       </div>
       <!-- right rection -->
@@ -950,6 +644,6 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
-    <script src="./script/index-revisited.js"></script>
+    <script src="./script/search.js"></script>
   </body>
 </html>

@@ -153,6 +153,12 @@
   opacity: 100%;
 }
 
+#search[type=text] {
+  background-color: #474747;
+  border: none;
+  padding: 7px;
+}
+
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors
