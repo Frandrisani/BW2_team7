@@ -131,30 +131,53 @@ document.addEventListener("DOMContentLoaded", function () {
       const colTrack = document.createElement("div");
       colTrack.classList.add("col-12");
       colTrack.innerHTML = `
-      <div class="row">
-       <div class="col-2">
-          <img src="${results[i].album.cover_small}" class="img-fluid rounded">
+      <div class="row justify-content-between ">
+      <div class="col-10 d-flex">
+      <div class="playerInImg">
+        <img src="${results[i].album.cover_small}" class="img-fluid rounded " />
         </div>
-        <div class="col-8">
-          <div class="row">
-            <div class="col-12">
-              <h6 class="mb-0">${results[i].title}</h6>
-            </div>
-            <div class="col-12 text-fontB50">
-              <p class="mb-0">${results[i].artist.name}</p>
-            </div>
+        <div class="d-flex flex-column ms-3 ">
+          <h6 class="mb-0">${results[i].title}</h6>
+          <p class="mb-0">${results[i].artist.name}</p>
+          <div >
+          <source src="${results[i].preview}" type="video/mp4" 
+          class="d-none audioDivSrc"/>
           </div>
         </div>
-        <div class="col-2 text-fontB50">${convertTime(
-          results[i].duration
-        )}</div>
       </div>
+      <div class="col-2 text-fontB50">${convertTime(results[i].duration)}</div>
+    </div>
       `;
+
+      // funzione per richiamare l'audio
+      const playerInImgDiv = colTrack.querySelector(".playerInImg");
+      const audioDivSrc = colTrack.querySelector(".audioDivSrc");
+      const audioSource = audioDivSrc.src;
+      playerInImgDiv.addEventListener("click", function () {
+        playAudio(audioSource);
+      });
+
       rowTracks.appendChild(colTrack);
     }
   };
   searchInput.addEventListener("input", handleSearch);
 });
+
+// funzione per l'audio
+let audioPlayer;
+
+function playAudio(source) {
+  if (!audioPlayer) {
+    audioPlayer = new Audio();
+  }
+
+  if (audioPlayer.src === source && !audioPlayer.paused) {
+    audioPlayer.pause();
+  } else {
+    audioPlayer.src = source;
+    audioPlayer.play();
+  }
+}
 
 // funzione per mostrare le card all'avvio della pagina
 

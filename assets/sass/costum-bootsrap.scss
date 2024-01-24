@@ -208,6 +208,24 @@ padding: 7px;
 
 }
 
+.playerInImg {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: url(../imgIcon/Play-white.png);
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
 
 
 

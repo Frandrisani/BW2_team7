@@ -159,6 +159,23 @@
   padding: 7px;
 }
 
+.playerInImg {
+  position: relative;
+  display: inline-block;
+}
+.playerInImg::after {
+  content: url(../imgIcon/Play-white.png);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.playerInImg:hover::after {
+  opacity: 1;
+}
+
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors
