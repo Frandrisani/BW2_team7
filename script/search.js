@@ -155,13 +155,26 @@ document.addEventListener("DOMContentLoaded", function () {
       const playerInImgDiv = colTrack.querySelector(".playerInImg");
       const audioDivSrc = colTrack.querySelector(".audioDivSrc");
 
+      // stili
       const alphaCol = audioDivSrc.closest(".col-12");
+      alphaCol.addEventListener("mouseover", () => {
+        alphaCol.style.backgroundColor = "#131313";
+        alphaCol.style.borderRadius = "5px";
+      });
+
+      alphaCol.addEventListener("mouseout", () => {
+        alphaCol.style.backgroundColor = "";
+      });
 
       console.log(alphaCol);
+
+      // audio
       const audioSource = audioDivSrc.src;
-      playerInImgDiv.addEventListener("click", function () {
+      playerInImgDiv.addEventListener("click", () => {
         playAudio(audioSource);
-        alphaCol.classList.toggle("colOpacity");
+        // alphaCol.classList.toggle("colOpacity");
+        alphaCol.style.backgroundColor = "#414040";
+        alphaCol.style.borderRadius = "5px";
       });
 
       rowTracks.appendChild(colTrack);
