@@ -91,7 +91,12 @@ fetch(`${artistURL}/${artistID}`)
   })
   .then((artist) => {
     console.log(artist);
-    artistCover.style.backgroundImage = `url(${artist.picture_xl})`;
+    //condizione bg-img con media queries
+    if (window.innerWidth <= 576) {
+      artistCover.style.backgroundImage = `url(${artist.picture})`;
+    } else {
+      artistCover.style.backgroundImage = `url(${artist.picture_xl})`;
+    }
     artistCover.style.backgroundRepeat = "no-repeat";
     artistCover.style.backgroundSize = "cover";
     artistName.innerText = artist.name;
