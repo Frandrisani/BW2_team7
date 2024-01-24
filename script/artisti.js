@@ -47,7 +47,7 @@ const gettingTracks = (tracks) => {
     newRow.classList.add("row", "align-items-center", "g-1");
     newRow.innerHTML = `
                 <div class="col">
-                <h3>${i + 1}</h3>
+                <h5>${i + 1}</h5>
                 </div>
                 <div class="col">
                 <img src="${
@@ -55,16 +55,18 @@ const gettingTracks = (tracks) => {
                 }" class="img-thumbnail" alt="album-cover">
               </div>
               <div class="col">
-                <h4>${track.title_short}</h4>
+                <h5>${track.title_short}</h5>
               </div>
               <div class="col d-sm-none">
                 <i class="bi bi-three-dots-vertical text-fontB50 fs-1"></i>
               </div>
               <div class="col">
-                <h5>${riproduzioniConIlPunto(track.rank)}</h5>
+                <h6 class="fw-light">${riproduzioniConIlPunto(track.rank)}</h6>
               </div>
               <div class="col d-none d-sm-block">
-                <h6>${convertiSecondiAMinutiESecondi(track.duration)}</h6>
+                <h6 class="fw-light">${convertiSecondiAMinutiESecondi(
+                  track.duration
+                )}</h6>
               </div>`;
     tracksContainer.appendChild(newRow);
     if (i > 9) {
@@ -93,7 +95,7 @@ fetch(`${artistURL}/${artistID}`)
     console.log(artist);
     //condizione bg-img con media queries
     if (window.innerWidth <= 576) {
-      artistCover.style.backgroundImage = `url(${artist.picture})`;
+      artistCover.style.backgroundImage = `url(${artist.picture_medium})`;
     } else {
       artistCover.style.backgroundImage = `url(${artist.picture_xl})`;
     }

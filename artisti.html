@@ -17,9 +17,9 @@
     </header>
     <main style="font-family: Circular">
       <!-- cover artisa + info -->
-      <div class="container-fluid p-3 bg-img vh-100 z-0"  id="artist-cover">
+      <div class="container-fluid p-3 vw-100 z-0 position-relative" style="height:600px"  id="artist-cover">
         <section
-          class="row d-none d-md-block d-md-flex md-justified-content-between mt-3"
+          class="row d-none d-md-block d-md-flex md-justified-content-between"
           id="account"
         >
           <div class="col-md-10">
@@ -63,7 +63,7 @@
             >
           </div>
         </section>
-        <section class="row g-1 text-fontB">
+        <section class="row g-1 text-fontB position-absolute bottom-0 start-0 mb-4 ms-3">
           <article class="col-12 d-none d-md-block mt-5">
             <h6>
               <svg
@@ -157,13 +157,15 @@
             <div class="container">
               <h2>Brani che ti piacciono</h2>
               <div class="row">
-                <div class="col ">
-                  <img src="" class="img-thumbnail rounded-circle position-relative" alt="artist-photo" id="artist-circular">
-                  <span class="badge bg-primary rounded-5 position-absolute" ><i class="bi bi-heart-fill text-fontB"></i>
+                <div class="col">
+                  <div class="position-relative">
+                  <img src="" class="img-thumbnail rounded-circle " alt="artist-photo" id="artist-circular">
+                  <span class="badge bg-primary rounded-5 position-absolute bottom-0" ><i class="bi bi-heart-fill text-fontB"></i>
                   </span>
+                </div>
                 <div class="col">
                   <h5>Hai messo mi piace a <span id="likes-num"></span> brani</h5>
-                  <h6 id="by-artist">di Yellowjackets</h6>
+                  <h6 id="by-artist" class="fw-light">di Yellowjackets</h6>
                 </div>
               </div>
             </div>
