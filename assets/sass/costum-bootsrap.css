@@ -170,10 +170,18 @@
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
-.playerInImg:hover::after {
+.playerInImg:hover::after, .playerInImg:active::after {
   opacity: 1;
+}
+.playerInImg:hover img, .playerInImg:active img {
+  opacity: 0.7;
+}
+
+.colOpacity {
+  background-color: #131313;
+  border-radius: 10px;
 }
 
 /*!

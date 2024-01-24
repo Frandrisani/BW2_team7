@@ -134,7 +134,9 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="row justify-content-between ">
       <div class="col-10 d-flex">
       <div class="playerInImg">
-        <img src="${results[i].album.cover_small}" class="img-fluid rounded " />
+        <img src="${
+          results[i].album.cover_small
+        }" class="img-fluid rounded  " />
         </div>
         <div class="d-flex flex-column ms-3 ">
           <h6 class="mb-0">${results[i].title}</h6>
@@ -149,12 +151,17 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
       `;
 
-      // funzione per richiamare l'audio
+      // funzione per richiamare l'audio e per animazioni circa
       const playerInImgDiv = colTrack.querySelector(".playerInImg");
       const audioDivSrc = colTrack.querySelector(".audioDivSrc");
+
+      const alphaCol = audioDivSrc.closest(".col-12");
+
+      console.log(alphaCol);
       const audioSource = audioDivSrc.src;
       playerInImgDiv.addEventListener("click", function () {
         playAudio(audioSource);
+        alphaCol.classList.toggle("colOpacity");
       });
 
       rowTracks.appendChild(colTrack);

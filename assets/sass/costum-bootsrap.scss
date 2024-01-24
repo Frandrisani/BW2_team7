@@ -211,6 +211,7 @@ padding: 7px;
 .playerInImg {
   position: relative;
   display: inline-block;
+ 
 
   &::after {
     content: url(../imgIcon/Play-white.png);
@@ -219,14 +220,25 @@ padding: 7px;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
   }
 
-  &:hover::after {
+  &:hover::after,
+  &:active::after {
     opacity: 1;
+  }
+
+  &:hover img,
+  &:active img {
+    opacity: 0.7; 
   }
 }
 
+.colOpacity{
+  background-color: #131313;
+border-radius: 10px;
+
+}
 
 
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
