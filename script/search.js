@@ -71,8 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="col-8">
           <div class="d-flex flex-column justify-content-around">
             <img src="${firstResult.artist.picture_xl}" class="img-fluid w-50 rounded-circle shadow mb-3" alt="...">
-            <h3 class="card-title">${firstResult.artist.name}</h3>
-            <p class="card-text text-fontB50">${firstResult.artist.type}</p>
+            <h3 class="card-title ">${firstResult.artist.name}</h3>
+            <p class="card-text text-fontB50 ">${firstResult.artist.type}</p>
           </div>
         </div>
       </div>
@@ -99,8 +99,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="col-10">
           <div class="d-flex flex-column justify-content-around">
             <img src="${firstResult.album.cover_medium}" class="img-fluid w-50 rounded shadow mb-3" alt="...">
-            <h3 class="card-title">${firstResult.title}</h3>
-            <p class="card-text text-fontB50">${firstResult.type}<i class="bi bi-dot"></i>${firstResult.artist.name}</p>
+            <h3 class="card-title ">${firstResult.title}</h3>
+            <p class="card-text text-fontB50 ">${firstResult.type}<i class="bi bi-dot"></i>${firstResult.artist.name}</p>
           </div>
         </div>
       </div>
@@ -170,16 +170,133 @@ const arrayOfImages = [
   "./assets/imgs/search/image-9.jpg",
   "./assets/imgs/search/image-10.jpg",
   "./assets/imgs/search/image-11.jpg",
+  "./assets/imgs/search/image-12.jpg",
+  "./assets/imgs/search/image-13.jpeg",
+  "./assets/imgs/search/image-14.jpg",
+  "./assets/imgs/search/image-15.jpg",
+  "./assets/imgs/search/image-16.jpg",
+  "./assets/imgs/search/image-17.jpg",
+  "./assets/imgs/search/image-18.jpg",
+  "./assets/imgs/search/image-19.jpg",
+  "./assets/imgs/search/image-20.jpg",
+  "./assets/imgs/search/image-21.jpg",
+  "./assets/imgs/search/image-22.jpg",
+  "./assets/imgs/search/image-23.jpg",
+  "./assets/imgs/search/image-24.jpg",
+  "./assets/imgs/search/image-25.jpeg",
+  "./assets/imgs/search/image-26.jpg",
+  "./assets/imgs/search/image-27.jpg",
+  "./assets/imgs/search/image-28.jpg",
+  "./assets/imgs/search/image-29.jpg",
+  "./assets/imgs/search/image-30.jpg",
+  "./assets/imgs/search/image-31.jpg",
+  "./assets/imgs/search/image-32.jpg",
+  "./assets/imgs/search/image-33.jpg",
+  "./assets/imgs/search/image-34.jpg",
+  "./assets/imgs/search/image-35.jpg",
+  "./assets/imgs/search/image-36.jpg",
+  "./assets/imgs/search/image-37.jpeg",
+  "./assets/imgs/search/image-38.jpg",
+  "./assets/imgs/search/image-39.jpg",
+  "./assets/imgs/search/image-40.jpg",
+  "./assets/imgs/search/image-41.jpg",
+  "./assets/imgs/search/image-42.png",
+  "./assets/imgs/search/image-43.png",
+  "./assets/imgs/search/image-44.png",
+  "./assets/imgs/search/image-45.png",
+  "./assets/imgs/search/image-46.jpeg",
+  "./assets/imgs/search/image-47.jpg",
+  "./assets/imgs/search/image-48.jpeg",
+  "./assets/imgs/search/image-49.jpg",
+  "./assets/imgs/search/image-50.jpg",
+  "./assets/imgs/search/image-51.jpg",
+  "./assets/imgs/search/image-52.jpg",
+];
+
+const titles = [
+  "Scopri",
+  "Disco",
+  "Indie",
+  "Dance/Elettronica",
+  "Latina",
+  "R&B",
+  "Rock",
+  "Allenamento",
+  "Hip-Hop",
+  "Lo-Fi",
+  "Viaggi",
+  "Anni",
+  "Summer-Hits",
+  "Classifiche",
+  "Amore",
+  "Soul",
+  "A casa",
+  "Dormire",
+  "Pop",
+  "Jazz",
+  "Classifiche podcast",
+  "Folk",
+  "Concentrazione",
+  "Relax",
+  "Podcast",
+  "FRIDA",
+  "Party",
+  "Afro",
+  "Classica",
+  "League of Legends",
+  "Metal",
+  "Funk",
+  "Punk",
+  "Ambient",
+  "K-pop",
+  "Blues",
+  "Di tendenza",
+  "Autori",
+  "Country",
+  "Elettronica",
+  "Arab Pop",
+  "Pop mondiale",
+  "Radar",
+  "Bambini e famiglia",
+  "In auto",
+  "Suoni e natura",
+  "Top hits",
+  "Techno",
+  "Rap",
+  "Rock spagnolo",
+  "Mood",
+  "Gaming",
+];
+
+const colors = [
+  "#dc148c",
+  "#006450",
+  "#8400e7",
+  "#1e3264",
+  "#e8105b",
+  "#26856b",
+  "#503751",
+  "#158a06",
+  "#e1128b",
+  "#0f73ec",
+  "#8e66ac",
+  "#777777",
+  "#e91529",
+  "#d84000",
+  "#ba5d08",
+  "#8c1a32",
+  "#e61d32",
+  "#8c1a32",
 ];
 const rowToDisplay = document.getElementById("rowSfoglia");
 
-arrayOfImages.forEach((imageSrc) => {
+arrayOfImages.forEach((imageSrc, index) => {
   const divElement = document.createElement("div");
   divElement.classList.add("col-6", "col-md-4", "col-lg-2");
   // divElement.id = "playlist";
   divElement.innerHTML = `
-  <div style="overflow:hidden"  class="bg-primary rounded p-2 h-100">
-    <h3 class="mb-5">Musica</h3>
+  <div style="overflow:hidden"  class="sfoglia rounded p-2 h-100">
+    <h3 class="mb-5 ms-2">${titles[index]}</h3>
     <div class="playlist h-100 text-end">
       <img
         src="${imageSrc}"
@@ -188,6 +305,10 @@ arrayOfImages.forEach((imageSrc) => {
     </div>
   </div>
   `;
+
+  // Imposta colore casuale per lo sfondo delle card
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  divElement.querySelector(".sfoglia").style.backgroundColor = randomColor;
 
   rowToDisplay.appendChild(divElement);
 });
