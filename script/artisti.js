@@ -94,13 +94,14 @@ fetch(`${artistURL}/${artistID}`)
   .then((artist) => {
     console.log(artist);
     //condizione bg-img con media queries
-    if (window.innerWidth <= 576) {
-      artistCover.style.backgroundImage = `url(${artist.picture_medium})`;
-    } else {
-      artistCover.style.backgroundImage = `url(${artist.picture_xl})`;
-    }
+    // if (window.innerWidth <= 576) {
+    //   artistCover.style.backgroundImage = `url(${artist.picture_medium})`;
+    // } else {
+    // }
+    artistCover.style.backgroundImage = `url(${artist.picture_xl})`;
     artistCover.style.backgroundRepeat = "no-repeat";
     artistCover.style.backgroundSize = "cover";
+    artistCover.classList.add("img-fluid");
     artistName.innerText = artist.name;
     artistListeners.innerText = artist.nb_fan;
     artistCircular.src = `${artist.picture}`;
