@@ -10,7 +10,6 @@ const numeroBraniAlbumTopSection = document.getElementById(
 );
 const totMinutiTopSection = document.getElementById("totMinutiTopSection");
 const containerRowSongs = document.getElementById("containerRowSongs");
-const spinenr = document.getElementById("spinner");
 const myURL = "https://striveschool-api.herokuapp.com/api/deezer/album";
 
 // * INIZIO ACQUISIZIONE ID URL
@@ -66,12 +65,8 @@ const riproduzioniConIlPunto = function (numero) {
 };
 
 // * INIZIO FETCH
-fetch(myURL + "/" + 76644662)
+fetch(myURL + "/" + 76644882)
   .then((response) => {
-    // * Qui aggiungiamo una classe "d-none" allo spinner di caricamento presente in HTML
-    // INIZIO CODICE SPINNER
-    spinenr.classList.add("d-none");
-    // FINE CODICE SPINNER
     // * Ora controlliamo che la risposta da parte del server sia "ok"; se ok, chiediamo di servirci tutti i dati in file json
     if (response.ok) {
       return response.json();
@@ -83,8 +78,24 @@ fetch(myURL + "/" + 76644662)
   })
   .then((album) => {
     console.log(album);
+    document
+      .getElementsByClassName("section1")[0]
+      // * INIZIO REMOVE DELLA CLASSE "bg-primary"
+      .classList.remove("bg-primary");
+    // * FINE REMOVE DELLA CLASSE "bg-primary"
+    // * INIZIO REMOVE DELLA CLASSE "PLACEHOLDER"
+    imgAlbumTopSection.classList.remove("placeholder");
+    img2AlbumTopSection.classList.remove("placeholder");
+    titoloAlbumTopSection.classList.remove("placeholder");
+    nomeArtistaTopSection.classList.remove("placeholder");
+    annoTopSection.classList.remove("placeholder");
+    numeroBraniAlbumTopSection.classList.remove("placeholder");
+    totMinutiTopSection.classList.remove("placeholder");
+    // * FINE REMOVE DELLA CLASSE "PLACEHOLDER"
+
     imgAlbumTopSection.src = `${album.cover_medium}`;
     img2AlbumTopSection.src = `${album.cover_small}`;
+    applyBackgroundColorToContainer(album.cover_medium);
     titoloAlbumTopSection.innerText = `${album.title}`;
     nomeArtistaTopSection.innerText = `${album.artist.name} ·`;
     annoTopSection.innerText = `${annoRandom()} ·`;
@@ -95,7 +106,7 @@ fetch(myURL + "/" + 76644662)
 
     album.tracks.data.forEach((element, i) => {
       const rowSongDinamic = document.createElement("div");
-      rowSongDinamic.classList.add("row");
+      rowSongDinamic.classList.add("row", "g-0");
       rowSongDinamic.innerHTML = `    
         <div class="row g-1 g-md-0">
           <div class="col col-1 d-none d-md-block text-fontB50">${i + 1}</div>
@@ -115,101 +126,64 @@ fetch(myURL + "/" + 76644662)
   });
 // * FINE FETCH
 
-// // crea un canvas con l'immagine e ne ritorno il context 2d
-// const draw = function (img) {
-//   let canvas = document.createElement('canvas')
-//   let c = canvas.getContext('2d')
-//   c.width = canvas.width = img.clientWidth
-//   c.height = canvas.height = img.clientHeight
-//   c.clearRect(0, 0, c.width, c.height)
-//   c.drawImage(img, 0, 0, img.clientWidth, img.clientHeight)
-//   return c
-// }
+// * INIZIO DELLE FUNZIONI PER OTTENERE IL COLORO DI BACKGROUND IN BASE AL MIX COLORI DELL'IMMAGINE DELL'ALBUM
+// Funzione per ottenere il colore dominante dall'immagine
+function getDominantColor(imageUrl, callback) {
+  // Crea un elemento immagine invisibile
+  const img = document.createElement("img");
+  img.crossOrigin = "Anonymous"; // Per consentire il caricamento di immagini da origini diverse
 
-// // scompone pixel per pixel e ritorna un oggetto con una mappa della loro frequenza nell'immagine
-// const getColors = function (c) {
-//   let col,
-//     colors = {}
-//   let pixels, r, g, b, a
-//   r = g = b = a = 0
-//   pixels = c.getImageData(0, 0, c.width, c.height)
-//   for (let i = 0, data = pixels.data; i < data.length; i += 4) {
-//     r = data[i]
-//     g = data[i + 1]
-//     b = data[i + 2]
-//     a = data[i + 3]
-//     if (a < 255 / 2) continue
-//     col = rgbToHex(r, g, b)
-//     if (!colors[col]) colors[col] = 0
-//     colors[col]++
-//   }
-//   return colors
-// }
+  // Aggiungi un evento al caricamento dell'immagine
+  img.onload = function () {
+    // Crea un canvas per estrarre i dati dell'immagine
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
 
-// // trova il colore più ricorrente data una mappa di frequenza dei colori
-// const findMostRecurrentColor = function (colorMap) {
-//   let highestValue = 0
-//   let mostRecurrent = null
-//   for (const hexColor in colorMap) {
-//     if (colorMap[hexColor] > highestValue) {
-//       mostRecurrent = hexColor
-//       highestValue = colorMap[hexColor]
-//     }
-//   }
-//   return mostRecurrent
-// }
+    // Imposta le dimensioni del canvas
+    canvas.width = img.width;
+    canvas.height = img.height;
 
-// // converte un valore in rgb a un valore esadecimale
-// const rgbToHex = function (r, g, b) {
-//   if (r > 255 || g > 255 || b > 255) {
-//     throw 'Invalid color component'
-//   } else {
-//     return ((r << 16) | (g << 8) | b).toString(16)
-//   }
-// }
+    // Disegna l'immagine sul canvas
+    ctx.drawImage(img, 0, 0, img.width, img.height);
 
-// // inserisce degli '0' se necessario davanti al colore in esadecimale per renderlo di 6 caratteri
-// const pad = function (hex) {
-//   return ('000000' + hex).slice(-6)
-// }
+    // Estrai i dati dell'immagine
+    const imageData = ctx.getImageData(0, 0, img.width, img.height).data;
 
-// const generateImage = function () {
-//   // genero dinamicamente un tag <img /> in un <div> vuoto
+    // Calcola il colore dominante
+    let totalR = 0,
+      totalG = 0,
+      totalB = 0;
 
-//   let imageSrc =
-//     'https://e-cdns-images.dzcdn.net/images/artist/7f6e8be161417ad8ce8f09b45721544f/500x500-000000-80-0-0.jpg'
+    for (let i = 0; i < imageData.length; i += 4) {
+      totalR += imageData[i];
+      totalG += imageData[i + 1];
+      totalB += imageData[i + 2];
+    }
 
-//   let reference = document.getElementById('container')
+    const averageR = Math.round(totalR / (imageData.length / 4));
+    const averageG = Math.round(totalG / (imageData.length / 4));
+    const averageB = Math.round(totalB / (imageData.length / 4));
 
-//   // l'event listener "onload" nel tag <img /> si occupa di lanciare la funzione "start()" solamente
-//   // al termine del caricamento della src
-//   reference.innerHTML = `
-//     <img
-//       src=${imageSrc}
-//       id="img"
-//       crossorigin="anonymous"
-//       onload="start()"
-//     />`
-// }
+    // Restituisci il colore dominante sotto forma di stringa "rgb(r, g, b)"
+    const dominantColor = `rgb(${averageR}, ${averageG}, ${averageB})`;
 
-// const start = function () {
-//   // prendo il riferimento all'immagine del dom
-//   let imgReference = document.querySelector('#img')
+    // Richiama la callback con il colore dominante
+    callback(dominantColor);
+  };
 
-//   // creo il context 2d dell'immagine selezionata
-//   let context = draw(imgReference)
+  // Imposta la sorgente dell'immagine
+  img.src = imageUrl;
+}
 
-//   // creo la mappa dei colori più ricorrenti nell'immagine
-//   let allColors = getColors(context)
+// Funzione per applicare il colore di sfondo al contenitoreImgAlbum
+function applyBackgroundColorToContainer(imageUrl) {
+  getDominantColor(imageUrl, function (dominantColor) {
+    // Seleziona l'elemento con id "contenitoreImgAlbum"
+    const containerImgAlbum = document.getElementById("contenitoreImgAlbum");
 
-//   // trovo colore più ricorrente in esadecimale
-//   let mostRecurrent = findMostRecurrentColor(allColors)
+    // Applica il colore di sfondo
+    containerImgAlbum.style.backgroundColor = dominantColor;
+  });
+}
 
-//   // se necessario, aggiunge degli '0' per rendere il risultato un valido colore esadecimale
-//   let mostRecurrentHex = pad(mostRecurrent)
-
-//   // console.log del risultato
-//   console.log(mostRecurrentHex)
-// }
-
-// generateImage()
+// * FINE DELLE FUNZIONI PER OTTENERE IL COLORO DI BACKGROUND IN BASE AL MIX COLORI DELL'IMMAGINE DELL'ALBUM
