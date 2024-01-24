@@ -170,6 +170,25 @@ const createBanner = (data) => {
   audioElement.addEventListener("timeupdate", updateProgressBar);
   progressContainer.addEventListener("click", setAudioProgress);
 
+  let isDragging = false;
+
+  progressContainer.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    setAudioProgress(e);
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+      setAudioProgress(e);
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+  });
+
+  audioElement.addEventListener("timeupdate", updateProgressBar);
+
   // mute btn
   const muteBtn = document.getElementById("mute-Unmute");
   muteBtn.innerHTML = `
@@ -189,7 +208,9 @@ const createBanner = (data) => {
     }
   });
 
+  // volume slider
   const volumeSlider = document.getElementById("volumeSlider");
+
   volumeSlider.addEventListener("input", () => {
     audioElement.volume = volumeSlider.value;
 

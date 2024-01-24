@@ -616,7 +616,10 @@
       </div>
       <!-- player bar -->
     </div>
-    <div id="player-bar" class="overlay z-2 bg-grigino text-light d-none">
+    <div
+      id="player-bar"
+      class="overlay z-2 bg-grigino text-light d-none border border-fontB border-bottom-0 border-start-0 border-end-0"
+    >
       <div class="container-fluid">
         <div class="row">
           <!-- parte a sx  player-->
@@ -661,10 +664,11 @@
             <i class="bi bi-list me-2"></i>
             <i class="bi bi-speaker me-2"></i>
             <div id="mute-Unmute"></div>
+
             <input
               type="range"
               id="volumeSlider"
-              class="sliderStyle"
+              class="sliderStyle rounded-1"
               min="0"
               max="1"
               step="0.1"

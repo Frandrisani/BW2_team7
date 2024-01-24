@@ -91,10 +91,10 @@
   border-radius: 20px;
   position: relative;
 }
-#progress-bar:hover {
+#progress-bar:hover, #progress-bar:active {
   background-color: #59d860;
 }
-#progress-bar:hover::after {
+#progress-bar:hover::after, #progress-bar:active::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -104,7 +104,37 @@
   background-color: #fff;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  /* Use hardware acceleration for smoother animations */
+}
+
+#volumeSlider {
+  width: 150px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  height: 5px;
+  border-radius: 20px; /* Same border radius as the progress bar */
+  background: #e9e9e9; /* Same background color as the progress bar */
+  outline: none;
+  transition: background-color 0.2s;
+  overflow: hidden;
+}
+#volumeSlider::-webkit-slider-runnable-track {
+  background: #a1a1a1;
+  border-radius: 5px;
+}
+#volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: -407px 0 0 400px rgb(255, 255, 255);
+}
+#volumeSlider:hover::-webkit-slider-thumb, #volumeSlider:active::-webkit-slider-thumb {
+  background: #59d860;
+  box-shadow: -407px 0 0 400px #59d860;
 }
 
 /*!
