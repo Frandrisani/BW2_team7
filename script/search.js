@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="row d-flex flex-column rounded p-3" id="relevant">
         <div class="col">
           <div class="d-flex flex-column justify-content-around" >
-              <a href="./artisti.html?">
+              <a href="./artisti.html?artistID=${firstResult.artist.id}">
                   <img src="${firstResult.artist.picture_xl}" class="img-fluid w-50 rounded-circle shadow mb-3" alt="...">
                   <h3 class="card-title ">${firstResult.artist.name}</h3>
                   <p class="card-text text-fontB50 ">${firstResult.artist.type}</p>
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <a href="./album.html?albumId=${firstResult.album.id}">
                 <img src="${firstResult.album.cover_medium}" class="img-fluid w-50 rounded shadow mb-3" alt="...">
                 <h3 class="card-title">${firstResult.album.title}</h3>
-                <p class="card-text text-fontB50">${firstResult.album.type}<i class="bi bi-dot"></i><a href="./artisti.html?">${firstResult.artist.name}</a></p>
+                <p class="card-text text-fontB50">${firstResult.album.type}<i class="bi bi-dot"></i><a href="./artisti.html?artistID=${firstResult.artist.id}">${firstResult.artist.name}</a></p>
               </a>
               <div class="text-end">
                 <button id="playButton" class="btn btn-primary btn-show rounded-circle bg-primary shadow"><i class="bi bi-play-fill fs-4"></i></button>
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <a href="./album.html?albumId=${firstResult.album.id}">
             <img src="${firstResult.album.cover_medium}" class="img-fluid w-50 rounded shadow mb-3" alt="...">
             <h3 class="card-title ">${firstResult.title}</h3>
-            <p class="card-text text-fontB50 ">${firstResult.type}<i class="bi bi-dot"></i><a href="./artisti.html?">${firstResult.artist.name}</a></p>
+            <p class="card-text text-fontB50 ">${firstResult.type}<i class="bi bi-dot"></i><a href="./artisti.html?artistID=${firstResult.artist.id}">${firstResult.artist.name}</a></p>
           </a>
           <div class="text-end">
             <button id="playButton" class="btn btn-primary btn-show rounded-circle bg-primary shadow" id="playButton"><i class="bi bi-play-fill fs-4"></i></button>
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <h6 class="mb-0">${results[i].title}</h6>
               </div>
               <div class="col-12 text-fontB50">
-                <a href="./artisti.html?">
+                <a href="./artisti.html?artistID=${firstResult.artist.id}">
                   <p class="mb-0">${results[i].artist.name}</p>
                 </a>
               </div>
