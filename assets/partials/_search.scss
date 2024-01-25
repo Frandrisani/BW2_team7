@@ -1,0 +1,42 @@
+body {
+    font-family: 'Circular';
+}
+
+nav {
+    ul{
+        display: flex;
+        list-style-type: none;
+
+        
+        li:nth-of-type(3) {
+            margin-left: 0.5em;
+            background-color:  #242424;
+            border-radius: 20px !important;
+            padding: 0.4em;
+            font-size: 1em;
+            input {
+                background-color:  #242424;
+                border: none;
+            }
+        }
+        button {
+            border-radius: 100%;
+            border: none;
+        }
+    }
+}
+
+
+main {
+    .bg-tertiary {
+        background-color: #242424;
+    }
+    .playlist{
+        img {
+            transform: rotate(30deg);
+            margin-right: -40px; 
+            margin-bottom: -25px
+        }
+    }
+}
+

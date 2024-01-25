@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Artist page</title>
+    <link rel="stylesheet" href="./assets/sass/costum-bootsrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/circular-font.css" />
+  </head>
+  <body>
+    <header>
+      <!-- navbar Matteo -->
+    </header>
+    <main style="font-family: Circular">
+      <!-- cover artisa + info -->
+      <div class="container-fluid p-3 vw-100 z-0 position-relative" style="height:600px"  id="artist-cover">
+        <section
+          class="row d-none d-md-block d-md-flex md-justified-content-between"
+          id="account"
+        >
+          <div class="col-md-10">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-chevron-left text-fontB50"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-chevron-right text-fontB50 fs-1"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+              />
+            </svg>
+          </div>
+          <div class="col-md-2">
+            <span class="badge rounded-pill bg-black text-fontB">
+              <img
+                src="./assets/imgs/search/image-1.jpeg"
+                class="rounded-circle"
+                alt="accountID"
+                width="25"
+                height="25"
+              />
+              d.aria.elisa</span
+            >
+          </div>
+        </section>
+        <section class="row g-1 text-fontB position-absolute bottom-0 start-0 mb-4 ms-3">
+          <article class="col-12 d-none d-md-block mt-5">
+            <h6>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                class="bi bi-patch-check-fill text-badgeBlue"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"
+                />
+              </svg>
+              Artista verificato
+            </h6>
+          </article>
+          <article class="col-12"><h1 id="artist-name" class="display-1 fw-bold"></h1></article>
+          <article class="col-12">
+            <h5><span id="nb-fan"></span> ascoltatori mensili</h5>
+          </article>
+        </section>
+      </div>
+      <!-- SECTION BG GRAY GRADIENT -->
+      <section class="container-fluid bg-black bg-gradient z-1">
+        <!--  SHUFFLE PLAY FOLLOWING -->
+        <article
+          class="row flex-row-reverse flex-md-row justify-content-start align-items-center g-1"
+        >
+          <div class="col col-md-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              fill="currentColor"
+              class="bi bi-play-circle-fill text-primary"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"
+              />
+            </svg>
+          </div>
+          <div class="col d-md-none">
+            <i class="bi bi-shuffle text-primary fs-1"></i>
+          </div>
+          <div class="col d-md-none">
+            <i class="bi bi-three-dots-vertical text-fontB50 fs-1 "></i>
+          </div>
+          <div class="col col-md-2">
+            <button
+              type="button"
+              class="btn btn-outline-fontB50 rounded-0 text-fontB50"
+              id="following"
+            >
+              FOLLOWING
+            </div>
+            </button>
+          <div class="col d-none d-md-block col-md-2">
+            <i class="bi bi-three-dots text-fontB50 fs-1 "></i>
+          </div>
+        </article>
+        <!-- SEZIONE BRANI ARTISTA + BRANI PREFE -->
+    <article class="row flex-column-reverse flex-md-row" id="popular-tracks">
+      <div class="col-12 col-md-8 d-flex flex-columnjustify-content-evenly align-items-start text-fontB">
+          <div class="container" id="traccia-album">
+            <h2>Popolari</h2>
+            <!-- <div class="row align-items-center">
+              <div class="col">
+                <h3>1</h3>
+              </div>
+              <div class="col">
+                <img src="" class="img-thumbnail" alt="album-cover">
+              </div>
+              <div class="col">
+                <h4>Track</h4>
+              </div>
+              <div class="col d-sm-none">
+                <i class="bi bi-three-dots-vertical text-fontB50 fs-1"></i>
+              </div>
+              <div class="col">
+                <h5>156148469</h5>
+              </div>
+              <div class="col d-none d-sm-block">
+                <h6>3:50</h6>
+              </div>
+            </div> -->
+         </div>
+        </div>
+          <div class="col-12 col-md-4 d-flex flex-column align-items-start mt-3 text-fontB"id="brani preferiti">
+            <div class="container">
+              <h2>Brani che ti piacciono</h2>
+              <div class="row">
+                <div class="col">
+                  <div class="position-relative">
+                  <img src="" class="img-thumbnail rounded-circle " alt="artist-photo" id="artist-circular">
+                  <span class="badge bg-primary rounded-5 position-absolute bottom-0" ><i class="bi bi-heart-fill text-fontB"></i>
+                  </span>
+                </div>
+                <div class="col">
+                  <h5>Hai messo mi piace a <span id="likes-num"></span> brani</h5>
+                  <h6 id="by-artist" class="fw-light">di Yellowjackets</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="row justify-content-center">
+          <div class="col-10">
+            <button type="button" class="btn text-fontB" id="visaulizza">VISUALIZZA ALTRO</button>
+          </div>
+        </article>
+      </section>
+    </main>
+    <aside>
+      <!-- section right Matteo -->
+    </aside>
+    <footer>
+      <!-- probabilmente Player -->
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script/artisti.js"></script>
+  </body>
+</html>
