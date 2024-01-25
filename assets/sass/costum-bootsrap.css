@@ -180,7 +180,11 @@
 }
 
 .colOpacity {
-  background-color: #414040;
+  background-color: #7a7a7a;
+  border-radius: 5px;
+}
+.colOpacity:active {
+  background-color: #6b6b6b;
   border-radius: 5px;
 }
 

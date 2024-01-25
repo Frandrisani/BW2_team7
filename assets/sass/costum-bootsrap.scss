@@ -235,8 +235,14 @@ padding: 7px;
 }
 
 .colOpacity{
-  background-color: #414040;
-border-radius: 5px;
+  background-color: #7a7a7a;
+  border-radius: 5px;
+  &:active{
+  
+  background-color: #6b6b6b;
+  border-radius: 5px;
+  }
+
 
 }
 

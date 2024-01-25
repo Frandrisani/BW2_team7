@@ -179,3 +179,28 @@
     <script src="./script/search.js"></script>
   </body>
 </html>
+
+<div class="row justify-content-between gy-3">
+  <div class="col-10 d-flex">
+    <div class="playerInImg">
+      <img
+        src="${
+         results[i].album.cover_small
+         }"
+        class="img-fluid rounded"
+      />
+    </div>
+    <div class="d-flex flex-column ms-3">
+      <h6 class="mb-0">${results[i].title}</h6>
+      <p class="mb-0">${results[i].artist.name}</p>
+      <div>
+        <source
+          src="${results[i].preview}"
+          type="video/mp4"
+          class="d-none audioDivSrc"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="col-2 text-fontB50">${convertTime(results[i].duration)}</div>
+</div>

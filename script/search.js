@@ -131,15 +131,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const colTrack = document.createElement("div");
       colTrack.classList.add("col-12");
       colTrack.innerHTML = `
-      <div class="row justify-content-between ">
-      <div class="col-10 d-flex">
-      <div class="playerInImg">
-        <img src="${
-          results[i].album.cover_small
-        }" class="img-fluid rounded  " />
-        </div>
-        <div class="d-flex flex-column ms-3 ">
-          <h6 class="mb-0">${results[i].title}</h6>
+      <div class="row justify-content-between my-2 ">
+         <div class="col-10 d-flex">
+            <div class="playerInImg">
+              <img src="${
+                results[i].album.cover_small
+              }" class="img-fluid rounded  " />
+             </div>
+            <div class="d-flex flex-column ms-3 ">
+            <h6 class="mb-0">${results[i].title}</h6>
           <p class="mb-0">${results[i].artist.name}</p>
           <div >
           <source src="${results[i].preview}" type="video/mp4" 
@@ -166,15 +166,17 @@ document.addEventListener("DOMContentLoaded", function () {
         alphaCol.style.backgroundColor = "";
       });
 
-      console.log(alphaCol);
-
       // audio
       const audioSource = audioDivSrc.src;
       playerInImgDiv.addEventListener("click", () => {
         playAudio(audioSource);
-        // alphaCol.classList.toggle("colOpacity");
-        alphaCol.style.backgroundColor = "#414040";
-        alphaCol.style.borderRadius = "5px";
+        // alphaCol.style.backgroundColor = "#414040";
+        // alphaCol.style.borderRadius = "5px";
+        document.querySelectorAll(".col-12").forEach((element) => {
+          element.classList.remove("colOpacity");
+        });
+
+        alphaCol.classList.add("colOpacity");
       });
 
       rowTracks.appendChild(colTrack);
