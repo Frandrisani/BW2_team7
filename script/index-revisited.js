@@ -42,7 +42,7 @@ const createBanner = (data) => {
                   <div class="d-flex justify-content-between">
                     <p class="fw-semibold">${data.record_type.toUpperCase()}</p>
                     <div
-                      class="btn bg-grigino text-fontB rounded-5 fs-6"
+                      class="btn bg-darkerBg text-fontB rounded-5 fs-6"
                       id="hide-Banner-Btn"
                     >
                       NASCONDI ANNUNCI
