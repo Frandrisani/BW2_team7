@@ -1,3 +1,7 @@
+body {
+  font-family: "Circular";
+}
+
 nav ul {
   display: flex;
   list-style-type: none;
@@ -16,4 +20,13 @@ nav ul li:nth-of-type(3) input {
 nav ul button {
   border-radius: 100%;
   border: none;
+}
+
+main .bg-tertiary {
+  background-color: #242424;
+}
+main .playlist img {
+  transform: rotate(30deg);
+  margin-right: -40px;
+  margin-bottom: -25px;
 }/*# sourceMappingURL=style.css.map */

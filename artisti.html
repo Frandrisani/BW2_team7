@@ -17,9 +17,9 @@
     </header>
     <main style="font-family: Circular">
       <!-- cover artisa + info -->
-      <div class="container-fluid p-3 bg-img" id="artist-cover">
+      <div class="container-fluid p-3 vw-100 z-0 position-relative" style="height:600px"  id="artist-cover">
         <section
-          class="row d-none d-md-block d-md-flex md-justified-content-between mt-3"
+          class="row d-none d-md-block d-md-flex md-justified-content-between"
           id="account"
         >
           <div class="col-md-10">
@@ -63,7 +63,7 @@
             >
           </div>
         </section>
-        <section id="artist-brand" class="row g-1 text-fontB">
+        <section class="row g-1 text-fontB position-absolute bottom-0 start-0 mb-4 ms-3">
           <article class="col-12 d-none d-md-block mt-5">
             <h6>
               <svg
@@ -81,14 +81,14 @@
               Artista verificato
             </h6>
           </article>
-          <article class="col-12"><h1>Yellowcard</h1></article>
+          <article class="col-12"><h1 id="artist-name" class="display-1 fw-bold"></h1></article>
           <article class="col-12">
-            <h5>3.433.158 ascoltatori mensili</h5>
+            <h5><span id="nb-fan"></span> ascoltatori mensili</h5>
           </article>
         </section>
       </div>
       <!-- SECTION BG GRAY GRADIENT -->
-      <section class="container-fluid bg-black bg-gradient">
+      <section class="container-fluid bg-black bg-gradient z-1">
         <!--  SHUFFLE PLAY FOLLOWING -->
         <article
           class="row flex-row-reverse flex-md-row justify-content-start align-items-center g-1"
@@ -127,10 +127,55 @@
           </div>
         </article>
         <!-- SEZIONE BRANI ARTISTA + BRANI PREFE -->
-        <article class="row" id="popular-tracks">
-          <div class="col">
+    <article class="row flex-column-reverse flex-md-row" id="popular-tracks">
+      <div class="col-12 col-md-8 d-flex flex-columnjustify-content-evenly align-items-start text-fontB">
+          <div class="container" id="traccia-album">
+            <h2>Popolari</h2>
+            <!-- <div class="row align-items-center">
+              <div class="col">
+                <h3>1</h3>
+              </div>
+              <div class="col">
+                <img src="" class="img-thumbnail" alt="album-cover">
+              </div>
+              <div class="col">
+                <h4>Track</h4>
+              </div>
+              <div class="col d-sm-none">
+                <i class="bi bi-three-dots-vertical text-fontB50 fs-1"></i>
+              </div>
+              <div class="col">
+                <h5>156148469</h5>
+              </div>
+              <div class="col d-none d-sm-block">
+                <h6>3:50</h6>
+              </div>
+            </div> -->
+         </div>
+        </div>
+          <div class="col-12 col-md-4 d-flex flex-column align-items-start mt-3 text-fontB"id="brani preferiti">
+            <div class="container">
+              <h2>Brani che ti piacciono</h2>
+              <div class="row">
+                <div class="col">
+                  <div class="position-relative">
+                  <img src="" class="img-thumbnail rounded-circle " alt="artist-photo" id="artist-circular">
+                  <span class="badge bg-primary rounded-5 position-absolute bottom-0" ><i class="bi bi-heart-fill text-fontB"></i>
+                  </span>
+                </div>
+                <div class="col">
+                  <h5>Hai messo mi piace a <span id="likes-num"></span> brani</h5>
+                  <h6 id="by-artist" class="fw-light">di Yellowjackets</h6>
+                </div>
+              </div>
+            </div>
           </div>
-        <article>
+        </article>
+        <article class="row justify-content-center">
+          <div class="col-10">
+            <button type="button" class="btn text-fontB" id="visaulizza">VISUALIZZA ALTRO</button>
+          </div>
+        </article>
       </section>
     </main>
     <aside>
@@ -144,6 +189,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="./artisti.js"></script>
+    <script src="./script/artisti.js"></script>
   </body>
 </html>
