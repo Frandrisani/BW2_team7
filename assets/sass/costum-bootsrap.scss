@@ -7,7 +7,7 @@ $new-secondary: #181818;
 $new-tertiary: #242424;
 
 $new-theme-colors: (
-    "grigino": #292929,
+    "grigino": #2d2d2d,
     "primary" : $new-primary,
     "secondary": $new-secondary,
     'tertiary':$new-tertiary,
@@ -17,7 +17,18 @@ $new-theme-colors: (
     "badgeBlue" : #4485d6,
     "playerButtonColor": rgba(138, 138, 138, 0.836),
     "friendFeed": rgb(175, 175, 175),
+    //  colore per scurire ulteriormente il nascondi annunci------
+    "darkerBg": #1f1f1f76,
 );
+// font size per "Altro che ti piace"
+.fs-7{ font-size: 1.2rem;
+}
+// font-size e spacing per "Visualizza tutto"
+.fs-small{font-size: 0.7rem;
+}
+.custom-letter-spacing {
+  letter-spacing: 2px;
+}
 
 // FIX icone
 .sideBarIcon {
@@ -198,6 +209,16 @@ background: linear-gradient(45deg, rgba(6,6,6,1) 0%, rgba(246,246,246,0) 100%);
   &:hover{
       opacity: 100%;
   }
+}
+
+#album-cover{ margin-left: 110px; filter: brightness(2); 
+}
+
+// #player-bar .opacity-75 img {
+//   opacity: 1; // Imposto l'opacità solo dell'immagine a 1
+// } non funziona
+
+#right-player{padding-right: 50px;
 }
 
 
