@@ -151,32 +151,54 @@ document.addEventListener("DOMContentLoaded", function () {
       const colTrack = document.createElement("div");
       colTrack.classList.add("col-12");
       colTrack.innerHTML = `
-        <div class="row sfoglia rounded align-items-center p-1 track">
-        <div class="col-2">
-            <img src="${
-              results[i].album.cover_small
-            }" class="img-fluid rounded">
-            <div class="overlay justify-content-start rounded">
-             <i style="margin-left:0.97em"class="bi bi-play-fill fs-2"></i>
-            </div>
-          </div>
-          <div class="col-8 z-3">
-            <div class="row">
-              <div class="col-12">
-                <h6 class="mb-0">${results[i].title}</h6>
-              </div>
-              <div class="col-12 text-fontB50">
-                <a href="./artisti.html?artistID=${firstResult.artist.id}">
-                  <p class="mb-0">${results[i].artist.name}</p>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-2 text-fontB50 z-3">${convertTime(
-            results[i].duration
-          )}</div>
+      <div class="row justify-content-between my-2 ">
+      <div class="col-10 d-flex">
+        <div class="playerInImg">
+          <img src="${
+            results[i].album.cover_small
+          }" class="img-fluid rounded" />
         </div>
+        <div class="d-flex flex-column ms-3 ">
+          <h6 class="mb-0">${results[i].title}</h6>
+          <a href="./artisti.html?artistID=${results[i].artist.id}">
+              <p class="mb-0">${results[i].artist.name}</p>
+          </a>
+          <div >
+            <source src="${results[i].preview}" type="video/mp4" 
+            class="d-none audioDivSrc"/>
+          </div>
+        </div>
+      </div>
+      <div class="col-2 text-fontB50">${convertTime(results[i].duration)}</div>
+      </div>
       `;
+      // funzione per richiamare l'audio e per animazioni circa
+      const playerInImgDiv = colTrack.querySelector(".playerInImg");
+      const audioDivSrc = colTrack.querySelector(".audioDivSrc");
+
+      // stili
+      const alphaCol = audioDivSrc.closest(".col-12");
+      alphaCol.addEventListener("mouseover", () => {
+        alphaCol.style.backgroundColor = "#131313";
+        alphaCol.style.borderRadius = "5px";
+      });
+
+      alphaCol.addEventListener("mouseout", () => {
+        alphaCol.style.backgroundColor = "";
+      });
+
+      // audio
+      const audioSource = audioDivSrc.src;
+      playerInImgDiv.addEventListener("click", () => {
+        playAudio(audioSource);
+        // alphaCol.style.backgroundColor = "#414040";
+        // alphaCol.style.borderRadius = "5px";
+        document.querySelectorAll(".col-12").forEach((element) => {
+          element.classList.remove("colOpacity");
+        });
+
+        alphaCol.classList.add("colOpacity");
+      });
       rowTracks.appendChild(colTrack);
     }
 
@@ -198,6 +220,22 @@ document.addEventListener("DOMContentLoaded", function () {
   };
   searchInput.addEventListener("input", handleSearch);
 });
+
+// funzione per l'audio
+let audioPlayer;
+
+function playAudio(source) {
+  if (!audioPlayer) {
+    audioPlayer = new Audio();
+  }
+
+  if (audioPlayer.src === source && !audioPlayer.paused) {
+    audioPlayer.pause();
+  } else {
+    audioPlayer.src = source;
+    audioPlayer.play();
+  }
+}
 
 // funzione per mostrare le card all'avvio della pagina
 
