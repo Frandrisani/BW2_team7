@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   <p class="card-text text-fontB50 ">${firstResult.artist.type}</p>
               </a>
               <div class="text-end">
-                  <button class="btn btn-primary btn-show rounded-circle bg-primary shadow" id="playButton"><i class="bi bi-play-fill fs-4"></i></button>
+                  <button class="btn btn-primary btn-show rounded-circle bg-primary shadow playButton"><i class="bi bi-play-fill fs-4"></i></button>
               </div>
           </div>
         </div>
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <p class="card-text text-fontB50">${firstResult.album.type}<i class="bi bi-dot"></i><a href="./artisti.html?artistID=${firstResult.artist.id}">${firstResult.artist.name}</a></p>
               </a>
               <div class="text-end">
-                <button id="playButton" class="btn btn-primary btn-show rounded-circle bg-primary shadow"><i class="bi bi-play-fill fs-4"></i></button>
+                <button class="btn btn-primary btn-show rounded-circle bg-primary shadow playButton"><i class="bi bi-play-fill fs-4"></i></button>
               </div>
             </div>
         </div>
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <p class="card-text text-fontB50 ">${firstResult.type}<i class="bi bi-dot"></i><a href="./artisti.html?artistID=${firstResult.artist.id}">${firstResult.artist.name}</a></p>
           </a>
           <div class="text-end">
-            <button id="playButton" class="btn btn-primary btn-show rounded-circle bg-primary shadow" id="playButton"><i class="bi bi-play-fill fs-4"></i></button>
+            <button class="btn btn-primary btn-show rounded-circle bg-primary shadow playButton" ><i class="bi bi-play-fill fs-4"></i></button>
           </div>
           </div>
         </div>
@@ -151,12 +151,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const colTrack = document.createElement("div");
       colTrack.classList.add("col-12");
       colTrack.innerHTML = `
-      <div class="row justify-content-between my-2 ">
-      <div class="col-10 d-flex">
+      <div class="row justify-content-between my-2">
+      <div class="col-10 d-flex align-items-center">
         <div class="playerInImg">
           <img src="${
             results[i].album.cover_small
           }" class="img-fluid rounded" />
+          <div class="overlay justify-content-start rounded playButton">
+            <i style="margin-left:0.4em"class="bi bi-play-fill fs-2"></i>
+         </div>
         </div>
         <div class="d-flex flex-column ms-3 ">
           <h6 class="mb-0">${results[i].title}</h6>
@@ -169,7 +172,9 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </div>
       </div>
-      <div class="col-2 text-fontB50">${convertTime(results[i].duration)}</div>
+      <div class="col-2 text-fontB50 d-flex align-items-center ">${convertTime(
+        results[i].duration
+      )}</div>
       </div>
       `;
       // funzione per richiamare l'audio e per animazioni circa
@@ -204,18 +209,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // FUNZIONE BOTTONE PLAYER
 
-    const playButton = document.querySelector("#playButton");
-    const icon = playButton.querySelector("i");
-    playButton.addEventListener("click", function () {
-      if (icon.classList.contains("bi-play-fill")) {
-        icon.classList.remove("bi-play-fill");
-        icon.classList.add("bi-pause-fill");
-      } else {
-        icon.classList.remove("bi-pause-fill");
-        icon.classList.add("bi-play-fill");
-      }
-      // mostra il pulsante anche quando non è in hover
-      playButton.classList.toggle("active");
+    const playButtons = document.querySelectorAll(".playButton");
+    playButtons.forEach((playButton) => {
+      playButton.addEventListener("click", function () {
+        const icon = playButton.querySelector("i");
+
+        if (icon.classList.contains("bi-play-fill")) {
+          icon.classList.remove("bi-play-fill");
+          icon.classList.add("bi-pause-fill");
+        } else {
+          icon.classList.remove("bi-pause-fill");
+          icon.classList.add("bi-play-fill");
+        }
+
+        playButton.classList.toggle("active");
+      });
     });
   };
   searchInput.addEventListener("input", handleSearch);
