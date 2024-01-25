@@ -19,6 +19,7 @@ fetch(myUrl + "/" + artistId, {})
   .then((artist) => {
     console.log(artist);
     createBanner(artist);
+    savePlayerDataToLocalStorage(artist);
   })
   .catch((err) => {
     console.log(err);
@@ -243,4 +244,15 @@ const createBanner = (data) => {
     const seconds = Math.floor(timeInSeconds % 60);
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   }
+};
+
+const savePlayerDataToLocalStorage = (data) => {
+  const playerData = {
+    trackName: data.title,
+    artistName: data.artist.name,
+    albumCover: data.cover_medium,
+    audioElement: data.tracks.data[0].preview,
+  };
+
+  localStorage.setItem("playerData", JSON.stringify(playerData));
 };

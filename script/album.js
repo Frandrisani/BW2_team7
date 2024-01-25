@@ -123,6 +123,40 @@ fetch(myURL + "/" + albumId)
         </div>`;
       containerRowSongs.appendChild(rowSongDinamic);
     });
+
+    // audio e avanti e indietro funzioni
+    const tracks = album.tracks.data;
+
+    let currentTrackIndex = 0;
+
+    const playBtnAlbum = document.getElementById("play-album-btn");
+    const playerBar = document.getElementById("player-bar");
+
+    playBtnAlbum.addEventListener("click", function () {
+      playerBar.classList.remove("d-none");
+
+      const audio = tracks[currentTrackIndex].preview;
+
+      playerBarLogic(audio, tracks[currentTrackIndex]);
+    });
+
+    const nextBtn = document.getElementById("next-btn");
+    const prevBtn = document.getElementById("prev-btn");
+    nextBtn.addEventListener("click", function () {
+      currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+      const audio = tracks[currentTrackIndex].preview;
+      console.log(currentTrackIndex);
+      playerBarLogic(audio, tracks[currentTrackIndex]);
+    });
+
+    prevBtn.addEventListener("click", function () {
+      currentTrackIndex =
+        (currentTrackIndex - 1 + tracks.length) % tracks.length;
+      console.log(currentTrackIndex);
+      const audio = tracks[currentTrackIndex].preview;
+
+      playerBarLogic(audio, tracks[currentTrackIndex]);
+    });
   });
 // * FINE FETCH
 
@@ -187,3 +221,133 @@ function applyBackgroundColorToContainer(imageUrl) {
 }
 
 // * FINE DELLE FUNZIONI PER OTTENERE IL COLORO DI BACKGROUND IN BASE AL MIX COLORI DELL'IMMAGINE DELL'ALBUM
+
+// logic for player bar
+
+const playerBarLogic = (sourceAudio, data) => {
+  const audioElement = document.getElementById("audioDiv");
+  const trackName = document.getElementById("song-name");
+  const artistName = document.getElementById("artist-name");
+  const albumCover = document.getElementById("album-cover");
+  const playStopPlayer = document.getElementById("play-playerBar");
+
+  audioElement.src = sourceAudio;
+
+  audioElement.play();
+
+  // dinamic text and img
+  trackName.textContent = `${data.title}`;
+  artistName.textContent = `${data.artist.name}`;
+  albumCover.src = `${data.album.cover_medium}`;
+
+  // play-pause btn
+  playStopPlayer.innerHTML = ` <i class="bi bi-pause-circle-fill"></i>`;
+  playStopPlayer.addEventListener("click", function () {
+    if (audioElement.paused) {
+      audioElement.play();
+      playStopPlayer.innerHTML = `
+        <i class="bi bi-pause-circle-fill"></i>
+      `;
+    } else {
+      audioElement.pause();
+      playStopPlayer.innerHTML = `
+        <i class="bi bi-play-circle-fill"></i>
+      `;
+    }
+  });
+
+  // progress bar
+  const progressContainer = document.getElementById("progress-container");
+  const progressBar = document.getElementById("progress-bar");
+
+  const updateProgressBar = () => {
+    const duration = audioElement.duration;
+    const currentTime = audioElement.currentTime;
+    const progressPercentage = (currentTime / duration) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+  };
+
+  const setAudioProgress = (e) => {
+    const clickX = e.clientX - progressContainer.getBoundingClientRect().left;
+    const containerWidth = progressContainer.clientWidth;
+    const progressPercentage = (clickX / containerWidth) * 100;
+    audioElement.currentTime =
+      (progressPercentage / 100) * audioElement.duration;
+  };
+
+  audioElement.addEventListener("timeupdate", updateProgressBar);
+  progressContainer.addEventListener("click", setAudioProgress);
+
+  let isDragging = false;
+
+  progressContainer.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    setAudioProgress(e);
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+      setAudioProgress(e);
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+  });
+
+  audioElement.addEventListener("timeupdate", updateProgressBar);
+
+  // time left
+  const timeLeft = document.getElementById("time-left");
+  const time = document.getElementById("time");
+
+  audioElement.addEventListener("loadedmetadata", function () {
+    const duration = audioElement.duration;
+    time.textContent = formatTime(duration);
+  });
+
+  audioElement.addEventListener("timeupdate", function () {
+    const currentTime = audioElement.currentTime;
+    timeLeft.textContent = formatTime(currentTime);
+  });
+
+  function formatTime(timeInSeconds) {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  }
+
+  // mute btn
+  const muteBtn = document.getElementById("mute-Unmute");
+  muteBtn.innerHTML = `
+    <i class="bi bi-volume-up"></i>
+  `;
+  muteBtn.addEventListener("click", () => {
+    if (audioElement.muted) {
+      audioElement.muted = false;
+      muteBtn.innerHTML = `
+      <i class="bi bi-volume-up"></i>
+      `;
+    } else {
+      audioElement.muted = true;
+      muteBtn.innerHTML = `
+      <i class="bi bi-volume-mute"></i>
+      `;
+    }
+  });
+
+  // volume slider
+  const volumeSlider = document.getElementById("volumeSlider");
+
+  volumeSlider.addEventListener("input", () => {
+    audioElement.volume = volumeSlider.value;
+
+    if (volumeSlider.value <= 0.6) {
+      muteBtn.innerHTML = `<i class="bi bi-volume-down fs-4 "></i>`;
+    } else {
+      muteBtn.innerHTML = `
+      <i class="bi bi-volume-up"></i>
+      `;
+    }
+  });
+};
