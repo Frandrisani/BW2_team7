@@ -28,8 +28,51 @@ nav {
 
 
 main {
+
+    a {
+        text-decoration: none;
+        color: rgba(209, 209, 209, 0.70);
+    }
+    a:first-child {
+        color: #D2D2D2;
+    }
+    
+    .btn-show {
+        opacity: 0;
+        transform: translateY(50px);
+        animation: slideUp 0.3s ease forwards;
+    }
+
+    .col-relevant:hover .btn-show {
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    @keyframes slideUp {
+        to {
+          opacity: 0;
+          transform: translateY(1px);
+        }
+    }
+
+    @keyframes slideDown {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+    }
+
     .bg-tertiary {
         background-color: #242424;
+    }
+    .sfoglia {
+        cursor: pointer;
+        background-color: #181818;
+        transition: background-color 0.2s ease;
+    }
+
+    .sfoglia:hover {
+        background-color: #242424;
+
     }
     .playlist{
         img {
@@ -38,5 +81,40 @@ main {
             margin-bottom: -25px
         }
     }
+
+    #relevant {
+        background-color: #242424;
+        transition: background-color 0.3s ease;
+    }
+
+    #relevant:hover {
+        background-color: #3d3b3b;
+    }
+
+    .track {
+        position: relative;
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(48, 47, 47, 0.5);  // Opacità dello sfondo
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;  // L'overlay è inizialmente nascosto
+            transition: opacity 0.3s ease;
+        }
+        
+          &:hover {
+            .overlay {
+              opacity: 1;  // Mostra l'overlay quando si passa sopra al brano
+            }
+        }
+    }
+
+
 }
 

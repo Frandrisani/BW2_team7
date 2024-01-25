@@ -22,11 +22,72 @@ nav ul button {
   border: none;
 }
 
+main a {
+  text-decoration: none;
+  color: rgba(209, 209, 209, 0.7);
+}
+main a:first-child {
+  color: #D2D2D2;
+}
+main .btn-show {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideUp 0.3s ease forwards;
+}
+main .col-relevant:hover .btn-show {
+  animation: slideDown 0.3s ease forwards;
+}
+@keyframes slideUp {
+  to {
+    opacity: 0;
+    transform: translateY(1px);
+  }
+}
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 main .bg-tertiary {
+  background-color: #242424;
+}
+main .sfoglia {
+  cursor: pointer;
+  background-color: #181818;
+  transition: background-color 0.2s ease;
+}
+main .sfoglia:hover {
   background-color: #242424;
 }
 main .playlist img {
   transform: rotate(30deg);
   margin-right: -40px;
   margin-bottom: -25px;
+}
+main #relevant {
+  background-color: #242424;
+  transition: background-color 0.3s ease;
+}
+main #relevant:hover {
+  background-color: #3d3b3b;
+}
+main .track {
+  position: relative;
+}
+main .track .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(48, 47, 47, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+main .track:hover .overlay {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */

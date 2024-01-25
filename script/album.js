@@ -18,7 +18,7 @@ console.log(addressBarContent);
 const albumId = addressBarContent.get("albumId");
 console.log(albumId);
 
-fetch(myURL + "/" + 75622662)
+fetch(myURL + "/" + albumId)
   .then((response) => {
     // * Qui aggiungiamo una classe "d-none" allo spinner di caricamento presente in HTML
     // INIZIO CODICE SPINNER
@@ -39,7 +39,7 @@ fetch(myURL + "/" + 75622662)
     img2AlbumTopSection.src = `${album.cover_small}`;
     titoloAlbumTopSection.innerText = `${album.title}`;
     nomeArtistaTopSection.innerText = `${album.artist.name} ·`;
-    numeroBraniAlbumTopSection.innerText = `${album.tracks.data.lenght} ·`;
+    numeroBraniAlbumTopSection.innerText = `${album.tracks.data.length} ·`;
     totMinutiTopSection.innerText = `${album.duration} `;
 
     album.tracks.data.forEach((element, i) => {

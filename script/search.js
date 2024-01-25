@@ -59,35 +59,48 @@ document.addEventListener("DOMContentLoaded", function () {
       "col-xl-4",
       "h-100",
       "results",
-      "mt-3"
+      "mt-3",
+      "col-relevant"
     );
 
     // verifica se la formattedQuery è uguale al nome dell'artista
     if (formattedQuery === firstResult.artist.name) {
       console.log("nome artista:", firstResult.artist.name);
       colRelevant.innerHTML = `
+      <div>
       <h2>Risultato più rilevante</h2>
-      <div class="row d-flex flex-column bg-tertiary rounded p-3 ">
-        <div class="col-8">
-          <div class="d-flex flex-column justify-content-around">
-            <img src="${firstResult.artist.picture_xl}" class="img-fluid w-50 rounded-circle shadow mb-3" alt="...">
-            <h3 class="card-title ">${firstResult.artist.name}</h3>
-            <p class="card-text text-fontB50 ">${firstResult.artist.type}</p>
+      <div class="row d-flex flex-column rounded p-3" id="relevant">
+        <div class="col">
+          <div class="d-flex flex-column justify-content-around" >
+              <a href="./artisti.html?">
+                  <img src="${firstResult.artist.picture_xl}" class="img-fluid w-50 rounded-circle shadow mb-3" alt="...">
+                  <h3 class="card-title ">${firstResult.artist.name}</h3>
+                  <p class="card-text text-fontB50 ">${firstResult.artist.type}</p>
+              </a>
+              <div class="text-end">
+                  <button class="btn btn-primary btn-show rounded-circle bg-primary shadow" id="playButton"><i class="bi bi-play-fill fs-4"></i></button>
+              </div>
           </div>
         </div>
       </div>
+    </div>
       `;
     } else if (formattedQuery === firstResult.album.title) {
       console.log("nome album:", firstResult.album.title);
       colRelevant.innerHTML = `
       <h2>Risultato più rilevante</h2>
-      <div class="row d-flex flex-column bg-tertiary rounded p-3 ">
-        <div class="col-10">
-          <div class="d-flex flex-column justify-content-around">
-            <img src="${firstResult.album.cover_medium}" class="img-fluid w-50 rounded shadow mb-3" alt="...">
-            <h3 class="card-title">${firstResult.album.title}</h3>
-            <p class="card-text text-fontB50">${firstResult.album.type}<i class="bi bi-dot"></i>${firstResult.artist.name}</p>
-          </div>
+      <div class="row d-flex flex-column rounded p-3" id="relevant">
+        <div class="col">
+            <div class="d-flex flex-column justify-content-around">
+              <a href="./album.html?albumId=${firstResult.album.id}">
+                <img src="${firstResult.album.cover_medium}" class="img-fluid w-50 rounded shadow mb-3" alt="...">
+                <h3 class="card-title">${firstResult.album.title}</h3>
+                <p class="card-text text-fontB50">${firstResult.album.type}<i class="bi bi-dot"></i><a href="./artisti.html?">${firstResult.artist.name}</a></p>
+              </a>
+              <div class="text-end">
+                <button id="playButton" class="btn btn-primary btn-show rounded-circle bg-primary shadow"><i class="bi bi-play-fill fs-4"></i></button>
+              </div>
+            </div>
         </div>
       </div>
       `;
@@ -95,12 +108,17 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("nome traccia:", firstResult.title);
       colRelevant.innerHTML = `
       <h2>Risultato più rilevante</h2>
-      <div class="row d-flex flex-column bg-tertiary rounded p-3 ">
-        <div class="col-10">
+      <div class="row d-flex flex-column rounded p-3" id="relevant" >
+        <div class="col">
           <div class="d-flex flex-column justify-content-around">
+          <a href="./album.html?albumId=${firstResult.album.id}">
             <img src="${firstResult.album.cover_medium}" class="img-fluid w-50 rounded shadow mb-3" alt="...">
             <h3 class="card-title ">${firstResult.title}</h3>
-            <p class="card-text text-fontB50 ">${firstResult.type}<i class="bi bi-dot"></i>${firstResult.artist.name}</p>
+            <p class="card-text text-fontB50 ">${firstResult.type}<i class="bi bi-dot"></i><a href="./artisti.html?">${firstResult.artist.name}</a></p>
+          </a>
+          <div class="text-end">
+            <button id="playButton" class="btn btn-primary btn-show rounded-circle bg-primary shadow" id="playButton"><i class="bi bi-play-fill fs-4"></i></button>
+          </div>
           </div>
         </div>
       </div>
@@ -110,13 +128,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const colTracks = document.createElement("div");
     colTracks.classList.add("col-12", "col-lg-6", "col-xl-8", "h-100", "mt-3");
-    colTracks.innerHTML = `
+    const divColTracks = document.createElement("div");
+    divColTracks.innerHTML = `
       <h2>Brani</h2>
     `;
     resultSection.appendChild(colTracks);
     const rowTracks = document.createElement("div");
     rowTracks.classList.add("row", "results", "gy-2");
-    colTracks.appendChild(rowTracks);
+    divColTracks.appendChild(rowTracks);
+    colTracks.appendChild(divColTracks);
 
     // funzione per formattare in minuti:secondi
 
@@ -131,27 +151,50 @@ document.addEventListener("DOMContentLoaded", function () {
       const colTrack = document.createElement("div");
       colTrack.classList.add("col-12");
       colTrack.innerHTML = `
-      <div class="row">
-       <div class="col-2">
-          <img src="${results[i].album.cover_small}" class="img-fluid rounded">
-        </div>
-        <div class="col-8">
-          <div class="row">
-            <div class="col-12">
-              <h6 class="mb-0">${results[i].title}</h6>
-            </div>
-            <div class="col-12 text-fontB50">
-              <p class="mb-0">${results[i].artist.name}</p>
+        <div class="row sfoglia rounded align-items-center p-1 track">
+        <div class="col-2">
+            <img src="${
+              results[i].album.cover_small
+            }" class="img-fluid rounded">
+            <div class="overlay justify-content-start rounded">
+             <i style="margin-left:0.97em"class="bi bi-play-fill fs-2"></i>
             </div>
           </div>
+          <div class="col-8 z-3">
+            <div class="row">
+              <div class="col-12">
+                <h6 class="mb-0">${results[i].title}</h6>
+              </div>
+              <div class="col-12 text-fontB50">
+                <a href="./artisti.html?">
+                  <p class="mb-0">${results[i].artist.name}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 text-fontB50 z-3">${convertTime(
+            results[i].duration
+          )}</div>
         </div>
-        <div class="col-2 text-fontB50">${convertTime(
-          results[i].duration
-        )}</div>
-      </div>
       `;
       rowTracks.appendChild(colTrack);
     }
+
+    // FUNZIONE BOTTONE PLAYER
+
+    const playButton = document.querySelector("#playButton");
+    const icon = playButton.querySelector("i");
+    playButton.addEventListener("click", function () {
+      if (icon.classList.contains("bi-play-fill")) {
+        icon.classList.remove("bi-play-fill");
+        icon.classList.add("bi-pause-fill");
+      } else {
+        icon.classList.remove("bi-pause-fill");
+        icon.classList.add("bi-play-fill");
+      }
+      // mostra il pulsante anche quando non è in hover
+      playButton.classList.toggle("active");
+    });
   };
   searchInput.addEventListener("input", handleSearch);
 });
@@ -295,7 +338,7 @@ arrayOfImages.forEach((imageSrc, index) => {
   divElement.classList.add("col-6", "col-md-4", "col-lg-2");
   // divElement.id = "playlist";
   divElement.innerHTML = `
-  <div style="overflow:hidden"  class="sfoglia rounded p-2 h-100">
+  <div style="overflow:hidden;"  class="sfoglia rounded p-2 h-100">
     <h3 class="mb-5 ms-2">${titles[index]}</h3>
     <div class="playlist h-100 text-end">
       <img
