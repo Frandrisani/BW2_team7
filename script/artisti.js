@@ -44,26 +44,26 @@ const gettingTracks = (tracks) => {
   tracks.forEach((track, i) => {
     // emptyCol();
     const newRow = document.createElement("div");
-    newRow.classList.add("row", "align-items-center", "g-1");
+    newRow.classList.add("row", "align-items-center", "g-3");
     newRow.innerHTML = `
-                <div class="col">
+                <div class="col-2 col-md-1">
                 <h5>${i + 1}</h5>
                 </div>
-                <div class="col">
+                <div class="col-2 col-md-1">
                 <img src="${
                   track.album.cover_small
                 }" class="img-thumbnail" alt="album-cover">
               </div>
-              <div class="col">
+              <div class="col-4 col-md-6">
                 <h5>${track.title_short}</h5>
               </div>
-              <div class="col d-sm-none">
+              <div class="col-4 d-md-none">
                 <i class="bi bi-three-dots-vertical text-fontB50 fs-1"></i>
               </div>
-              <div class="col">
+              <div class="col-12 flex-grow-1 d-flex justify-content-center col-md-2 d-md-block">
                 <h6 class="fw-light">${riproduzioniConIlPunto(track.rank)}</h6>
               </div>
-              <div class="col d-none d-sm-block">
+              <div class="col col-md-2 d-none d-md-block">
                 <h6 class="fw-light">${convertiSecondiAMinutiESecondi(
                   track.duration
                 )}</h6>
