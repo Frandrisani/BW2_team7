@@ -36,7 +36,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link text-fontB50" href=""
+              <a class="nav-link nav-link text-fontB50" href="search.html"
                 ><i class="bi bi-search fs-4 me-3 text-fontB50"></i> Cerca</a
               >
             </li>
@@ -186,10 +186,16 @@
                 <div class="nav d-flex justify-content-between mt-2">
                   <div>
                     <div class="btn bg-black text-light rounded-circle">
-                      <i class="bi bi-chevron-left"></i>
+                      <a
+                        href="index-revisited.html"
+                        class="text-decoration-none"
+                        ><i class="bi bi-chevron-left"></i
+                      ></a>
                     </div>
                     <div class="btn bg-black text-light rounded-circle">
-                      <i class="bi bi-chevron-right"></i>
+                      <a href="" class="text-decoration-none"
+                        ><i class="bi bi-chevron-right"></i
+                      ></a>
                     </div>
                   </div>
                   <div class="d-flex align-itmes-center">
@@ -399,9 +405,11 @@
             <div class="container-fluid" id="containerRowSongs"></div>
             <!--* FINE SUB-CONTAINER DOVE VERRANNO INSERITE LE VARIE ROW GENERATE DINAMICAMENTE CONTENENTI I DATI DELLE CANZONI-->
           </div>
+          <!-- FINE DEL CONTAINER DOVE CI SONO LE ICONE, E LE VARIE ROW GENERATE DINAMICAMENTE PER LE VARIE CANZONI-->
+          <!-- INIZIO PLAYER-->
           <div
             id="player-bar"
-            class="overlay z-2 bg-grigino text-light d-none border border-fontB border-bottom-0 border-start-0 border-end-0"
+            class="overlay z-2 bg-grigino text-light d-none border border-fontB border-bottom-0 border-start-0 border-end-0 position-fixed bottom-0"
           >
             <div class="container-fluid">
               <div class="row">
@@ -508,6 +516,9 @@
               </div>
             </div>
           </div>
+
+          <!-- FINE PLAYER-->
+
           <!-- FINE DEL CONTAINER DOVE CI SONO LE ICONE, E LE VARIE ROW GENERATE DINAMICAMENTE PER LE VARIE CANZONI-->
         </section>
       </div>
@@ -725,6 +736,7 @@
           <!-- -------------------------------------------------------------------------->
         </div>
       </div>
+      <!-- piccolo footer per mobile -->
     </div>
     <div
       class="d-md-none row bg-black opacity-50 py-4 fs-8 fixed-bottom start-0 end-0 text-white"
