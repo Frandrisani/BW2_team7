@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
     playButtons.forEach((playButton) => {
       playButton.addEventListener("click", function () {
         const icon = playButton.querySelector("i");
-
+        playerBarLogic();
         if (icon.classList.contains("bi-play-fill")) {
           icon.classList.remove("bi-play-fill");
           icon.classList.add("bi-pause-fill");
