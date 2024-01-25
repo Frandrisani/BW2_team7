@@ -56,7 +56,7 @@ const createBanner = (data) => {
                       <h5 class="card-title">${data.title}</h5>
                   </a>
                   <a href="./artisti.html?artistID=${data.artist.id}
-                }" class="text-white Udiee">
+                " class="text-white Udiee">
                     <p class="card-text">${data.artist.name}</p>
                     </a>
                     <p class="card-text">
