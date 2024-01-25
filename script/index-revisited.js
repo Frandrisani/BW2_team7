@@ -108,6 +108,9 @@ const createBanner = (data) => {
   albumCover.src = `${data.cover_medium}`;
 
   // play-pause btn
+  playStopPlayer.innerHTML = `
+  <i class="bi bi-play-circle-fill"></i>`;
+
   playBtn.addEventListener("click", function () {
     if (audioElement.paused) {
       audioElement.play();
@@ -140,6 +143,7 @@ const createBanner = (data) => {
     }
   });
 
+  // banner btn
   audioElement.addEventListener("click", function () {
     audioElement.pause();
     playerBar.classList.remove("d-none");

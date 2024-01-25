@@ -140,7 +140,10 @@ document.addEventListener("DOMContentLoaded", function () {
              </div>
             <div class="d-flex flex-column ms-3 ">
             <h6 class="mb-0">${results[i].title}</h6>
+            <a href="./artisti.html?artistID=${results[i].artist.id}
+          }" class="text-white Udiee">
           <p class="mb-0">${results[i].artist.name}</p>
+          </a>
           <div >
           <source src="${results[i].preview}" type="video/mp4" 
           class="d-none audioDivSrc"/>
@@ -150,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <div class="col-2 text-fontB50">${convertTime(results[i].duration)}</div>
     </div>
       `;
-
+      console.log(`${results[i].artist.id}`);
       // funzione per richiamare l'audio e per animazioni circa
       const playerInImgDiv = colTrack.querySelector(".playerInImg");
       const audioDivSrc = colTrack.querySelector(".audioDivSrc");
@@ -166,17 +169,17 @@ document.addEventListener("DOMContentLoaded", function () {
         alphaCol.style.backgroundColor = "";
       });
 
-      // audio
+      // player audio
+      const playerBar = document.getElementById("player-bar");
       const audioSource = audioDivSrc.src;
       playerInImgDiv.addEventListener("click", () => {
-        playAudio(audioSource);
-        // alphaCol.style.backgroundColor = "#414040";
-        // alphaCol.style.borderRadius = "5px";
         document.querySelectorAll(".col-12").forEach((element) => {
           element.classList.remove("colOpacity");
         });
 
         alphaCol.classList.add("colOpacity");
+        playerBar.classList.remove("d-none");
+        playerBarLogic(audioSource, results[i]);
       });
 
       rowTracks.appendChild(colTrack);
@@ -185,21 +188,134 @@ document.addEventListener("DOMContentLoaded", function () {
   searchInput.addEventListener("input", handleSearch);
 });
 
-// funzione per l'audio
-let audioPlayer;
+// funzione per player
+const playerBarLogic = (sourceAudio, data) => {
+  const audioElement = document.getElementById("audioDiv");
+  const trackName = document.getElementById("song-name");
+  const artistName = document.getElementById("artist-name");
+  const albumCover = document.getElementById("album-cover");
+  const playStopPlayer = document.getElementById("play-playerBar");
 
-function playAudio(source) {
-  if (!audioPlayer) {
-    audioPlayer = new Audio();
+  audioElement.src = sourceAudio;
+
+  audioElement.play();
+
+  // dinamic text and img
+  trackName.textContent = `${data.title}`;
+  artistName.textContent = `${data.artist.name}`;
+  albumCover.src = `${data.album.cover_medium}`;
+
+  // play-pause btn
+  playStopPlayer.innerHTML = ` <i class="bi bi-pause-circle-fill"></i>`;
+  playStopPlayer.addEventListener("click", function () {
+    if (audioElement.paused) {
+      audioElement.play();
+      playStopPlayer.innerHTML = `
+        <i class="bi bi-pause-circle-fill"></i>
+      `;
+    } else {
+      audioElement.pause();
+      playStopPlayer.innerHTML = `
+        <i class="bi bi-play-circle-fill"></i>
+      `;
+    }
+  });
+
+  // progress bar
+  const progressContainer = document.getElementById("progress-container");
+  const progressBar = document.getElementById("progress-bar");
+
+  const updateProgressBar = () => {
+    const duration = audioElement.duration;
+    const currentTime = audioElement.currentTime;
+    const progressPercentage = (currentTime / duration) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+  };
+
+  const setAudioProgress = (e) => {
+    const clickX = e.clientX - progressContainer.getBoundingClientRect().left;
+    const containerWidth = progressContainer.clientWidth;
+    const progressPercentage = (clickX / containerWidth) * 100;
+    audioElement.currentTime =
+      (progressPercentage / 100) * audioElement.duration;
+  };
+
+  audioElement.addEventListener("timeupdate", updateProgressBar);
+  progressContainer.addEventListener("click", setAudioProgress);
+
+  let isDragging = false;
+
+  progressContainer.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    setAudioProgress(e);
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+      setAudioProgress(e);
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+  });
+
+  audioElement.addEventListener("timeupdate", updateProgressBar);
+
+  // time left
+  const timeLeft = document.getElementById("time-left");
+  const time = document.getElementById("time");
+
+  audioElement.addEventListener("loadedmetadata", function () {
+    const duration = audioElement.duration;
+    time.textContent = formatTime(duration);
+  });
+
+  audioElement.addEventListener("timeupdate", function () {
+    const currentTime = audioElement.currentTime;
+    timeLeft.textContent = formatTime(currentTime);
+  });
+
+  function formatTime(timeInSeconds) {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   }
 
-  if (audioPlayer.src === source && !audioPlayer.paused) {
-    audioPlayer.pause();
-  } else {
-    audioPlayer.src = source;
-    audioPlayer.play();
-  }
-}
+  // mute btn
+  const muteBtn = document.getElementById("mute-Unmute");
+  muteBtn.innerHTML = `
+    <i class="bi bi-volume-up"></i>
+  `;
+  muteBtn.addEventListener("click", () => {
+    if (audioElement.muted) {
+      audioElement.muted = false;
+      muteBtn.innerHTML = `
+      <i class="bi bi-volume-up"></i>
+      `;
+    } else {
+      audioElement.muted = true;
+      muteBtn.innerHTML = `
+      <i class="bi bi-volume-mute"></i>
+      `;
+    }
+  });
+
+  // volume slider
+  const volumeSlider = document.getElementById("volumeSlider");
+
+  volumeSlider.addEventListener("input", () => {
+    audioElement.volume = volumeSlider.value;
+
+    if (volumeSlider.value <= 0.6) {
+      muteBtn.innerHTML = `<i class="bi bi-volume-down fs-4 "></i>`;
+    } else {
+      muteBtn.innerHTML = `
+      <i class="bi bi-volume-up"></i>
+      `;
+    }
+  });
+};
 
 // funzione per mostrare le card all'avvio della pagina
 
