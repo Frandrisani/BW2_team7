@@ -188,6 +188,13 @@
   border-radius: 5px;
 }
 
+.Udiee {
+  text-decoration: none;
+}
+.Udiee:hover {
+  text-decoration: underline;
+}
+
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors

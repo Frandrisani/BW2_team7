@@ -81,8 +81,9 @@ const gettingTracks = (tracks) => {
 // riempio dinamicamente la pagina
 const artistURL = "https://striveschool-api.herokuapp.com/api/deezer/artist";
 const addressBar = new URLSearchParams(location.search);
-// const artistID= addressBar.get('artistID') questa la commento per il momento e assegno alla const un valore statico
-const artistID = 412;
+const artistID = addressBar.get("artistID");
+// questa la commento per il momento e assegno alla const un valore statico
+// const artistID = 412;
 fetch(`${artistURL}/${artistID}`)
   .then((response) => {
     if (response.ok) {

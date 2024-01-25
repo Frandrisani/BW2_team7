@@ -246,7 +246,12 @@ padding: 7px;
 
 }
 
-
+.Udiee{
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
 
 @import '../sass/bootstrap-5.3.2/scss/bootstrap.scss';

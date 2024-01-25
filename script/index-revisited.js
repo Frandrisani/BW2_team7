@@ -49,10 +49,15 @@ const createBanner = (data) => {
                     </div>
                   </div>
                   <div class="mb-5">
-                  <a href="./album.html?albumId=${data.id}">
+                  <a href="./album.html?albumId=${
+                    data.id
+                  }" class="text-white Udiee">
                       <h5 class="card-title">${data.title}</h5>
                   </a>
+                  <a href="./artisti.html?artistID=${data.artist.id}
+                }" class="text-white Udiee">
                     <p class="card-text">${data.artist.name}</p>
+                    </a>
                     <p class="card-text">
                       <small>Ascolta il nuovo singolo di ${
                         data.artist.name
