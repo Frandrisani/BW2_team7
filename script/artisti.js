@@ -53,6 +53,7 @@ const gettingTracks = (tracks) => {
                 <img src="${
                   track.album.cover_small
                 }" class="img-thumbnail" alt="album-cover">
+                <source src="${track.preview}" type="audio/mp3" />
               </div>
               <div class="col-4 col-md-6">
                 <h5>${track.title_short}</h5>
@@ -72,11 +73,21 @@ const gettingTracks = (tracks) => {
     if (i > 9) {
       newRow.classList.add("d-none");
     }
+    console.log("track.preview", track.preview);
+
     moreButton.addEventListener("click", () => {
       newRow.classList.toggle("d-none");
     });
   });
 };
+// // //funzione playing music
+// const playButton = document.getElementById("play button");
+// console.log(playButton);
+// const playingMusic = (tracks) => {
+//   playButton.addEventListener("click", () => {
+//     play(tracks[0].preview);
+//   });
+// };
 
 // riempio dinamicamente la pagina
 const artistURL = "https://striveschool-api.herokuapp.com/api/deezer/artist";
@@ -103,7 +114,7 @@ fetch(`${artistURL}/${artistID}`)
     artistCover.style.backgroundSize = "cover";
     artistCover.classList.add("img-fluid");
     artistName.innerText = artist.name;
-    artistListeners.innerText = artist.nb_fan;
+    artistListeners.innerText = riproduzioniConIlPunto(artist.nb_fan);
     artistCircular.src = `${artist.picture}`;
     byArtist.innerText = `di ${artist.name}`;
     //richaimo funzione per dare like a random
@@ -123,7 +134,9 @@ fetch(`${artistURL}/${artistID}`)
       //ora posso lavorare con l'array delle tracce
       .then((tracklist) => {
         console.log(tracklist.data);
+        console.log(tracklist.data.preview);
         gettingTracks(tracklist.data);
+        // playingMusic(tracklist.data);
       });
   })
 
