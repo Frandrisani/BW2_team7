@@ -195,6 +195,43 @@
   text-decoration: underline;
 }
 
+.playHover {
+  position: relative;
+}
+.playHover::before {
+  content: url(../imgIcon/playHover.png);
+  position: absolute;
+  top: 45%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  border-radius: 50%;
+  box-shadow: 5px 5px 15px -5px #3b3939;
+  transition: opacity 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+.playHover:hover::before {
+  opacity: 1;
+  top: 40%;
+}
+
+.playHoverB {
+  position: relative;
+}
+.playHoverB::before {
+  content: url(../imgIcon/playHover.png);
+  position: absolute;
+  top: -190%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  border-radius: 50%;
+  transition: opacity 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+.playHoverB:hover::before {
+  opacity: 1;
+  top: -250%;
+}
+
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors

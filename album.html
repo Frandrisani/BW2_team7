@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>Spotify-clone-Album</title>
     <link rel="stylesheet" href="./assets/sass/costum-bootsrap.css" />
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="./assets/sass/album-style.css" />
@@ -27,7 +27,7 @@
             <li class="nav-item">
               <a
                 class="nav-link active nav-link text-fontB50 fw-bold"
-                href="./index-revisited.html"
+                href="./index.html"
                 ><i
                   class="bi bi-house-door-fill fs-4 me-3 me-3 text-fontB50"
                 ></i>
@@ -36,7 +36,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link text-fontB50" href="search.html"
+              <a
+                class="nav-link nav-link text-fontB50"
+                href="search-revisited.html"
                 ><i class="bi bi-search fs-4 me-3 text-fontB50"></i> Cerca</a
               >
             </li>
@@ -176,7 +178,10 @@
         </div>
       </div>
       <!-- Parte centrale -->
-      <div class="col col-12 col-md-12 col-lg-10 text-light">
+      <div
+        class="col col-12 col-md-12 col-lg-10 text-light"
+        id="mid-part-album"
+      >
         <section class="section1 z-n1 bg-primary" id="contenitoreImgAlbum">
           <!-- INIZIO DEL CONTAINER DOVE CI SONO LE FRECCE E IL PROFILO UTENTE E LA SINTESI DELL'ALBUM -->
           <div class="container">
@@ -187,13 +192,13 @@
                   <div>
                     <div class="btn bg-black text-light rounded-circle">
                       <a
-                        href="index-revisited.html"
-                        class="text-decoration-none"
+                        href="./index.html"
+                        class="text-decoration-none text-light"
                         ><i class="bi bi-chevron-left"></i
                       ></a>
                     </div>
                     <div class="btn bg-black text-light rounded-circle">
-                      <a href="" class="text-decoration-none"
+                      <a href="" class="text-decoration-none text-light"
                         ><i class="bi bi-chevron-right"></i
                       ></a>
                     </div>
@@ -739,7 +744,7 @@
       <!-- piccolo footer per mobile -->
     </div>
     <div
-      class="d-md-none row bg-black opacity-50 py-4 fs-8 fixed-bottom start-0 end-0 text-white"
+      class="d-md-none row bg-black opacity-50 py-4 fs-8 overlay z-2 start-0 end-0 text-white"
     >
       <div class="col-4">
         <a

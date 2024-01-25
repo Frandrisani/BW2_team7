@@ -1,4 +1,5 @@
 .section2 {
   background: rgb(24, 24, 24);
   background: linear-gradient(0deg, rgb(24, 24, 24) 14%, rgb(38, 38, 38) 40%, rgba(38, 38, 38, 0.5831582633) 100%);
+  min-height: 68vh;
 }/*# sourceMappingURL=album-style.css.map */
