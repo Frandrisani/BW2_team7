@@ -65,7 +65,7 @@ const riproduzioniConIlPunto = function (numero) {
 };
 
 // * INIZIO FETCH
-fetch(myURL + "/" + 756156)
+fetch(myURL + "/" + albumId)
   .then((response) => {
     // * Ora controlliamo che la risposta da parte del server sia "ok"; se ok, chiediamo di servirci tutti i dati in file json
     if (response.ok) {
