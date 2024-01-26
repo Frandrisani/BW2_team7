@@ -232,6 +232,21 @@
   top: -250%;
 }
 
+#traccia-album {
+  height: 50vh;
+  overflow-y: auto;
+}
+#traccia-album::-webkit-scrollbar {
+  width: 15px;
+}
+#traccia-album::-webkit-scrollbar-thumb {
+  background-color: #292929;
+  height: 20%; /* Adjust the height as needed */
+  min-height: 1px;
+}
+#traccia-album::-webkit-scrollbar-thumb:hover {
+  background-color: #d2d2d2;
+}
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)
  * Copyright 2011-2023 The Bootstrap Authors
