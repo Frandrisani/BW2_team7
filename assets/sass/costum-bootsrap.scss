@@ -204,53 +204,53 @@ $new-theme-colors: (
   }
 }
 
-// search
-#search[type="text"] {
-  background-color: #474747;
-  border: none;
-  padding: 7px;
-}
+// // search
+// #search[type="text"] {
+//   background-color: #474747;
+//   border: none;
+//   padding: 7px;
+// }
 
-.playerInImg {
-  position: relative;
-  display: inline-block;
+// .playerInImg {
+//   position: relative;
+//   display: inline-block;
 
-  &::after {
-    content: url(../imgIcon/Play-white.png);
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-  }
+//   &::after {
+//     content: url(../imgIcon/Play-white.png);
+//     position: absolute;
+//     top: 55%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     opacity: 0;
+//     transition: opacity 0.2s ease-in-out;
+//   }
 
-  &:hover::after,
-  &:active::after {
-    opacity: 1;
-  }
+//   &:hover::after,
+//   &:active::after {
+//     opacity: 1;
+//   }
 
-  &:hover img,
-  &:active img {
-    opacity: 0.7;
-  }
-}
+//   &:hover img,
+//   &:active img {
+//     opacity: 0.7;
+//   }
+// }
 
-.colOpacity {
-  background-color: #7a7a7a;
-  border-radius: 5px;
-  &:active {
-    background-color: #6b6b6b;
-    border-radius: 5px;
-  }
-}
+// .colOpacity {
+//   background-color: #7a7a7a;
+//   border-radius: 5px;
+//   &:active {
+//     background-color: #6b6b6b;
+//     border-radius: 5px;
+//   }
+// }
 
-.Udiee {
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}
+// .Udiee {
+//   text-decoration: none;
+//   &:hover {
+//     text-decoration: underline;
+//   }
+// }
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
 
 @import "../sass/bootstrap-5.3.2/scss/bootstrap.scss";
