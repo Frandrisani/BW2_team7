@@ -164,9 +164,11 @@ document.addEventListener("DOMContentLoaded", function () {
          </div>
         </div>
         <div class="d-flex flex-column ms-3 ">
-          <h6 class="mb-0">${results[i].title}</h6>
-          <a href="./artisti.html?artistID=${results[i].artist.id}">
-              <p class="mb-0">${results[i].artist.name}</p>
+          <h6 class="mb-0 Udiee">${results[i].title}</h6>
+          <a href="./artisti.html?artistID=${
+            results[i].artist.id
+          }" class="Udiee">
+              <p class="mb-0 Udiee">${results[i].artist.name}</p>
           </a>
           <div >
             <source src="${results[i].preview}" id="audioSrc" type="video/mp4" 
