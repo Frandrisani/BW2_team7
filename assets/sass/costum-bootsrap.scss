@@ -16,7 +16,18 @@ $new-theme-colors: (
   "badgeBlue": #4485d6,
   "playerButtonColor": rgba(138, 138, 138, 0.836),
   "friendFeed": rgb(175, 175, 175),
+  "darkerBg": #1f1f1f76,
 );
+
+// font size per "Altro che ti piace"
+.fs-7{ font-size: 1.2rem;
+}
+// font-size e spacing per "Visualizza tutto"
+.fs-small{font-size: 0.7rem;
+}
+.custom-letter-spacing {
+  letter-spacing: 2px;
+}
 
 // FIX icone
 .sideBarIcon {
