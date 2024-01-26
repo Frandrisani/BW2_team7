@@ -165,6 +165,13 @@
   opacity: 100%;
 }
 
+.Udiee {
+  text-decoration: none;
+}
+.Udiee:hover {
+  text-decoration: underline;
+}
+
 .playHover {
   position: relative;
 }
@@ -216,6 +223,24 @@
 }
 #traccia-album::-webkit-scrollbar-thumb:hover {
   background-color: #d2d2d2;
+}
+/* Media query per schermi small e medium */
+@media (max-width: 768px) {
+  #sx-part {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+  }
+  #player-bar {
+    margin-bottom: 3.8em;
+    opacity: 0.7;
+  }
+  #centralPlayer div {
+    text-align: end;
+    margin-right: 1em;
+  }
 }
 /*!
  * Bootstrap  v5.3.2 (https://getbootstrap.com/)

@@ -336,4 +336,26 @@ $new-theme-colors: (
 }
 $theme-colors: map-merge($theme-colors, $new-theme-colors);
 
+/* Media query per schermi small e medium */
+@media (max-width: 768px) {
+  #sx-part{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+  }
+
+
+  #player-bar {
+      margin-bottom: 3.8em;
+      opacity: 0.7;
+  }
+
+  #centralPlayer div{
+      text-align: end;
+      margin-right: 1em;
+  }
+}
+
 @import "../sass/bootstrap-5.3.2/scss/bootstrap.scss";
