@@ -349,7 +349,10 @@ $theme-colors: map-merge($theme-colors, $new-theme-colors);
 
   #player-bar {
       margin-bottom: 3.8em;
-      opacity: 0.7;
+
+      background: none;
+     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(41,41,41,1) 26%, rgba(255,255,255,0) 100%) !important;
+      border-top: none;
   }
 
   #centralPlayer div{
