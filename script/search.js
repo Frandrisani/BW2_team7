@@ -142,6 +142,9 @@ document.addEventListener("DOMContentLoaded", function () {
             <h6 class="mb-0">${results[i].title}</h6>
             <a href="./artisti.html?artistID=${results[i].artist.id}
           " class="text-white Udiee">
+            <a href="./artisti.html?artistID=${
+              results[i].artist.id
+            }" class="text-white Udiee">
           <p class="mb-0">${results[i].artist.name}</p>
           </a>
           <div >
