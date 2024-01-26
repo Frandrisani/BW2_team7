@@ -112,7 +112,13 @@ fetch(myURL + "/" + albumId)
           <div class="col col-1 d-none d-md-block text-fontB50">${i + 1}</div>
           <div class="col col-12 col-md-6">
             <p class="mb-0 text-fontB fs-5 fw-medium">${element.title}</p>
-            <p class="mt-0 text-fontB50 opacity-50 ">${element.artist.name}</p>
+            <a href="./artisti.html?artistID=${
+              element.artist.id
+            }" class="Udiee">
+            <p class="mt-0 text-fontB50 opacity-50 Udiee ">${
+              element.artist.name
+            }</p>
+            </a>
           </div>
           <div class="col col-4 d-none d-md-block">
             <p class="text-fontB50 ">${riproduzioniConIlPunto(element.rank)}</p>
