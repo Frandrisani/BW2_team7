@@ -44,7 +44,7 @@ const gettingTracks = (tracks) => {
   tracks.forEach((track, i) => {
     // emptyCol();
     const newRow = document.createElement("div");
-    newRow.classList.add("row", "align-items-center", "g-3");
+    newRow.classList.add("row", "align-items-center", "g-3", "my-3");
     newRow.innerHTML = `
                 <div class="col-2 col-md-1">
                 <h5>${i + 1}</h5>
@@ -115,7 +115,7 @@ fetch(artistURL + "/" + artistID)
     artistCover.style.backgroundRepeat = "no-repeat";
     artistCover.style.backgroundSize = "cover";
     artistCover.classList.add("img-fluid");
-    artistName.innerText = artist.name;
+    artistName.innerText = `${artist.name}`;
     artistListeners.innerText = riproduzioniConIlPunto(artist.nb_fan);
     artistCircular.src = `${artist.picture}`;
     byArtist.innerText = `di ${artist.name}`;
@@ -144,11 +144,11 @@ fetch(artistURL + "/" + artistID)
         //     ;
         //   });
         // });
+        console.log(tracklist);
         const tracks = tracklist.data;
 
         let currentTrackIndex = 0;
 
-        const playBtnAlbum = document.getElementById("play-album-btn");
         const playerBar = document.getElementById("player-bar");
 
         playButton.addEventListener("click", function () {
@@ -188,7 +188,8 @@ fetch(artistURL + "/" + artistID)
 const playerBarLogic = (sourceAudio, data) => {
   const audioElement = document.getElementById("audioDiv");
   const trackName = document.getElementById("song-name");
-  const artistName = document.getElementById("artist-name");
+  const artistName = document.getElementById("artist-name-player");
+  console.log(artistName);
   const albumCover = document.getElementById("album-cover");
   const playStopPlayer = document.getElementById("play-playerBar");
 

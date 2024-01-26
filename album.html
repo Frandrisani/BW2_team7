@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>Spotify-clone-Album</title>
     <link rel="stylesheet" href="./assets/sass/costum-bootsrap.css" />
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link rel="stylesheet" href="./assets/sass/album-style.css" />
@@ -36,7 +36,9 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link text-fontB50" href="search.html"
+              <a
+                class="nav-link nav-link text-fontB50"
+                href="search-revisited.html"
                 ><i class="bi bi-search fs-4 me-3 text-fontB50"></i> Cerca</a
               >
             </li>
@@ -187,13 +189,13 @@
                   <div>
                     <div class="btn bg-black text-light rounded-circle">
                       <a
-                        href="index-revisited.html"
-                        class="text-decoration-none"
+                        href="./index.html"
+                        class="text-decoration-none text-light"
                         ><i class="bi bi-chevron-left"></i
                       ></a>
                     </div>
                     <div class="btn bg-black text-light rounded-circle">
-                      <a href="" class="text-decoration-none"
+                      <a href="" class="text-decoration-none text-light"
                         ><i class="bi bi-chevron-right"></i
                       ></a>
                     </div>
@@ -335,7 +337,7 @@
         <!-- ------------------------------------------------>
         <section class="section2 pb-5 pt-3">
           <!-- INIZIO DEL CONTAINER DOVE CI SONO LE ICONE, E LE VARIE ROW GENERATE DINAMICAMENTE PER LE VARIE CANZONI-->
-          <div class="container">
+          <div class="container" id="mid-part-album">
             <!-- INIZIO ROW ICONE "PLAY" "SCARICA" ECC.-->
             <div class="row">
               <div class="col mt-4 d-flex align-items-center">
@@ -739,7 +741,7 @@
       <!-- piccolo footer per mobile -->
     </div>
     <div
-      class="d-md-none row bg-black opacity-50 py-4 fs-8 fixed-bottom start-0 end-0 text-white"
+      class="d-md-none row bg-black opacity-50 py-4 fs-8 overlay z-2 start-0 end-0 text-white"
     >
       <div class="col-4">
         <a

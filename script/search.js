@@ -140,6 +140,8 @@ document.addEventListener("DOMContentLoaded", function () {
              </div>
             <div class="d-flex flex-column ms-3 ">
             <h6 class="mb-0">${results[i].title}</h6>
+            <a href="./artisti.html?artistID=${results[i].artist.id}
+          " class="text-white Udiee">
             <a href="./artisti.html?artistID=${
               results[i].artist.id
             }" class="text-white Udiee">
