@@ -59,35 +59,48 @@ document.addEventListener("DOMContentLoaded", function () {
       "col-xl-4",
       "h-100",
       "results",
-      "mt-3"
+      "mt-3",
+      "col-relevant"
     );
 
     // verifica se la formattedQuery è uguale al nome dell'artista
     if (formattedQuery === firstResult.artist.name) {
       console.log("nome artista:", firstResult.artist.name);
       colRelevant.innerHTML = `
+      <div>
       <h2>Risultato più rilevante</h2>
-      <div class="row d-flex flex-column bg-tertiary rounded p-3 ">
-        <div class="col-8">
-          <div class="d-flex flex-column justify-content-around">
-            <img src="${firstResult.artist.picture_xl}" class="img-fluid w-50 rounded-circle shadow mb-3" alt="...">
-            <h3 class="card-title">${firstResult.artist.name}</h3>
-            <p class="card-text text-fontB50">${firstResult.artist.type}</p>
+      <div class="row d-flex flex-column rounded p-3" id="relevant">
+        <div class="col">
+          <div class="d-flex flex-column justify-content-around" >
+              <a href="./artisti.html?artistID=${firstResult.artist.id}">
+                  <img src="${firstResult.artist.picture_xl}" class="img-fluid w-50 rounded-circle shadow mb-3" alt="...">
+                  <h3 class="card-title ">${firstResult.artist.name}</h3>
+                  <p class="card-text text-fontB50 ">${firstResult.artist.type}</p>
+              </a>
+              <div class="text-end">
+                  <button class="btn btn-primary btn-show rounded-circle bg-primary shadow playButton"><i class="bi bi-play-fill fs-4"></i></button>
+              </div>
           </div>
         </div>
       </div>
+    </div>
       `;
     } else if (formattedQuery === firstResult.album.title) {
       console.log("nome album:", firstResult.album.title);
       colRelevant.innerHTML = `
       <h2>Risultato più rilevante</h2>
-      <div class="row d-flex flex-column bg-tertiary rounded p-3 ">
-        <div class="col-10">
-          <div class="d-flex flex-column justify-content-around">
-            <img src="${firstResult.album.cover_medium}" class="img-fluid w-50 rounded shadow mb-3" alt="...">
-            <h3 class="card-title">${firstResult.album.title}</h3>
-            <p class="card-text text-fontB50">${firstResult.album.type}<i class="bi bi-dot"></i>${firstResult.artist.name}</p>
-          </div>
+      <div class="row d-flex flex-column rounded p-3" id="relevant">
+        <div class="col">
+            <div class="d-flex flex-column justify-content-around">
+              <a href="./album.html?albumId=${firstResult.album.id}">
+                <img src="${firstResult.album.cover_medium}" class="img-fluid w-50 rounded shadow mb-3" alt="...">
+                <h3 class="card-title">${firstResult.album.title}</h3>
+                <p class="card-text text-fontB50">${firstResult.album.type}<i class="bi bi-dot"></i><a href="./artisti.html?artistID=${firstResult.artist.id}">${firstResult.artist.name}</a></p>
+              </a>
+              <div class="text-end">
+                <button class="btn btn-primary btn-show rounded-circle bg-primary shadow playButton"><i class="bi bi-play-fill fs-4"></i></button>
+              </div>
+            </div>
         </div>
       </div>
       `;
@@ -95,19 +108,28 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("nome traccia:", firstResult.title);
       colRelevant.innerHTML = `
       <h2>Risultato più rilevante</h2>
-      <div class="row d-flex flex-column bg-tertiary rounded p-3 ">
-        <div class="col-10">
+      <div class="row d-flex flex-column rounded p-3" id="relevant" >
+        <div class="col">
           <div class="d-flex flex-column justify-content-around">
+          <a href="./album.html?albumId=${firstResult.album.id}">
             <img src="${firstResult.album.cover_medium}" class="img-fluid w-50 rounded shadow mb-3" alt="...">
-            <h3 class="card-title">${firstResult.title}</h3>
-            <p class="card-text text-fontB50">${firstResult.type}<i class="bi bi-dot"></i>${firstResult.artist.name}</p>
+            <h3 class="card-title ">${firstResult.title}</h3>
+            <p class="card-text text-fontB50 ">${firstResult.type}<i class="bi bi-dot"></i><a href="./artisti.html?artistID=${firstResult.artist.id}">${firstResult.artist.name}</a></p>
+          </a>
+          <div class="text-end">
+            <button class="btn btn-primary btn-show rounded-circle bg-primary shadow playButton" ><i class="bi bi-play-fill fs-4"></i></button>
+          </div>
           </div>
         </div>
       </div>
       `;
     }
-    resultSection.appendChild(colRelevant);
 
+    resultSection.appendChild(colRelevant);
+    const btnRelevant = colRelevant.querySelector(".playButton");
+    btnRelevant.addEventListener("click", () => {
+      playerBarLogic(firstResult.preview, firstResult);
+    });
     const colTracks = document.createElement("div");
     colTracks.classList.add("col-12", "col-lg-6", "col-xl-8", "h-100", "mt-3");
     colTracks.innerHTML = `
@@ -131,30 +153,31 @@ document.addEventListener("DOMContentLoaded", function () {
       const colTrack = document.createElement("div");
       colTrack.classList.add("col-12");
       colTrack.innerHTML = `
-      <div class="row justify-content-between my-2 ">
-         <div class="col-10 d-flex">
-            <div class="playerInImg">
-              <img src="${
-                results[i].album.cover_small
-              }" class="img-fluid rounded  " />
-             </div>
-            <div class="d-flex flex-column ms-3 ">
-            <h6 class="mb-0">${results[i].title}</h6>
-            <a href="./artisti.html?artistID=${results[i].artist.id}
-          " class="text-white Udiee">
-            <a href="./artisti.html?artistID=${
-              results[i].artist.id
-            }" class="text-white Udiee">
-          <p class="mb-0">${results[i].artist.name}</p>
+      <div class="row justify-content-between my-2">
+      <div class="col-10 d-flex align-items-center">
+        <div class="playerInImg" id="player">
+          <img src="${
+            results[i].album.cover_small
+          }" class="img-fluid rounded" />
+          <div class="overlay justify-content-start rounded playButton">
+            <i style="margin-left:0.4em"class="bi bi-play-fill fs-2"></i>
+         </div>
+        </div>
+        <div class="d-flex flex-column ms-3 ">
+          <h6 class="mb-0">${results[i].title}</h6>
+          <a href="./artisti.html?artistID=${results[i].artist.id}">
+              <p class="mb-0">${results[i].artist.name}</p>
           </a>
           <div >
-          <source src="${results[i].preview}" type="video/mp4" 
-          class="d-none audioDivSrc"/>
+            <source src="${results[i].preview}" id="audioSrc" type="video/mp4" 
+            class="d-none audioDivSrc"/>
           </div>
         </div>
       </div>
-      <div class="col-2 text-fontB50">${convertTime(results[i].duration)}</div>
-    </div>
+      <div class="col-2 text-fontB50 d-flex align-items-center ">${convertTime(
+        results[i].duration
+      )}</div>
+      </div>
       `;
       console.log(`${results[i].artist.id}`);
       // funzione per richiamare l'audio e per animazioni circa
@@ -187,9 +210,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
       rowTracks.appendChild(colTrack);
     }
+
+    // FUNZIONE BOTTONE PLAYER
+
+    const playButtons = document.querySelectorAll(".playButton");
+    playButtons.forEach((playButton) => {
+      playButton.addEventListener("click", function () {
+        const icon = playButton.querySelector("i");
+
+        if (icon.classList.contains("bi-play-fill")) {
+          icon.classList.remove("bi-play-fill");
+          icon.classList.add("bi-pause-fill");
+        } else {
+          icon.classList.remove("bi-pause-fill");
+          icon.classList.add("bi-play-fill");
+        }
+
+        playButton.classList.toggle("active");
+      });
+    });
   };
   searchInput.addEventListener("input", handleSearch);
 });
+
+// funzione per l'audio
+let audioPlayer;
+
+function playAudio(source) {
+  if (!audioPlayer) {
+    audioPlayer = new Audio();
+  }
+
+  if (audioPlayer.src === source && !audioPlayer.paused) {
+    audioPlayer.pause();
+  } else {
+    audioPlayer.src = source;
+    audioPlayer.play();
+  }
+}
 
 // funzione per player
 const playerBarLogic = (sourceAudio, data) => {
@@ -320,7 +378,7 @@ const playerBarLogic = (sourceAudio, data) => {
   });
 };
 
-// funzione per mostrare le card all'avvio della pagina
+/// funzione per mostrare le card all'avvio della pagina
 
 const arrayOfImages = [
   "./assets/imgs/search/image-1.jpeg",
@@ -334,16 +392,133 @@ const arrayOfImages = [
   "./assets/imgs/search/image-9.jpg",
   "./assets/imgs/search/image-10.jpg",
   "./assets/imgs/search/image-11.jpg",
+  "./assets/imgs/search/image-12.jpg",
+  "./assets/imgs/search/image-13.jpeg",
+  "./assets/imgs/search/image-14.jpg",
+  "./assets/imgs/search/image-15.jpg",
+  "./assets/imgs/search/image-16.jpg",
+  "./assets/imgs/search/image-17.jpg",
+  "./assets/imgs/search/image-18.jpg",
+  "./assets/imgs/search/image-19.jpg",
+  "./assets/imgs/search/image-20.jpg",
+  "./assets/imgs/search/image-21.jpg",
+  "./assets/imgs/search/image-22.jpg",
+  "./assets/imgs/search/image-23.jpg",
+  "./assets/imgs/search/image-24.jpg",
+  "./assets/imgs/search/image-25.jpeg",
+  "./assets/imgs/search/image-26.jpg",
+  "./assets/imgs/search/image-27.jpg",
+  "./assets/imgs/search/image-28.jpg",
+  "./assets/imgs/search/image-29.jpg",
+  "./assets/imgs/search/image-30.jpg",
+  "./assets/imgs/search/image-31.jpg",
+  "./assets/imgs/search/image-32.jpg",
+  "./assets/imgs/search/image-33.jpg",
+  "./assets/imgs/search/image-34.jpg",
+  "./assets/imgs/search/image-35.jpg",
+  "./assets/imgs/search/image-36.jpg",
+  "./assets/imgs/search/image-37.jpeg",
+  "./assets/imgs/search/image-38.jpg",
+  "./assets/imgs/search/image-39.jpg",
+  "./assets/imgs/search/image-40.jpg",
+  "./assets/imgs/search/image-41.jpg",
+  "./assets/imgs/search/image-42.png",
+  "./assets/imgs/search/image-43.png",
+  "./assets/imgs/search/image-44.png",
+  "./assets/imgs/search/image-45.png",
+  "./assets/imgs/search/image-46.jpeg",
+  "./assets/imgs/search/image-47.jpg",
+  "./assets/imgs/search/image-48.jpeg",
+  "./assets/imgs/search/image-49.jpg",
+  "./assets/imgs/search/image-50.jpg",
+  "./assets/imgs/search/image-51.jpg",
+  "./assets/imgs/search/image-52.jpg",
+];
+
+const titles = [
+  "Scopri",
+  "Disco",
+  "Indie",
+  "Dance/Elettronica",
+  "Latina",
+  "R&B",
+  "Rock",
+  "Allenamento",
+  "Hip-Hop",
+  "Lo-Fi",
+  "Viaggi",
+  "Anni",
+  "Summer-Hits",
+  "Classifiche",
+  "Amore",
+  "Soul",
+  "A casa",
+  "Dormire",
+  "Pop",
+  "Jazz",
+  "Classifiche podcast",
+  "Folk",
+  "Concentrazione",
+  "Relax",
+  "Podcast",
+  "FRIDA",
+  "Party",
+  "Afro",
+  "Classica",
+  "League of Legends",
+  "Metal",
+  "Funk",
+  "Punk",
+  "Ambient",
+  "K-pop",
+  "Blues",
+  "Di tendenza",
+  "Autori",
+  "Country",
+  "Elettronica",
+  "Arab Pop",
+  "Pop mondiale",
+  "Radar",
+  "Bambini e famiglia",
+  "In auto",
+  "Suoni e natura",
+  "Top hits",
+  "Techno",
+  "Rap",
+  "Rock spagnolo",
+  "Mood",
+  "Gaming",
+];
+
+const colors = [
+  "#dc148c",
+  "#006450",
+  "#8400e7",
+  "#1e3264",
+  "#e8105b",
+  "#26856b",
+  "#503751",
+  "#158a06",
+  "#e1128b",
+  "#0f73ec",
+  "#8e66ac",
+  "#777777",
+  "#e91529",
+  "#d84000",
+  "#ba5d08",
+  "#8c1a32",
+  "#e61d32",
+  "#8c1a32",
 ];
 const rowToDisplay = document.getElementById("rowSfoglia");
 
-arrayOfImages.forEach((imageSrc) => {
+arrayOfImages.forEach((imageSrc, index) => {
   const divElement = document.createElement("div");
   divElement.classList.add("col-6", "col-md-4", "col-lg-2");
   // divElement.id = "playlist";
   divElement.innerHTML = `
-  <div style="overflow:hidden"  class="bg-primary rounded p-2 h-100">
-    <h3 class="mb-5">Musica</h3>
+  <div style="overflow:hidden;"  class="sfoglia rounded p-2 h-100">
+    <h3 class="mb-5 ms-2">${titles[index]}</h3>
     <div class="playlist h-100 text-end">
       <img
         src="${imageSrc}"
@@ -352,6 +527,10 @@ arrayOfImages.forEach((imageSrc) => {
     </div>
   </div>
   `;
+
+  // Imposta colore casuale per lo sfondo delle card
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  divElement.querySelector(".sfoglia").style.backgroundColor = randomColor;
 
   rowToDisplay.appendChild(divElement);
 });
