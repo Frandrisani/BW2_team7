@@ -520,12 +520,14 @@
     <!-- player jovel -->
     <div
       id="player-bar"
-      class="overlay z-2 bg-grigino text-light d-none border border-fontB border-bottom-0 border-start-0 border-end-0"
+      class="overlay z-2 d-none border border-fontB border-bottom-0 border-start-0 border-end-0"
     >
       <div class="container-fluid">
-        <div class="row">
+        <div
+          class="row d-none d-sm-none d-md-none d-lg-flex d-xl-flex bg-grigino fs-8 fixed-bottom start-0 end-0 text-white border border-fontB border-bottom-0 border-start-0 border-end-0 px-3"
+        >
           <!-- parte a sx  player-->
-          <div class="col d-flex align-items-center p-2">
+          <div class="col-4 d-flex align-items-center p-2">
             <img
               src="./assets/imgs/main/image-14.jpg"
               alt=""
@@ -537,9 +539,15 @@
               <p id="song-name" class="mt-3 mb-0"></p>
               <p id="artist-name" class="text-fontB"></p>
             </div>
+            <img
+              src="./assets/imgIcon/Like.png"
+              alt="Like"
+              height="20px"
+              class="ms-5"
+            />
           </div>
           <!-- parte centrale player -->
-          <div class="col text-center mt-3 fs-3 mb-1">
+          <div class="col-4 text-center mt-3 fs-3 mb-1">
             <audio id="audioDiv">
               <source src="" type="video/mp4" />
             </audio>
@@ -568,6 +576,13 @@
                   class="iconImg"
                   id="next-btn"
                 />
+                <div class="btn">
+                  <img
+                    src="./assets/imgIcon/Repeat.png"
+                    alt="Repeat"
+                    class="iconImg"
+                  />
+                </div>
               </div>
             </div>
             <!-- progress bar e tempo -->
@@ -581,7 +596,10 @@
             </div>
           </div>
           <!-- player a destra -->
-          <div class="col d-flex align-items-center justify-content-end fs-4">
+          <div
+            class="col-4 d-flex align-items-center justify-content-end fs-4"
+            id="right-player"
+          >
             <div class="btn">
               <img src="./assets/imgIcon/Lyrics.svg" alt="" class="iconImg" />
             </div>
@@ -607,6 +625,14 @@
               step="0.1"
               value="1"
             />
+            <div class="btn">
+              <img
+                src="./assets/imgIcon/Full screen.png"
+                alt="Full"
+                class="iconImg"
+                height="15px"
+              />
+            </div>
           </div>
         </div>
       </div>
