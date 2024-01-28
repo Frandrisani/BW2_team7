@@ -19,6 +19,7 @@ fetch(myUrl + "/" + artistId, {})
   .then((artist) => {
     console.log(artist);
     createBanner(artist);
+    savePlayerDataToLocalStorage(artist);
   })
   .catch((err) => {
     console.log(err);
@@ -49,8 +50,16 @@ const createBanner = (data) => {
                     </div>
                   </div>
                   <div class="mb-5">
-                    <h5 class="card-title">${data.title} </h5>
+                  <a href="./album.html?albumId=${
+                    data.id
+                  }" class="text-white Udiee">
+                      <h5 class="card-title">${data.title}</h5>
+                  </a>
+                  <a href="./artisti.html?artistID=${
+                    data.artist.id
+                  }" class="text-white Udiee">
                     <p class="card-text">${data.artist.name}</p>
+                    </a>
                     <p class="card-text">
                       <small>Ascolta il nuovo singolo di ${
                         data.artist.name
@@ -101,6 +110,9 @@ const createBanner = (data) => {
   albumCover.src = `${data.cover_medium}`;
 
   // play-pause btn
+  playStopPlayer.innerHTML = `
+  <i class="bi bi-play-circle-fill"></i>`;
+
   playBtn.addEventListener("click", function () {
     if (audioElement.paused) {
       audioElement.play();
@@ -133,6 +145,7 @@ const createBanner = (data) => {
     }
   });
 
+  // banner btn
   audioElement.addEventListener("click", function () {
     audioElement.pause();
     playerBar.classList.remove("d-none");
@@ -232,4 +245,15 @@ const createBanner = (data) => {
     const seconds = Math.floor(timeInSeconds % 60);
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   }
+};
+
+const savePlayerDataToLocalStorage = (data) => {
+  const playerData = {
+    trackName: data.title,
+    artistName: data.artist.name,
+    albumCover: data.cover_medium,
+    audioElement: data.tracks.data[0].preview,
+  };
+
+  localStorage.setItem("playerData", JSON.stringify(playerData));
 };

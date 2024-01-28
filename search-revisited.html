@@ -3,48 +3,52 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Spotify-clone</title>
+    <title>Search</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/sass/costum-bootsrap.css" />
     <link rel="stylesheet" href="./assets/css/circular-font.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
     />
+    <link rel="icon" href="./assets/imgs/logo-toptop.png" />
   </head>
   <body class="container-fluid bg-secondary">
-    <div class="row">
+    <div class="row justify-content-center">
       <!-- sidebar -->
-      <div class="col bg-black d-none d-lg-block" id="sx-part">
-        <div class="d-flex flex-column">
-          <ul class="nav flex-column">
-            <li class="nav-item">
+      <div class="col bg-black" id="sx-part">
+        <div class="d-flex flex-sm-row flex-lg-column justify-content-center">
+          <ul class="nav flex-row w-100 justify-content-around flex-lg-column">
+            <li class="nav-item d-none d-lg-block">
               <a class="nav-link" href="#"
-                ><i class="bi bi-three-dots fs-4 me-3 text-primary"></i>
+                ><i class="bi bi-three-dots fs-4 me-0 me-lg-3 text-primary"></i>
               </a>
             </li>
             <li class="nav-item">
               <a
-                class="nav-link active nav-link text-fontB50 fw-bold"
-                href="./index-revisited.html"
-                ><i
-                  class="bi bi-house-door-fill fs-4 me-3 me-3 text-fontB50"
-                ></i>
-
-                Home</a
+                class="nav-link active nav-link text-fontB50 d-flex flex-column text-center flex-lg-row align-items-center"
+                href="./index.html"
+                ><i class="bi bi-house-door me-0 me-lg-3 fs-4 text-fontB50"></i>
+                <p class="d-flex flex-row m-0">Home</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link nav-link text-fontB50 d-flex flex-column text-center flex-lg-row align-items-center fw-bold"
+                href="./search-revisited.html"
+                ><i class="bi bi-search fs-4 me- me-lg-3"></i>
+                <p class="d-flex flex-row m-0">Cerca</p></a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link text-fontB50" href=""
-                ><i class="bi bi-search fs-4 me-3 text-fontB50"></i> Cerca</a
-              >
+              <a
+                class="nav-link nav-link text-fontB50 d-flex flex-column text-center flex-lg-row align-items-center"
+                href="#"
+                ><i class="bi bi-collection fs-4 me-3 text-fontB50"></i>
+                <p class="d-flex flex-row m-0">La tua libreria</p>
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-link text-fontB50" href="#"
-                ><i class="bi bi-collection fs-4 me-3 text-fontB50"></i> La tua
-                libreria</a
-              >
-            </li>
-            <li class="nav-item mt-4">
+            <li class="nav-item mt-4 d-none d-lg-block">
               <a class="nav-link text-fontB50" href="#"
                 ><i
                   class="bi bi-plus-square-fill fs-4 text-fontB50"
@@ -53,7 +57,7 @@
                 >Crea playlist</a
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item d-none d-lg-block">
               <a class="nav-link text-fontB50" href="#"
                 ><img
                   src="./assets/imgIcon/heart.png"
@@ -63,7 +67,7 @@
                 Brani che ti piacciono</a
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item d-none d-lg-block">
               <a class="nav-link text-fontB50" href="#"
                 ><img
                   src="./assets/imgIcon/Saved.png "
@@ -78,7 +82,7 @@
           <hr class="bg-grigino mb-0" />
           <div id="list-Side-Bar">
             <ul
-              class="nav flex-column text-fontB fw-light ms-3"
+              class="nav flex-column text-fontB fw-light ms-3 d-none d-lg-block"
               style="font-size: 14px"
             >
               <li class="nav-item mb-1">
@@ -173,20 +177,33 @@
           </div>
         </div>
       </div>
+
       <!-- mid section -->
-      <div class="col-lg-10 col-md-12 text-light ms-3 me-1" id="mid-part">
-        <!-- mid top part -->
+      <main class="col-10 text-light mx-3">
         <div class="nav d-flex justify-content-between mt-2">
-          <div>
+          <!-- chevron -->
+          <div class="d-flex align-items-center">
             <div class="btn bg-black text-light rounded-circle">
               <i class="bi bi-chevron-left"></i>
             </div>
-            <div class="btn bg-black text-light rounded-circle">
+            <div class="btn bg-black text-light rounded-circle ms-2">
               <i class="bi bi-chevron-right"></i>
             </div>
+            <!-- search -->
+            <div class="ms-3">
+              <span><i class="bi bi-search"></i></span>
+              <input
+                class="rounded-5 text-white ms-2"
+                type="text"
+                id="search"
+                placeholder="Cosa vuoi ascoltare?"
+              />
+            </div>
           </div>
+          <!-- top part dx -->
+
           <div class="d-flex align-itmes-center">
-            <div class="dropdown me-4">
+            <div class="dropdown me-4 d-none d-md-block">
               <button
                 class="btn bg-black text-light rounded-5"
                 type="button"
@@ -215,15 +232,12 @@
                 </li>
                 <li><a class="dropdown-item" href="#">Impostazioni</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item text-danger" href="#">Esci</a></li>
+                <li>
+                  <a class="dropdown-item text-danger" href="#">Esci</a>
+                </li>
               </ul>
             </div>
-            <!-- <div
-              class="btn btn-group bg-black text-light rounded-circle"
-              id="friendBtn"
-            > -->
-
-            <!-- attivitá amici -->
+            <!-- attivitá amci -->
             <button
               id="friendActivityButton"
               class="btn btn-dark bg-black circle border border-0"
@@ -234,378 +248,26 @@
             >
               <i class="bi bi-people-fill"></i>
             </button>
-            <!-- </div> -->
           </div>
         </div>
+        <div>
+          <section class="container-fluid">
+            <div class="row bg-secondary p-4" id="results">
+              <!-- QUI CI VANNO I RISULTATI DI RICERCA -->
+            </div>
 
-        <!-- banner of the mid section -->
-        <div class="container-fluid mt-3 px-0">
-          <div
-            class="card px-3 rounded-0 text-white border border-0"
-            id="bannerMid"
-          ></div>
+            <div class="row mt-6 mt-md-1 p-3">
+              <div class="col-12">
+                <h2>Sfoglia tutto</h2>
+              </div>
+              <div class="row g-2" id="rowSfoglia">
+                <!-- QUI CI VANNO LE CARD  -->
+              </div>
+            </div>
+          </section>
         </div>
-        <!-- buonasera part -->
-        <div class="d-flex justify-content-between align-items-center my-3">
-          <h3 class="">Buonasera</h3>
-          <span class="mx-5"
-            ><ul class="list-unstyled d-flex flex-row mt-3 d-lg-none d-xl-none">
-              <li>
-                <a href="" class="text-fontB fs-1 position-relative me-4"
-                  ><i class="bi bi-bell"></i
-                  ><span
-                    class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-badgeBlue"
-                    ><p class="fs-7 m-0 p-0">1</p></span
-                  ></a
-                >
-              </li>
-              <li>
-                <a href="" class="text-fontB fs-1 me-4"
-                  ><i class="bi bi-clock-history"></i
-                ></a>
-              </li>
-              <li>
-                <a href="" class="text-fontB fs-1"
-                  ><i class="bi bi-gear"></i
-                ></a>
-              </li></ul
-          ></span>
-        </div>
-        <div
-          class="row g-3 row-cols-2 row-cols-sm-2 row-cols-md-4 row-cols-lg-4"
-        >
-          <!-- PRIMO DIV CAPRICCIOSO ------------------------------------>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-2.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="card-title">Pov la tua estate è un film</h5>
-            </div>
-          </div>
-          <!-- SECONDO DIV CAPRICCIOSO -------------------------------->
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-3.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="card-title">Massima Concentrazione</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-4.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="card-title">Peaceful Piano</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-5.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col card-title">Lofi beats</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-6.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col card-title">Jazz Vibes</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-7.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col card-title">Caffè del buongiorno</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-8.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col card-title">Sangue Giovane</h5>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-flex bg-grigino rounded-2 align-items-center">
-              <div class="col">
-                <img
-                  src="./assets/imgs/main/image-10.jpg"
-                  class="card-img w-75 rounded-2"
-                  alt="Card Image"
-                />
-              </div>
-              <h5 class="col card-title">Operazione Buongiorno</h5>
-            </div>
-          </div>
-        </div>
-        <!-- other thing that you like part -->
-        <div class="d-flex justify-content-between align-items-center my-2">
-          <h3 class="my-3 fs-7 fw-bold">Altro di ciò che ti piace</h3>
-          <span class="mt-1 custom-letter-spacing fs-small"
-            >VISUALIZZA TUTTO</span
-          >
-        </div>
-        <div
-          class="row row-cols-2 row-cols-sm-3 row-cols-md-3 row-cols-lg-5 g-3 gx-4"
-        >
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-14.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Allenamento a Casa</h5>
-                <p class="card-text text-fontB">
-                  Per darti la giusta energia per affrontrare il tui allenamenti
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-15.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Casa Dolce Casa</h5>
-                <p class="card-text text-fontB">
-                  la playlist ideale per rilassarti a casa
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-16.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Lavorare da Casa</h5>
-                <p class="card-text text-fontB">
-                  La playlist ideata per farti compagnia
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-17.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Friday</h5>
-                <p class="card-text">Friday hit diff, ifkyk</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-18.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Estate 2022</h5>
-                <p class="card-text">
-                  La playlist che raccoglie le hits del 22'
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-14.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Allenamento a Casa</h5>
-                <p class="card-text text-fontB">
-                  Per darti la giusta energia per affrontare il tui allenamenti
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-15.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Casa Dolce Casa</h5>
-                <p class="card-text text-fontB">
-                  la playlist ideale per rilassarti a casa
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-16.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Lavorare da Casa</h5>
-                <p class="card-text text-fontB">
-                  La playlist ideata per farti compagnia
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-17.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Friday</h5>
-                <p class="card-text">Friday hit diff, ifkyk</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-18.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Estate 2022</h5>
-                <p class="card-text">
-                  La playlist che raccoglie le hits del 22'
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-14.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Allenamento a Casa</h5>
-                <p class="card-text text-fontB">
-                  Per darti la giusta energia per affrontrare il tuoi
-                  allenamenti
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-15.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Casa Dolce Casa</h5>
-                <p class="card-text text-fontB">
-                  la playlist ideale per rilassarti a casa
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-16.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Lavorare da Casa</h5>
-                <p class="card-text text-fontB">
-                  La playlist ideata per farti compagnia
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-17.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Friday</h5>
-                <p class="card-text">Friday hit diff, ifkyk</p>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card p-3 bg-darkerBg text-light h-100">
-              <img
-                src="./assets/imgs/main/image-18.jpg"
-                class="card-img-top rounded-3 shadowB"
-                alt="card image"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Estate 2022</h5>
-                <p class="card-text">
-                  La playlist che raccoglie le hits del 22'
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- right section -->
+      </main>
+      <!-- right rection -->
       <div
         class="offcanvas offcanvas-end bg-black text-white"
         tabindex="-1"
@@ -816,18 +478,18 @@
             </div>
           </div>
 
-          <!---------------------------------------------------------------------------->
+          <!-- -------------------------------------------------------------------------->
         </div>
       </div>
     </div>
 
     <!-- Sezione in fondo alla pagina (Bottom-player) -->
 
-    <!-- BOTTOM PLAYER--schermi piccoli(responsive) --->
+    <!-- BOTTOM PLAYER--schermi piccoli(responsive) -
     <div
       id="playerMini"
-      class="d-lg-none container-fluid bg-black bg-opacity-75 py-3 fs-8 rounded-3 row fixed-bottom start-0 end-0 m-0 p-0"
-      style="z-index: 2; bottom: 115px"
+      class="d-md-none container-fluid bg-black bg-opacity-50 py-3 fs-8 rounded-3 row fixed-bottom start-0 end-0 m-0 p-0"
+      style="z-index: 2; bottom: 105px"
     >
       <div id="playerMiniData" class="col-7 d-flex">
         <div class="fs-6 pe-3 text-white">
@@ -855,55 +517,63 @@
           <i class="bi bi-play-circle-fill me-4 fs-1 text-fontB"></i>
         </button>
       </div>
-    </div>
-
+    </div> -->
+    <!-- <div class="spugna d-md-none"></div> -->
     <!-- player jovel -->
     <div
       id="player-bar"
-      class="overlay z-2 d-none border border-fontB border-bottom-0 border-start-0 border-end-0"
+      class="overlay z-2 bg-grigino text-light d-none border border-fontB border-bottom-0 border-start-0 border-end-0 position-fixed bottom-0 start-0 end-0"
     >
       <div class="container-fluid">
-        <div
-          class="row d-none d-sm-none d-md-none d-lg-flex d-xl-flex bg-black opacity-75 py-4 fs-8 fixed-bottom start-0 end-0 text-white"
-        >
+        <div class="row">
           <!-- parte a sx  player-->
-          <div class="col-4 d-flex align-items-center p-2">
+          <div class="col d-flex align-items-center p-2">
             <img
               src="./assets/imgs/main/image-14.jpg"
               alt=""
-              height="125px"
+              height="70px"
               id="album-cover"
-              class="rounded-2"
+              class="rounded-2 d-none d-lg-block"
             />
             <div class="d-flex flex-column ms-3">
               <p id="song-name" class="mt-3 mb-0"></p>
               <p id="artist-name" class="text-fontB"></p>
             </div>
+            <img
+              src="./assets/imgIcon/Like.png"
+              alt="like"
+              class="iconImg ms-5 d-none d-lg-block"
+            />
           </div>
           <!-- parte centrale player -->
-          <div class="col-4 text-center mt-3 fs-3 mb-1">
+          <div class="col text-center mt-3 fs-3 mb-1">
             <audio id="audioDiv">
               <source src="" type="video/mp4" />
             </audio>
 
-            <div class="div d-flex justify-content-center align-items-center">
-              <div class="btn">
+            <div
+              id="centralPlayer"
+              class="div d-flex justify-content-end align-items-center justify-content-lg-center"
+            >
+              <div class="btn d-none d-lg-block">
                 <img
                   src="./assets/imgIcon/Shuffle.svg"
+                  alt=""
+                  class="iconImg d-none d-lg-block"
+                />
+              </div>
+              <div class="btn d-none d-lg-block">
+                <img
+                  src="./assets/imgIcon/Previous.svg"
                   alt=""
                   class="iconImg"
                   id="previus-btn"
                 />
               </div>
-              <div class="btn">
-                <img
-                  src="./assets/imgIcon/Previous.svg"
-                  alt=""
-                  class="iconImg"
-                />
-              </div>
+              <div class="d-lg-none"><i class="bi bi-heart"></i></div>
+              <div class="d-lg-none"><i class="bi bi-speaker"></i></div>
               <div id="play-playerBar"></div>
-              <div class="btn">
+              <div class="btn d-none d-lg-block">
                 <img
                   src="./assets/imgIcon/Next.svg"
                   alt=""
@@ -911,9 +581,18 @@
                   id="next-btn"
                 />
               </div>
+              <div>
+                <img
+                  src="./assets/imgIcon/Repeat.png"
+                  alt="Repeat"
+                  class="iconImg ms-2 d-none d-lg-block mt-1"
+                />
+              </div>
             </div>
             <!-- progress bar e tempo -->
-            <div class="d-flex justify-content-between align-items-center">
+            <div
+              class="d-none d-lg-flex justify-content-between align-items-center"
+            >
               <div><p id="time-left" class="fs-6 mb-0 text-fontB">44</p></div>
               <!-- progress bar -->
               <div id="progress-container">
@@ -924,8 +603,7 @@
           </div>
           <!-- player a destra -->
           <div
-            class="col-4 d-flex align-items-center justify-content-end fs-4"
-            id="right-player"
+            class="col d-none d-lg-flex align-items-center justify-content-end fs-4"
           >
             <div class="btn">
               <img src="./assets/imgIcon/Lyrics.svg" alt="" class="iconImg" />
@@ -952,13 +630,22 @@
               step="0.1"
               value="1"
             />
+
+            <div>
+              <img
+                src="./assets/imgIcon/Full screen.png"
+                alt=""
+                class="iconImg ms-3 d-none d-lg-block"
+                height="15px"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
     <!-- BOTTOM NAVBAR--schermi piccoli(responsive) -->
-    <div
-      class="d-lg-none row bg-black opacity-75 py-4 fs-5 fixed-bottom start-0 end-0 text-white"
+    <!-- <div
+      class="d-lg-none row bg-black opacity-50 py-4 fs-8 fixed-bottom start-0 end-0 text-white"
     >
       <div class="col-4">
         <a
@@ -984,13 +671,13 @@
           <i class="bi bi-collection fs-3"></i>La tua libreria
         </a>
       </div>
-    </div>
+    </div> -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
-    <script src="./script/index-revisited.js"></script>
+    <script src="./script/search.js"></script>
   </body>
 </html>
